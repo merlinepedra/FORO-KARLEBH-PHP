@@ -1,0 +1,54 @@
+
+[v-cloak] {
+	display: none;
+}
+
+.h-grid {
+	height: 632px;
+}
+
+.tracking-brand {
+	letter-spacing: .9rem;
+}
+
+.grid-padding {
+	padding: 160px 177px;
+}
+
+.top-brand {
+	top: 26rem
+}
+
+.top-brand-mobile {
+	top: 26rem
+}
+
+footer {
+	height: 404.78px;
+	background: hsla(168, 34%, 41%, 0.55);
+}
+
+.toolTipMenu::after {
+	content: " ";
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	margin-left: -5px;
+	border-width: 20px;
+	border-style: solid;
+	border-color: transparent rgba(249, 250, 251, 1) rgba(249, 250, 251, 1) transparent;
+}
+
+.header-fade-enter-active, .header-fade-leave-active {
+	transition: all .2s ease-in-out;
+}
+
+.header-fade-enter {
+	transform: translateY(10px);
+}
+
+.header-fade-leave-to {
+	transform: translateX(-300px);
+}
+
+
