@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -44,6 +45,16 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        if ($user->id == 1) {
+          $user->categories()->create([
+            'name' => 'General'
+          ]);
+        }
+
+        $user->profile()->create([]);
+        // (new \App\Mail\WelcomeMail)->render();
+        // Mail::to($user)->send(new \App\Mail\WelcomeMail);
 
         event(new Registered($user));
 

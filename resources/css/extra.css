@@ -51,4 +51,42 @@ footer {
 	transform: translateX(-300px);
 }
 
+#mega-menu::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent #bef264 transparent;
+}
 
+#profile-menu::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  right: 3%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #bef264 transparent;
+}
+
+.flip-enter-active {
+  animation: flip 0.2s;
+}
+
+.flip-leave-active {
+  opacity: 0;
+}
+
+@keyframes flip {
+  0% {
+    transform: scaleY(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

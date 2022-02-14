@@ -1,24 +1,36 @@
+
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors')
 
 module.exports = {
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-    ],
 
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Fraunces', 'Barlow', 'Nunito', ...defaultTheme.fontFamily.sans],
-            },
-            //     screens: {
-            //   'sm': '576px',
-            //   'md': '960px',
-            //   'lg': '1440px',
-            // },
-        },
+  darkMode: 'class',
+  
+  mode: 'jit',
+
+  purge: [                              
+  './storage/framework/views/*.php',
+  './resources/**/*.blade.php',
+  './resources/**/*.js',
+  './config/*.php',
+  ],  
+
+  content: [
+  './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+  './storage/framework/views/*.php',
+  './resources/views/**/*.blade.php',
+  ],
+
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Fraunces', 'Barlow', 'Nunito', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        ...colors
+      },
     },
+  },
 
-    plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms')],
 };

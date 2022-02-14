@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-                  ->constrained()
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $tbale->string('title');
-            $table->longText('desc');
+             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+             $table->string('city')->nullable();
+             $table->string('country')->nullable();
+             $table->string('phone')->nullable();
+             $table->string('sex')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -33,6 +31,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('profiles');
     }
 }
