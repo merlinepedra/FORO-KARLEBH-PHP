@@ -30,7 +30,7 @@
         @endcan
       </div>
 
-
+      @can('comment', $post)
       <form action="{{ route('comment.store') }}" method="POST" enctype="multipart/form-data" id="commentBox">
         @csrf
         <div id="firstChild" class="w-9/12 mx-auto mt-10">
@@ -66,6 +66,7 @@
           <input type="submit" value="Create Comment" id="sendBtn" class="px-3 py-3 bg-blue-900 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
         </div>
       </form>
+      @endcan
     </div>
 
     <div class="mt-24"></div>
@@ -93,7 +94,7 @@
           @endforeach
         </div>
 
-        {{-- Do not change this arrangement. It is important for JS --}}
+        {{-- Do not change the DOM arrangement. It is important for JS --}}
         <div>
           <div class="mt-5 inline-flex">
             <Like
@@ -104,8 +105,10 @@
             ></Like>
 
             {{-- <a href="#top" data-parent-id="{{ $comment->id }}" v-on:click="reply" class="scrollLinks text-gray-800 font-semibold text-2xl">Reply</a> --}}
+            @can('reply')
             <button data-parent-id="{{ $comment->id }}" v-on:click="openReplyBox" id="replyBtn" class="text-gray-800 font-semibold text-2xl mr-10">
             Reply</button>
+            @endcan
 
             @can('update', $comment)
             <a href="{{ route('comment.edit', $comment) }}" class="text-gray-800 font-semibold text-2xl">Edit</a>

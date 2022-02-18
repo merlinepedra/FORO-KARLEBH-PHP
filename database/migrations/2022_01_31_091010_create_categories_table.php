@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
+            $table->bigInteger('views')->unsigned()->default(0);
             $table->timestamps();
         });
     }

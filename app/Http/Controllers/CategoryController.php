@@ -8,10 +8,17 @@ use App\Http\Requests\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
-  public function show($name)
+  public function __construct()
   {
+    $this->middleware('admin')->except('show');
+  }
+
+  public function show(Category $category)
+  {
+    $category->increment('views');
+
     return view('category.show')
-    ->withCategory(Category::whereName($name)->with('posts.comments')->first());
+    ->withCategory($category->load('posts.comments'));
   }
 
   public function create()
@@ -21,12 +28,15 @@ class CategoryController extends Controller
 
   public function store(StoreCategoryRequest $request)
   {
-    $name = str_replace(' ', '', $request->name);
+    $data = $request->validate([
+      'name' => ['required', 'string', 'unique:categories,name', 'min:3', 'max:20']
+    ]);
 
-    // $category = $request->user()->categories()->create($request->validated());
+    $name = str_replace(' ', '', $data['name']);
+
     $category = $request->user()->categories()->create(['name' => $name]);
 
-    return redirect()->route('category.show', $category);
+    return Category::withCount('posts')->get();
   }
 
 }

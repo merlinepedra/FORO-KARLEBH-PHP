@@ -38,7 +38,7 @@ class CommentController extends Controller
 
     (new \App\Http\Helpers\File)->upload($request, $comment);
 
-    $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post));
+    $comment->post->user->notify(new \App\Notifications\CommentReplied(auth()->user(), $comment, $comment->post));
 
     return redirect('/post/' . $comment->post->slug . '#comment-' . $comment->id);
   }

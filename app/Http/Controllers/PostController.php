@@ -11,9 +11,14 @@ use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth')->except(['index', 'show']);
+  }
+
   public function index()
   {
-    return view('post.index')->withPosts(Post::latest()->withCount('comments')->with('user')->get());
+    return view('post.index')->withPosts(Post::orderBy('sort_at', 'desc')->withCount('comments')->with('user')->get());
   }   
 
   public function create()
@@ -42,6 +47,8 @@ class PostController extends Controller
   public function show(Post $post)
   {
     $comments = Comment::with('user')->wherePostId($post->id)->whereNull('parent_id')->latest()->paginate();
+
+    $post->increment('views');
 
     return view('post.show', $post)
     ->withPost($post)

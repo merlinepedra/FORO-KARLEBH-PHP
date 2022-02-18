@@ -18,8 +18,10 @@ class CreatePostsTable extends Migration
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('title')->unique();
+            $table->bigInteger('views')->unsigned()->default(0);
             $table->string('slug')->unique();
             $table->longText('desc');
+            $table->dateTime('sort_at', $precision = 0)->default(now());
             $table->timestamps();
             $table->softDeletes();
         });

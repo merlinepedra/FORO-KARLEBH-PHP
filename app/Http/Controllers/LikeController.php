@@ -33,17 +33,17 @@ class LikeController extends Controller
       ]);
     }
 
-    \App\Models\User::findOrFail(request()->user_id)
-                      ->notify(new LikeNotification(
-                        request()->likeable_id, 
-                        request()->likeable_type,
-                      ));
-
-    return \App\Models\User::find(request()->user_id);
-
+    $user = \App\Models\User::findOrFail(request()->user_id);
+    
+    // if ($user->id !== auth()->id()) {
+    $user->notify(new LikeNotification(
+      request()->likeable_id, 
+      request()->likeable_type,
+    ));
+    // }
   }
 
-  public function unlike()
+  public function deleteLike()
   {
     if (
       $this->check()
@@ -53,14 +53,38 @@ class LikeController extends Controller
       ->likes()
       ->whereLikeableId(request()->likeable_id)
       ->whereLikeableType(request()->likeable_type)
+      ->whereLike('like')
       ->delete();
     }
   }
 
-  private function check()
+  public function unlike()
   {
-    return Like::whereUserId(auth()->id())->whereLikeableId(request()->likeable_id)->whereLikeableType(request()->likeable_type)->exists();
+   auth()
+   ->user()
+   ->likes()
+   ->create([
+    'likeable_id' => request()->likeable_id,
+    'likeable_type' => request()->likeable_type,
+    'like' => 'unlike'
+  ]);
+ }
 
-  }
+ public function deleteUnlike()
+ {
+  auth()
+      ->user()
+      ->likes()
+      ->whereLikeableId(request()->likeable_id)
+      ->whereLikeableType(request()->likeable_type)
+      ->whereLike('unlike')
+      ->delete();
+ }
+
+ private function check()
+ {
+  return Like::whereUserId(auth()->id())->whereLikeableId(request()->likeable_id)->whereLikeableType(request()->likeable_type)->exists();
+
+}
 
 }

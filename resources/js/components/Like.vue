@@ -44,19 +44,22 @@
             likeable_type: this.likeable_type,
             user_id: this.user_id
           })
-          .then(response => console.log(response.data))
+          .then(res => {
+            this.liked = true
+            this.count = this.count + 1
+          })
           .catch(err => window.location.href = '/login')
-          this.liked = true
-          this.count = this.count + 1
 
       },
 
       async unlike() {
         await axios
           .post(`/unlike`, {likeable_id: this.likeable_id, likeable_type: this.likeable_type})
+          .then(res => {
+            this.liked = false
+            this.count--
+          })
           .catch(err => window.location.href = '/login')
-          this.liked = false
-          this.count--
       },
 
       async likeData() {

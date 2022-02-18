@@ -13,10 +13,16 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+      Schema::create('settings', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+         // $table->json('settings');
+         $table->text('settings');
+        $table->boolean('post_notifiable');
+        $table->boolean('comment_notifiable');
+        $table->boolean('like_notifiable');
+        $table->timestamps();
+      });
     }
 
     /**
@@ -26,6 +32,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+      Schema::dropIfExists('settings');
     }
-}
+  }

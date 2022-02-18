@@ -40,8 +40,10 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $name = strtolower(str_replace(' ', '-', $request->name));
+
         $user = User::create([
-            'name' => $request->name,
+            'name' => $name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -52,8 +54,7 @@ class RegisteredUserController extends Controller
           ]);
         }
 
-        $user->profile()->create([]);
-        // (new \App\Mail\WelcomeMail)->render();
+        $user->profile()->create(['name' => $user->name]);
         // Mail::to($user)->send(new \App\Mail\WelcomeMail);
 
         event(new Registered($user));

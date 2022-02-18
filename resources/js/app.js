@@ -28,6 +28,15 @@ Vue.component('svg-links', require('./components/SVGLinks.vue').default);
 Vue.component('Like', require('./components/Like.vue').default);
 Vue.component('Images', require('./components/Images.vue').default);
 Vue.component('Follow', require('./components/Follow.vue').default);
+Vue.component('NotificationCounter', require('./components/NotificationCounter.vue').default);
+Vue.component('ToggleAdmin', require('./components/ToggleAdmin.vue').default);
+Vue.component('MakeLatest', require('./components/MakeLatest.vue').default);
+Vue.component('ChangeCategory', require('./components/ChangeCategory.vue').default);
+Vue.component('ChangeTitle', require('./components/ChangeTitle.vue').default);
+Vue.component('CreateCategory', require('./components/CreateCategory.vue').default);
+Vue.component('CategoryList', require('./components/CategoryList.vue').default);
+Vue.component('Vote', require('./components/Vote.vue').default);
+Vue.component('Explore', require('./components/Explore.vue').default);
 
 const app = new Vue({
 	el: '#main',
@@ -38,7 +47,9 @@ const app = new Vue({
 			open: false,
 			navOpen: false,
       megaMenu: false,
-      profileMenu: false
+      profileMenu: false,
+      mobileNav: true,
+      searchBoxOpen: false,
     }
   },
 
@@ -74,7 +85,8 @@ const app = new Vue({
 
     }
   }
-});
+})
+
 
 const photo = document.getElementById('photo')
 FilePond.create(photo)
