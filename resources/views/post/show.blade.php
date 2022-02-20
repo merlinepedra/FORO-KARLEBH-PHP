@@ -1,7 +1,9 @@
   @extends('layouts.app')
 
   @section('section')
-  <div class="max-w-3xl mt-5 mx-auto bg-gray-100 p-6">
+  
+
+  <div class="max-w-2xl mt-5 mx-auto bg-gray-100 p-6 w-6/12">
     <div>
       <div>
         <h1 class="text-3xl font-semibold truncate">{{ $post->title }}</h1>
@@ -178,4 +180,6 @@
 
     {{ $comments->links() }}
   </div>
+
+
   @endsection

@@ -19,7 +19,7 @@
 <body class="bg-gray-200">
   <div id="main" v-cloak>
     <header class="p-6 bg-gray-100 shadow-sm dark:bg-gray-700 dark:text-gray-100">
-      <div class="max-w-6xl mx-auto font-semibold flex items-center">
+    {{--   <div class="max-w-6xl mx-auto font-semibold flex items-center">
         <a href="{{ route('post.create') }}" class="mr-10">Create Post</a>
 
         <button id="switch" class="flex-shrink-0 rounded-full h-6 w-6 bg-lime-300 border mr-10"></button>
@@ -93,12 +93,18 @@
         @endauth
 
       </div>
+      --}}
+      <div class="max-w-7xl font-semibold mx-auto">
+        <x-forume.mobile-header/>
+        @include('components.forume.desktop-header')
+      </div>
     </header>
 
     <main class="font-sans antialiased mx-auto">
-      <div class="mx-auto max-w-[1500px] grid grid-cols-5">
-        <div class="bg-gray-400 w-auto min-h-screen px-4">
-          <div class="grid mt-7">
+      <div class="mx-auto max-w-[1500px] grid md:grid-cols-5">
+
+        <div class="bg-gray-400 w-auto md:min-h-screen px-4 hidden md:block" id="adminMobileNav">
+          <div class="grid my-7">
             <a href="{{ route('admin.home') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md @if(request()->routeIs('admin.home')) bg-gray-800 text-gray-100 @endif">Mail User</a>
             <a href="{{ route('admin.settings') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md mt-4 @if(request()->routeIs('admin.settings')) bg-gray-800 text-gray-100 @endif">Setings</a>
             <a href="{{ route('admin.makeAdmin.create') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md mt-4 @if(request()->routeIs('admin.makeAdmin.create')) bg-gray-800 text-gray-100 @endif">Users</a>
@@ -111,10 +117,11 @@
         </div>
 
         {{--  --}}
-        <div class="bg-gray-200 w-auto min-h-screen col-span-4 p-4 mt-3">
+        <div class="bg-gray-200 w-auto min-h-screen p-4 mt-3 md:col-span-4">
           @yield('content')
         </div>
       </div>
+
     </main>
   </div>
   <script>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('section')
-<div class="max-w-3xl mt-5 mx-auto bg-gray-100 p-6">
+<div class="w-full mx-auto mt-5 bg-gray-100 p-6">
 
   <form action="{{ route('category.store') }}" method="POST" 
   enctype="multipart/form-data"

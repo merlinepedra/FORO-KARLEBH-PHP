@@ -2,13 +2,11 @@
 
 @section('section')
 
-
-
-<div class="mx-auto max-w-3xl">
+<div class="mx-auto w-full">
 
   @forelse($posts as $post)
   {{-- <a href="{{ route('post.show', $post) }}"> --}}
-    <div class="my-4 p-4 bg-gray-50 shadow md:rounded-md">
+    <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
       <div class="flex">
        <Vote
        :likeable_id="{{ $post->id }}"
@@ -18,7 +16,7 @@
        ></Vote>
        <div class="w-11/12">
         <a href="{{ route('post.show', $post) }}">
-          <h1 class="lg:text-3xl font-semibold truncate">{{ $post->title }}</h1>
+          <h1 class="lg:text-xl font-semibold truncate">{{ $post->title }}</h1>
           <p class="text-gray-600 font-base mt-3">{{ $post->desc }}</p>
         </a>
       </div>

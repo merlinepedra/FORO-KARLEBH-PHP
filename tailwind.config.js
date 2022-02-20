@@ -24,7 +24,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Fraunces', 'Barlow', 'Nunito', ...defaultTheme.fontFamily.sans],
+        sans: ['Fraunces', 'Barlow', 'Nunito'],
       },
       colors: {
         ...colors

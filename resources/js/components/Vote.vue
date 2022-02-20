@@ -69,7 +69,7 @@
 
       async unlike() {
         await axios
-        .post(`/unlike`, {likeable_id: this.likeable_id, likeable_type: this.likeable_type})
+        .post(`/delete-like`, {likeable_id: this.likeable_id, likeable_type: this.likeable_type})
         .then(res => {
           this.liked = false
           this.count--

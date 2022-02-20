@@ -37,6 +37,7 @@ Vue.component('CreateCategory', require('./components/CreateCategory.vue').defau
 Vue.component('CategoryList', require('./components/CategoryList.vue').default);
 Vue.component('Vote', require('./components/Vote.vue').default);
 Vue.component('Explore', require('./components/Explore.vue').default);
+Vue.component('UsersIcon', require('./components/UsersIcon.vue').default);
 
 const app = new Vue({
 	el: '#main',
@@ -48,8 +49,9 @@ const app = new Vue({
 			navOpen: false,
       megaMenu: false,
       profileMenu: false,
-      mobileNav: true,
+      mobileNav: false,
       searchBoxOpen: false,
+      adminMobileNav: false,
     }
   },
 
@@ -58,6 +60,10 @@ const app = new Vue({
       $event.target.parentNode.nextElementSibling.classList.contains('hidden') 
       ? $event.target.parentNode.nextElementSibling.classList.replace('hidden', 'block')
       : $event.target.parentNode.nextElementSibling.classList.replace('block', 'hidden')
+    },
+
+    toggleAdminMobileMenu() {
+      document.getElementById('adminMobileNav').classList.toggle('hidden')
     },
 
 
