@@ -19,7 +19,10 @@ class CommentController extends Controller
 
     (new \App\Http\Helpers\File)->upload($request, $comment);
 
-    if ($comment->post->user->id !== auth()->user()) {
+    if (
+      // $comment->post->user->id !== auth()->user() &&
+       $comment->user->setting->comment_notifiable
+    ) {
       $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post));
     }
 
@@ -38,7 +41,12 @@ class CommentController extends Controller
 
     (new \App\Http\Helpers\File)->upload($request, $comment);
 
-    $comment->post->user->notify(new \App\Notifications\CommentReplied(auth()->user(), $comment, $comment->post));
+    if (
+      // $comment->post->user->id !== auth()->user() &&
+       $comment->user->setting->comment_notifiable
+    ) {
+      $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post));
+    }
 
     return redirect('/post/' . $comment->post->slug . '#comment-' . $comment->id);
   }

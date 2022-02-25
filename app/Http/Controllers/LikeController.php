@@ -18,6 +18,15 @@ class LikeController extends Controller
     return [$liked, $count];
   }
 
+  public function voteData()
+  {
+    $unlike = Like::whereUserId(auth()->id())->whereLikeableId(request()->likeable_id)->whereLikeableType(request()->likeable_type)->whereLike('unlike')->exists();
+    $count = Like::whereLikeableId(request()->likeable_id)->whereLikeableType(request()->likeable_type)->whereLike('unlike')->count();
+    
+    $unliked = $unlike ? 'unliked' : 'notUnliked';
+    return [$unliked, $count];
+  }
+
   public function like()
   {
     if (
@@ -35,12 +44,15 @@ class LikeController extends Controller
 
     $user = \App\Models\User::findOrFail(request()->user_id);
     
-    // if ($user->id !== auth()->id()) {
+    if (
+      // $user->id !== auth()->id() &&
+      $user->setting->like_notifiable
+    ) {
     $user->notify(new LikeNotification(
       request()->likeable_id, 
       request()->likeable_type,
     ));
-    // }
+    }
   }
 
   public function deleteLike()
@@ -73,16 +85,16 @@ class LikeController extends Controller
  public function deleteUnlike()
  {
   auth()
-      ->user()
-      ->likes()
-      ->whereLikeableId(request()->likeable_id)
-      ->whereLikeableType(request()->likeable_type)
-      ->whereLike('unlike')
-      ->delete();
- }
+  ->user()
+  ->likes()
+  ->whereLikeableId(request()->likeable_id)
+  ->whereLikeableType(request()->likeable_type)
+  ->whereLike('unlike')
+  ->delete();
+}
 
- private function check()
- {
+private function check()
+{
   return Like::whereUserId(auth()->id())->whereLikeableId(request()->likeable_id)->whereLikeableType(request()->likeable_type)->exists();
 
 }

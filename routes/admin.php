@@ -8,8 +8,11 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group( function () 
   Route::get('/home', [Admin\HomeController::class, 'home'])->name('home');
   Route::get('/settings', [Admin\HomeController::class, 'settings'])->name('settings');
   Route::get('/make-admin', [Admin\AdminController::class, 'create'])->name('makeAdmin.create');
-  Route::post('/make-admin/{user}', [Admin\AdminController::class, 'makeAdmin'])->name('makeAdmin');
-  Route::post('/make-user/{user}', [Admin\AdminController::class, 'makeuser'])->name('makeUser');
+  Route::patch('/make-admin/{user}', [Admin\AdminController::class, 'makeAdmin'])->name('makeAdmin');
+  Route::patch('/make-user/{user}', [Admin\AdminController::class, 'makeuser'])->name('makeUser');
+
+  Route::patch('/block/{user}', [Admin\AdminController::class, 'blockUser'])->name('blockUser');
+  Route::patch('/unblock/{user}', [Admin\AdminController::class, 'unblockUser'])->name('unblockUser');
 
   Route::get('/posts', [Admin\PostController::class, 'posts'])->name('posts');
   Route::view('/comments', 'admin.comment', ['comments' => \App\Models\Comment::paginate()])->name('comments');

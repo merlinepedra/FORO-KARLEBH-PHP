@@ -1,14 +1,14 @@
 <template>
   <div v-cloak>
     <div class="inline-flex">
-    <button class="text-gray-800 font-semibold text-2xl" v-if="!liked" @click.once="like()">Like</button>
+    <button class="text-gray-800 font-semibold text-lg md:text-2xl" v-if="!liked" @click.once="like()">Like</button>
     </div>
     <div class="inline-flex">
-    <button class="text-gray-800 font-semibold text-2xl" v-if="liked" @click.once="unlike()">Unlike</button>
+    <button class="text-gray-800 font-semibold text-lg md:text-2xl" v-if="liked" @click.once="unlike()">Unlike</button>
       
     </div>
 
-    <span class="text-gray-800 font-semibold text-xl" v-if="count > 0">
+    <span class="text-gray-800 font-semibold text-lg md:text-xl" v-if="count > 0">
       {{ count }}
     </span>
   </div>

@@ -3,10 +3,10 @@
   @section('section')
   
 
-  <div class="max-w-2xl mt-5 mx-auto bg-gray-100 p-6 w-6/12">
+  <div class="mx-auto w-full bg-gray-50 md:rounded-md p-6">
     <div>
       <div>
-        <h1 class="text-3xl font-semibold truncate">{{ $post->title }}</h1>
+        <h1 class="text-lg md:text-3xl font-semibold truncate">{{ $post->title }}</h1>
         <p class="font-base opacity-75 truncate">{{ $post->desc }}</p>
         <div class="grid grid-cols-2 gap-3 place-items-center">
           @foreach($post->files as $file) 
@@ -28,14 +28,14 @@
         ></Like>
 
         @can('update', $post)
-        <a href="{{ route('post.edit', $post) }}" class="text-gray-800 font-semibold text-2xl">Edit</a>
+        <a href="{{ route('post.edit', $post) }}" class="text-gray-800 font-semibold textlg md:text-2xl">Edit</a>
         @endcan
       </div>
 
       @can('comment', $post)
       <form action="{{ route('comment.store') }}" method="POST" enctype="multipart/form-data" id="commentBox">
         @csrf
-        <div id="firstChild" class="w-9/12 mx-auto mt-10">
+        <div id="firstChild" class="md:w-9/12 mx-auto mt-10">
           <textarea id="textarea" name="comment" placeholder="Comment here..." 
           class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500"></textarea>
           @error('comment')
@@ -46,7 +46,7 @@
         <input type="hidden" name="post_id" value="{{ $post->id }}" />
 
         {{-- Filepond --}}
-        <div class="w-9/12 mx-auto mt-10">
+        <div class="md:w-9/12 mx-auto mt-10">
           <input 
           type="file" 
           id="photo" 
@@ -60,12 +60,12 @@
 
           <div class="flex justify-between mt-8">
             <small class="font-semibold text-blue-500">Grab images to re-order</small>
-            <small class="font-bold font-lg text-gray-900 uppercase tracking-wider">max size is 5MB</small>
+            <small class="font-bold text-md text-gray-900 uppercase tracking-wider">max size is 5MB</small>
           </div>
         </div>
 
-        <div class="mt-8 w-9/12 mx-auto">
-          <input type="submit" value="Create Comment" id="sendBtn" class="px-3 py-3 bg-blue-900 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
+        <div class="mt-8 md:w-9/12 mx-auto">
+          <input type="submit" value="Create Comment" id="sendBtn" class="px-3 py-2 bg-blue-900 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
         </div>
       </form>
       @endcan

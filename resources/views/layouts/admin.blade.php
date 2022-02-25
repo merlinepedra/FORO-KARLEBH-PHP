@@ -105,7 +105,7 @@
 
         <div class="bg-gray-400 w-auto md:min-h-screen px-4 hidden md:block" id="adminMobileNav">
           <div class="grid my-7">
-            <a href="{{ route('admin.home') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md @if(request()->routeIs('admin.home')) bg-gray-800 text-gray-100 @endif">Mail User</a>
+            <a href="{{ route('admin.home') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md @if(request()->routeIs('admin.home')) bg-gray-800 text-gray-100 @endif">Overview</a>
             <a href="{{ route('admin.settings') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md mt-4 @if(request()->routeIs('admin.settings')) bg-gray-800 text-gray-100 @endif">Setings</a>
             <a href="{{ route('admin.makeAdmin.create') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md mt-4 @if(request()->routeIs('admin.makeAdmin.create')) bg-gray-800 text-gray-100 @endif">Users</a>
             <a href="{{ route('admin.posts') }}" class="font-semibold bg-gray-200 px-5 py-3 rounded-md mt-4 @if(request()->routeIs('admin.posts')) bg-gray-800 text-gray-100 @endif">Posts</a>

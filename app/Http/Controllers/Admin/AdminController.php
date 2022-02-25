@@ -13,7 +13,7 @@ class AdminController extends Controller
   {
     $profiles = Profile::where('id', '!=', $request->user()->id)->paginate();
 
-    return view('admin.admin.index')
+    return view('admin.users')
     ->withProfiles($profiles);
   }
 
@@ -28,8 +28,33 @@ class AdminController extends Controller
   public function makeUser(User $user)
   {
     $user->is_admin = 0;
-   $user->save();
+    $user->save();
 
-   return 'success';
- }
+    return 'success';
+  }
+
+  public function blockUser(User $user)
+  {
+
+    if ($user->is_admin) {
+      return "cannot block an admin";
+    }
+
+    $user->is_blocked = 1;
+    $user->save();
+
+    return 'sucess';
+  }
+
+  public function unblockUser(User $user)
+  {
+    if ($user->is_admin) {
+      return "cannot unblock an admin";
+    }
+
+    $user->is_blocked = 0;
+    $user->save();
+
+    return 'sucess';
+  }
 }

@@ -1,5 +1,8 @@
 require('./bootstrap');
 
+import data from './data'
+import methods from './methods'
+
 import  Vue from  'vue'
 import * as FilePond from 'filepond'
 import Dropzone from "dropzone"
@@ -38,58 +41,23 @@ Vue.component('CategoryList', require('./components/CategoryList.vue').default);
 Vue.component('Vote', require('./components/Vote.vue').default);
 Vue.component('Explore', require('./components/Explore.vue').default);
 Vue.component('UsersIcon', require('./components/UsersIcon.vue').default);
+Vue.component('TitleEditButton', require('./components/TitleEditButton.vue').default);
+Vue.component('ClipDesign', require('./components/ClipDesign.vue').default);
+Vue.component('BlockUser', require('./components/BlockUser.vue').default);
+Vue.component('SearchDropDown', require('./components/SearchDropDown.vue').default);
+Vue.component('CustomCheckbox', require('./components/CustomCheckbox.vue').default);
+Vue.component('UsersChart', require('./components/UsersChart.vue').default);
+
 
 const app = new Vue({
 	el: '#main',
 
 	data() {
-		return {
-			one: "from Vue",
-			open: false,
-			navOpen: false,
-      megaMenu: false,
-      profileMenu: false,
-      mobileNav: false,
-      searchBoxOpen: false,
-      adminMobileNav: false,
-    }
+		return data
   },
 
   methods: {
-    openReplyBox($event){
-      $event.target.parentNode.nextElementSibling.classList.contains('hidden') 
-      ? $event.target.parentNode.nextElementSibling.classList.replace('hidden', 'block')
-      : $event.target.parentNode.nextElementSibling.classList.replace('block', 'hidden')
-    },
-
-    toggleAdminMobileMenu() {
-      document.getElementById('adminMobileNav').classList.toggle('hidden')
-    },
-
-
-    reply($event) {
-
-      const parentId = $event.target.getAttribute('data-parent-id')
-      const sendBtn = document.getElementById('sendBtn')
-      const textarea = document.getElementById('textarea')
-
-      const parentIdTag = document.createElement('input')
-      parentIdTag.type = 'hidden'
-      parentIdTag.name = 'parent_id'
-      parentIdTag.id = 'parent_id'
-      parentIdTag.value = parentId
-
-      document.getElementById('commentBox').append(parentIdTag)
-      
-      sendBtn.value = "Send Reply"
-      sendBtn.classList.replace('bg-blue-900', 'bg-green-600')
-
-      textarea.placeholder = "Replies here..."
-
-      console.log(document.getElementById('commentBox'))
-
-
-    }
+    ...methods,
   }
 })
 

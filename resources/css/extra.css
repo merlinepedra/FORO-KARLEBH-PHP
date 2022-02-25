@@ -70,7 +70,7 @@ footer {
   margin-left: -10px;
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent  rgba(244, 244, 245, 1) transparent;
+  border-color: transparent transparent  rgba(30, 58, 138, 1) transparent;
 }
 
 .flip-enter-active {
@@ -90,3 +90,10 @@ footer {
     transform: scale(1);
   }
 }
+
+.below-header {
+  height: 30px;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 55%, 0 90%
+  );
+} 

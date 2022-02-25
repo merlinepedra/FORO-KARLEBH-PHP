@@ -10,7 +10,14 @@ class FollowController extends Controller
 {
     public function store(User $user)
     {
+      if (
+      $comment->post->user->id !== auth()->user() &&
+      ! auth()->user()->following->contains($user->profile) && 
+      $user->setting->follow_notifiable
+    ) {
       $user->notify(new FollowNotification(auth()->user()));
+    }
+    
       return auth()->user()->following()->toggle($user->profile);
     }
 }

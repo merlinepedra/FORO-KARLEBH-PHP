@@ -17,12 +17,12 @@
 
     methods: {
       async makeAdmin() {
-        await axios.post(`/admin/make-admin/${this.user_id}`)
+        await axios.patch(`/admin/make-admin/${this.user_id}`)
         this.isAdmin = true
       },
 
       async makeUser() {
-        await axios.post(`/admin/make-user/${this.user_id}`)
+        await axios.patch(`/admin/make-user/${this.user_id}`)
         this.isAdmin = false
 
       }

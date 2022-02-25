@@ -34,7 +34,10 @@
 
         <div class="flex text-sm mr-4">
           <span class="mr-2">posted by</span>
-          <a href="{{ route('profile.show', $post->user->profile) }}" class="text-blue-900 font-semibold" >{{ $post->user->name }}</a>
+          <a href="{{ route('profile.show', $post->user->profile) }}" class="text-blue-900 font-semibold mr-2" >{{ $post->user->name }}</a>
+          <span class="mr-2">in</span>
+          <a href="{{ route('category.show', $post->category) }}" class="text-blue-900 font-semibold mr-2" >
+            {{ $post->category }}</a>
         </div>
 
         <span class="text-sm">{{ $post->created_at->shortRelativeDiffForHumans() }}</span>
@@ -49,7 +52,7 @@
 {{-- </a> --}}
 @empty
 
-<h1>No Posts Yet</h1>
+<h1 class="text-center">No Posts Yet <a href="{{ route('post.create') }}" class="ml-4 text-blue-900 font-semibold">Create a Topic</a></h1>
 
 @endforelse
 

@@ -12,21 +12,31 @@ Route::get('/mail', function () {
 });
 
 Route::resource('/profile', Controllers\ProfileController::class)->middleware('auth');
-Route::get('/users', Controllers\UserController::class)->name('users');
+
+Route::get('/users', [Controllers\UserController::class, 'index'])->name('users');
+Route::get('/user-posts', [Controllers\UserController::class, 'posts'])->name('user.posts');
+
+Route::get('/search', Controllers\SearchController::class)->name('search');
 
 Route::get('/notifications', [Controllers\HomeController::class, 'notifications'])->name('notifications');
 Route::get('/notificationsCount', [Controllers\HomeController::class, 'notificationsCount']);
 
-Route::resource('/post', Controllers\PostController::class);
+Route::resources([
+  '/category' => Controllers\CategoryController::class,
+  '/post' => Controllers\PostController::class
+]);
+
 Route::post('/likeData', [Controllers\LikeController::class, 'likeData']);
+Route::post('/voteData', [Controllers\LikeController::class, 'voteData']);
 
 
 Route::group(['middleware' => 'auth'], function () {
 
-  Route::resource(
-    '/category', Controllers\CategoryController::class
-  );
-  
+  Route::get('/setting/index', [Controllers\SettingController::class, 'index'])->name('setting.index');
+  Route::patch('/like-setting/{user:id}', [Controllers\SettingController::class, 'toggleLike'])->name('like-setting');
+  Route::patch('/follow-setting/{user:id}', [Controllers\SettingController::class, 'toggleFollow'])->name('follow-setting');
+  Route::patch('/comment-setting/{user:id}', [Controllers\SettingController::class, 'toggleComment'])->name('comment-setting');
+
   Route::post('/follow/{user}', [Controllers\FollowController::class, 'store'])->name('follow');
   
   Route::post('/filepondUpload', [Controllers\FileController::class, 'filepondUpload']);
@@ -44,7 +54,6 @@ Route::group(['middleware' => 'auth'], function () {
   Route::delete('/delete-unlike', [Controllers\LikeController::class, 'delete-unlike']);
 
 });
-
 
 
 

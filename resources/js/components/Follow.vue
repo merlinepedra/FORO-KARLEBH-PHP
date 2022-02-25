@@ -31,7 +31,7 @@
 
     methods: {
       async follow() {
-        await axios.post(`follow/${this.user_id}`)
+        await axios.post(`/follow/${this.user_id}`)
         .then(response => this.status = !this.status)
         .catch(error => error.response.status = 401 ? window.location = '/login' : '')
       }

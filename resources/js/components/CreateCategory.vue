@@ -12,8 +12,8 @@
       </div>
 
 
-      <div class="mt-8 w-9/12 mx-auto">
-        <button @click.prevent="create" class="px-3 py-2 bg-gray-700 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
+      <div class="mt-4 w-9/12 mx-auto">
+        <button @click.prevent="create" class="px-3 py-1 bg-gray-700 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
           Create
         </button>
       </div>

@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+
+<change-title v-if="changeTitle" v-on:close="changeTitle = false"></change-title>
+
 <div>
 
   <div class="mb-10 md:flex md:justify-between md:items-center">
@@ -14,7 +17,7 @@
        <input placeholder="Search for topics" class="w-full bg-gray-50 rounded-r-sm focus:outline-none px-3">
      </div>
    </div>
-
+ 
    <a href="{{ route('post.create') }}">
     <div class="pt-1 pb-2 bg-blue-900 text-gray-100 font-semibold mb-3 hover:bg-blue-800 mt-4 text-center rounded-md w-48">
       <span class="text-lg">+</span>
@@ -25,7 +28,7 @@
 
 <div style="height: .05rem;" class="bg-gray-400 mb-10"></div>
 
-<div class="flex flex-col md:flex-row justify-between gap-y-5 lg:gap-y-0 md:items-center mb-3 bg-gray-100 p-4 rounded-sm shadow">
+<div class="grid md:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 p-4 rounded-sm shadow">
   <div>Title</div>
   <div>Views</div>
   <div>Comments</div>
@@ -34,9 +37,13 @@
 </div>
 
 @forelse($posts as $post)
-<div class="flex flex-col md:flex-row justify-between gap-y-5 lg:gap-y-0 md:items-center mb-3 bg-gray-100 p-4 rounded-sm shadow hover:shadow-2xl hover:mb-4 transition-all duration-300 ">
+<div class="grid md:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 p-4 rounded-sm shadow hover:shadow-2xl hover:mb-4 transition-all duration-300">
   <div>
-    <change-title :post="{{ $post }}"></change-title>
+    <h4>
+      {{ $post->title }}
+      
+    </h4>
+    <button class="mt-3" v-on:click="editAction($event)" data-post="{{ $post }}">Edit</button>
   </div>
 
   <div>

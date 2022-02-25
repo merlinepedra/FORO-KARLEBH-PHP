@@ -10,7 +10,12 @@ class CategoryController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('admin')->except('show');
+    $this->middleware('admin')->except(['show', 'index']);
+  }
+
+  public function index()
+  {
+    return view('category.index')->withCategories(Category::withCount('posts')->paginate());
   }
 
   public function show(Category $category)

@@ -33,9 +33,9 @@ class User extends Authenticatable
     return $this->is_admin == 1;
   }
 
-  public function settings()
+  public function setting()
   {
-    return $this->hasMany(Setting::class);
+    return $this->hasOne(Setting::class);
   }
 
   public function following()
