@@ -7,12 +7,12 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PostPolicy
 {
-    use HandlesAuthorization;
+  use HandlesAuthorization;
 
-    public function comment(User $user, $post)
-    {
-      return $user;
-    }
+  public function comment(User $user, $post)
+  {
+    return $user;
+  }
 
     /**
      * Determine whether the user can update the model.
@@ -23,7 +23,9 @@ class PostPolicy
      */
     public function update(User $user, $post)
     {
-        return $user->id === $post->user_id;
+      // dd($user->id, $post->user_id);
+
+      return $user->id == $post->user_id;
     }
 
     /**
@@ -61,4 +63,4 @@ class PostPolicy
     {
         //
     }
-}
+  }

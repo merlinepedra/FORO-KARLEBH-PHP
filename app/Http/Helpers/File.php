@@ -8,6 +8,7 @@ class File {
     
     if ($request->images) {
       foreach ($request->images as $image) {
+        
         $img = strtolower(str_replace(' ', '', $image));
 
         $extension = strrchr($img, '.');

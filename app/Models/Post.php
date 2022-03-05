@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-  use HasFactory;
+  use HasFactory, Searchable;
 
   protected $casts = [
     'category_id' => 'integer',
@@ -18,6 +19,13 @@ class Post extends Model
   public function getRouteKeyName() {
     return 'slug';
   }
+  
+  // public function toSearchableArray()
+  // {
+  //   $array = $this->toArray();
+
+  //   return $array;
+  // }
 
   public function getCategoryAttribute()
   {
@@ -38,6 +46,10 @@ class Post extends Model
 
   public function files() {
     return $this->morphMany(File::class, 'fileable');
+  }
+
+   public function likes() {
+    return $this->morphMany(Like::class, 'likeable');
   }
 
 }

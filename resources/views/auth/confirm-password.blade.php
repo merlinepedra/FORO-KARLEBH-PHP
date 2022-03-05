@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-<section class="md:grid grid-cols-2 h-screen">
+<section class="md:grid grid-cols-2 h-[87.8vh]">
   <div class="bg-blue-100 hidden md:block">
     <div class="mb-4 text-sm text-gray-600">
       {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}

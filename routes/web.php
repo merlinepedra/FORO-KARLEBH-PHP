@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
 
-Route::view('/', 'home');
+Route::get('/', [Controllers\PostController::class, 'index']);
 Route::view('/welcome', 'welcome');
 
 Route::get('/mail', function () {
@@ -26,11 +26,13 @@ Route::resources([
   '/post' => Controllers\PostController::class
 ]);
 
-Route::post('/likeData', [Controllers\LikeController::class, 'likeData']);
-Route::post('/voteData', [Controllers\LikeController::class, 'voteData']);
+Route::post('/like-data', [Controllers\LikeController::class, 'likeData']);
+Route::post('/vote-data', [Controllers\VoteController::class, 'voteData']);
 
 
 Route::group(['middleware' => 'auth'], function () {
+
+  Route::get('my-comments', [Controllers\CommentController::class, 'myComments'])->name('my-comments');
 
   Route::get('/setting/index', [Controllers\SettingController::class, 'index'])->name('setting.index');
   Route::patch('/like-setting/{user:id}', [Controllers\SettingController::class, 'toggleLike'])->name('like-setting');
@@ -49,9 +51,14 @@ Route::group(['middleware' => 'auth'], function () {
   Route::patch('/comment/{comment}', [Controllers\CommentController::class, 'update'])->name('comment.update');
   
   Route::post('/like', [Controllers\LikeController::class, 'like']);
-  Route::delete('/delete-like', [Controllers\LikeController::class, 'delete-like']);
-  Route::post('/unlike', [Controllers\LikeController::class, 'unlike']);
-  Route::delete('/delete-unlike', [Controllers\LikeController::class, 'delete-unlike']);
+  Route::post('/delete-like', [Controllers\LikeController::class, 'deleteLike']);
+
+  Route::post('/up-vote', [Controllers\VoteController::class, 'upVote']);
+  Route::post('/down-vote', [Controllers\VoteController::class, 'downVote']);
+  Route::delete('/delete-up-vote', [Controllers\VoteController::class, 'deleteVoteUp']);
+  Route::delete('/delete-down-vote', [Controllers\VoteController::class, 'deleteVoteDown']);
+
+
 
 });
 

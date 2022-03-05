@@ -21,8 +21,8 @@ class CommentController extends Controller
 
     if (
       // $comment->post->user->id !== auth()->user() &&
-       $comment->user->setting->comment_notifiable
-    ) {
+     $comment->user->setting->comment_notifiable
+   ) {
       $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post));
     }
 
@@ -43,8 +43,8 @@ class CommentController extends Controller
 
     if (
       // $comment->post->user->id !== auth()->user() &&
-       $comment->user->setting->comment_notifiable
-    ) {
+     $comment->user->setting->comment_notifiable
+   ) {
       $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post));
     }
 
@@ -68,8 +68,13 @@ class CommentController extends Controller
     return redirect('/post/' . $comment->post->slug . '#comment-' . $comment->id);
   }
 
+  public function myComments()
+  {
+    return view('comment.my-comments')->withComments(Comment::withCount('likes')->with('post')->whereUserId(auth()->id())->paginate());
+  }
+
   public function destroy(Comment $comment)
   {
-        //
+    $comment->delete();
   }
 }

@@ -13,7 +13,7 @@ class UpdatePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+      return true;
     }
 
     /**
@@ -23,8 +23,11 @@ class UpdatePostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+      return [
+        'title' => 'required|string|min:3',
+        'desc' => 'required',
+        'category_id' => 'required',
+        'images' => 'nullable',
+      ];
     }
-}
+  }

@@ -1,16 +1,26 @@
 <x-guest-layout>
 
-  <section class="md:grid grid-cols-2 h-[89vh]">
-    <div class="bg-blue-100 hidden md:block">
+  <section class="md:grid grid-cols-2 h-[87.8vh]">
+    <div class="bg-blue-100 hidden md:flex items-center justify-center p-10">
+      <div class="text-3xl font-bold font-mono ">
+        <div>
+          Welcome back <span class="text-blue-700">User!</span>
+        </div>
+         <div class="mt-5 text-gray-500">
+           kindly enter your data.
+         </div>
 
-      Lorem ipsum dolor, sit, amet consectetur adipisicing elit. Id tempora beatae, ducimus exercitationem fugit ratione. In unde commodi voluptatem, non autem praesentium a nobis rem odit perferendis vitae cum natus.
-
+         <div class="mt-3 text-blue-600">
+          Fun and answers awaits!
+           
+         </div>
+      </div>
     </div>
 
     <div class="w-10/12 grid items-center mx-auto mt-40 md:mt-0">
 
       <div class="">
-        
+
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 

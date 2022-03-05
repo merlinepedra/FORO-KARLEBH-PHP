@@ -35,7 +35,10 @@ class CommentReplied extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => $this->user->name . ' posted a reply to your comment ' . $this->comment . ' on this post ' . $this->post->slug, 
+            'message' => $this->user->name . 
+            ' posted a reply to your comment ' . 
+            $this->comment . ' on this post ' . $this->post->slug, 
+            'user' => $this->user,
         ];
     }
 }

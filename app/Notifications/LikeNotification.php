@@ -11,7 +11,7 @@ class LikeNotification extends Notification
 {
   use Queueable;
 
-  public function __construct(public $likeable_id, public $likeable_type)
+  public function __construct(public $likeable_id, public $likeable_type, public $likeable = null)
   {
         //
   }
@@ -27,6 +27,8 @@ class LikeNotification extends Notification
     return [
       'likeable_id' => $this->likeable_id,
       'likeable_type' => $this->likeable_type,
+      'liker' => auth()->user(),
+      'likeable' => $this->likeable,
     ];
   }
 }

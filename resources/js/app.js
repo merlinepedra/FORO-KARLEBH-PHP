@@ -43,10 +43,11 @@ Vue.component('Explore', require('./components/Explore.vue').default);
 Vue.component('UsersIcon', require('./components/UsersIcon.vue').default);
 Vue.component('TitleEditButton', require('./components/TitleEditButton.vue').default);
 Vue.component('ClipDesign', require('./components/ClipDesign.vue').default);
-Vue.component('BlockUser', require('./components/BlockUser.vue').default);
 Vue.component('SearchDropDown', require('./components/SearchDropDown.vue').default);
 Vue.component('CustomCheckbox', require('./components/CustomCheckbox.vue').default);
 Vue.component('UsersChart', require('./components/UsersChart.vue').default);
+Vue.component('CustomDropDown', require('./components/CustomDropDown.vue').default);
+Vue.component('Doughnut', require('./components/Doughnut.vue').default);
 
 
 const app = new Vue({

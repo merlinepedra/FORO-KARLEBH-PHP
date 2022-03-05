@@ -12,7 +12,7 @@ class Comment extends Model
   protected $guarded = [];
 
   public function likes() {
-    return $this->morphMany(Like::class);
+    return $this->morphMany(Like::class, 'likeable');
   }
 
   public function post() {

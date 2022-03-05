@@ -6,7 +6,7 @@
 
   <div class="p-6">
 
-    <div class="grid grid-rows-2 mt-10">
+    <div class="grid grid-rows-2">
 
       <div class="grid grid-cols-2">
         <div class="text-sm text-blue-900 font-semibold">Like Notification</div>
@@ -18,7 +18,7 @@
       <div class="text-blue-600 text-sm mt-3 italic">Turn on or off this button to switch between getting like notifications for your posts and comments</div>
     </div>
     
-    <div class="grid grid-rows-2 mt-10">
+    <div class="grid grid-rows-2 mt-20">
 
      <div class="grid grid-cols-2">
       <div class="text-sm text-blue-900 font-semibold">Comment Notification</div>
@@ -30,7 +30,7 @@
     <div class="text-blue-600 text-sm mt-3 italic">Turn on or off this button to switch between getting notifications for the comments to your posts</div>
   </div>
 
-  <div class="grid grid-rows-2 mt-10">
+  <div class="grid grid-rows-2 mt-20">
     <div class="grid grid-cols-2">
       <div class="text-sm text-blue-900 font-semibold">Follow Notification</div>
       <custom-checkbox 

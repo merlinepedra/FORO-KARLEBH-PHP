@@ -36,7 +36,7 @@ class CommentCreated extends Notification
     public function toArray($notifiable)
     {
       return [
-        'sender_id' => $this->sender->id,
+        'sender' => $this->sender,
         'message' => $this->sender->name . ' created a comment on your post ' . $this->post->slug,
       ];
     }

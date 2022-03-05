@@ -44,4 +44,10 @@ class CategoryController extends Controller
     return Category::withCount('posts')->get();
   }
 
+  public function destroy($category)
+  {
+    $this->authorize('delete', Category::find($category));
+    Category::find($category)->delete();
+  }
+
 }

@@ -11,7 +11,6 @@ class SearchController extends Controller
     {
       //validate requests
       
-      // return Post::whereTitle('like', '%' . request()->item . '%')->get();
-      return Post::where('title', 'like', '%' . request()->item . '%')->get();
+      return Post::search(request()->item)->get();
     }
 }

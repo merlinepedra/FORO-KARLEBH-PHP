@@ -5,7 +5,7 @@
 <div class="grid gap-y-4">
 @forelse($profiles as $profile)
 
-  <div class="grid md:grid-cols-4 bg-gray-50 h-40 justify-between items-center px-3 rounded-md shadow-lg">
+  <div class="grid grid-cols-2 md:grid-cols-4 py-10 md:py-5 bg-gray-50 justify-between items-center px-3 rounded-md shadow-lg">
     <div>
       @if($profile->file)
       <img class="w-28 h-32 rounded-lg" src="/storage/uploads/{{ $profile->file->file }}" alt="">
@@ -28,7 +28,6 @@
       :user_id="{{ $profile->user_id }}"
        class="flex-shrink-0 flex-grow-0"
       ></toggle-admin>
-      <block-user class="flex-shrink-0 flex-grow-0"></block-user>
     </div>
   </div>
   

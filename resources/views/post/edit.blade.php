@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
+@section('title', 'edit your post')
+
 @section('section')
-<div class="max-w-3xl mt-5 mx-auto bg-gray-100 p-6">
+<div class="mx-auto w-full bg-gray-100 p-6 rounded-md">
 
 
-  <form action="{{ route('post.update', $post) }}" method="POST" 
-  enctype="multipart/form-data"
-  class="py-3" enctype="multipart/form-data">
+  <form action="{{ route('post.update', $post) }}" method="POST" enctype="multipart/form-data" class="py-3" enctype="multipart/form-data">
   @method('PATCH')
   @csrf
 
   <h1 class="text-2xl font-base text-center">Update Post</h1>
 
-  <div class="mt-10 w-9/12 mx-auto">
+  <div class="mt-10 md:w-9/12 mx-auto">
     <input type="text" 
     name="title" placeholder="Title here..." class="w-full rounded-md focus:ring-0 focus:border-purple-500" 
     value="{{ $post->title }}">
@@ -23,7 +23,7 @@
   </div>
 
 
-  <div class="w-9/12 mx-auto mt-10">
+  <div class="md:w-9/12 mx-auto mt-10">
     <select name="category_id" class="w-full rounded-md focus:ring-0 focus:border-purple-500">
       <option value="">Select a category</option>
       @forelse($categories as $category)
@@ -38,7 +38,7 @@
 
   </div>
 
-  <div class="w-9/12 mx-auto mt-10">
+  <div class="md:w-9/12 mx-auto mt-10">
     <textarea type="text" name="desc" placeholder="Description here..." 
     class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500">{{ $post->desc }}</textarea>
     @error('desc')
@@ -47,7 +47,7 @@
   </div>
 
   {{-- Filepond --}}
-  <div class="w-9/12 mx-auto mt-10">
+  <div class="md:w-9/12 mx-auto mt-10">
     <input 
     type="file" 
     id="photo" 
@@ -60,8 +60,8 @@
     >
   </div>
 
-  <div class="mt-8 w-9/12 mx-auto">
-    <input type="submit" value="Create Post" class="px-3 py-3 bg-gray-700 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
+  <div class="mt-8 md:w-9/12 mx-auto">
+    <input type="submit" value="Update Post" class="px-3 py-2 bg-gray-700 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
   </div>
 
 </form>

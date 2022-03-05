@@ -1,32 +1,21 @@
 <template>
   <div>
-   <select name="" id="" v-on:change="changeCategory($event)">
-    <option 
-    v-for="category in cats" 
-    :key="category.id" 
-    :value="category.id"
-    :selected="cat_id == category.id"
-    >{{ category.name }}</option>
-  </select>
-</div>
+    <custom-drop-down :slug="post_slug" :categories="cats" :cat_id="cat_id" :cat="curr_category"></custom-drop-down>
+  </div>
 </template>
 
 <script>
+
   export default {
-    props: ['categories', 'category_id', 'post_slug'],
+    props: ['categories', 'category_id', 'post_slug', 'current_category'],
 
     data() {
       return {
         cats: this.categories,
         cat_id: this.category_id,
+        curr_category: this.current_category
       }
     },
 
-    methods: {
-      async changeCategory(event) {
-        await axios.patch(`/admin/change-category/${this.post_slug}`, {category_id: event.target.value})
-      }
-    }
-    
   }
 </script>

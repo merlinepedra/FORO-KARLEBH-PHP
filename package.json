@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^32.0.0",
         "@splidejs/splide": "^3.6.11",
         "chart.js": "^3.7.0",
         "dropzone": "^6.0.0-beta.2",

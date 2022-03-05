@@ -25,7 +25,7 @@ class UpdateCommentRequest extends FormRequest
     {
         return [
             'comment' => 'required|max:4000',
-            'images' => ''
+            'images' => 'nullable'
         ];
     }
 }

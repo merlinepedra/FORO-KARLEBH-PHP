@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
+@section('title', 'edit my comment')
+
 @section('section')
 
-<div class="max-w-3xl mt-5 mx-auto bg-gray-100 p-6">
+<div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md">
 
   <form action="{{ route('comment.update', $comment) }}" method="POST" 
-  enctype="multipart/form-data"
   class="py-3" enctype="multipart/form-data">
   @method('PATCH')
   @csrf
@@ -13,7 +14,7 @@
   <h1 class="text-2xl font-base text-center">Edit Comment</h1>
 
 
-  <div class="w-9/12 mx-auto mt-10">
+  <div class="md:w-9/12 mx-auto mt-10">
     <textarea type="text" name="comment" placeholder="Description here..." 
     class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500">{{ $comment->comment }}</textarea>
     @error('comment')
@@ -22,7 +23,7 @@
   </div>
 
   {{-- Filepond --}}
-  <div class="w-9/12 mx-auto mt-10">
+  <div class="md:w-9/12 mx-auto mt-10">
     <input 
     type="file" 
     id="photo" 
@@ -39,8 +40,8 @@
     @enderror
   </div>
 
-  <div class="mt-8 w-9/12 mx-auto">
-    <input type="submit" value="Update Comment" class="px-3 py-3 bg-blue-700 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
+  <div class="mt-8 md:w-9/12 mx-auto">
+    <input type="submit" value="Update Comment" class="px-3 py-2 bg-gray-700 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
   </div>
 
 </form>

@@ -4,11 +4,38 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Profile;
+use App\Models\User;
+use App\Models\Post;
+use App\Models\Comment;
+use App\Models\Category;
+use App\Models\File;
+use App\Models\Like;
+
 
 class AdminController extends Controller
 {
+  public function overview()
+  {
+
+    $users = User::count();
+    $posts = Post::count();
+    $categories = Category::count();
+    $comments = Comment::count();
+    $files = File::count();
+    $likes = Like::count();
+    $admins = User::whereIsAdmin(1)->count();
+
+    return view('admin.overview')
+    ->withUsers($users)
+    ->withPosts($posts)
+    ->withCategories($categories)
+    ->withComments($comments)
+    ->withFiles($files)
+    ->withLikes($likes)
+    ->withAdmins($admins);
+  }
+
   public function create(Request $request)
   {
     $profiles = Profile::where('id', '!=', $request->user()->id)->paginate();

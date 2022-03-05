@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-  <title><?php echo e(config('app.name', 'Forume')); ?></title>
+  <title>Forume -  <?php echo $__env->yieldContent('title'); ?></title>
 
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -40,6 +40,15 @@
 </head>
 <body>
   <div id="main" v-cloak class="bg-gray-200">
+
+    
+    <a class="<?php if(request()->routeIs('post.create')): ?> hidden <?php endif; ?>" href="<?php echo e(route('post.create')); ?>">
+      <div class="bg-blue-900 hover:bg-blue-800 h-12 w-12 rounded-full fixed z-50 bottom-10 right-7 grid place-items-center md:hidden">
+        <span class="text-gray-50 font-black text-4xl">+</span>
+      </div>
+    </a>
+    
+
     <header class="px-6 pt-6 pb-3  bg-white dark:bg-gray-700 dark:text-gray-100 shadow-md relative">
       <div class="max-w-7xl font-semibold mx-auto">
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -84,8 +93,8 @@
           </div>
         </a>
 
-        <a href="#" class="mb-3 hover:bg-gray-200">
-          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(false): ?> bg-blue-100 border-blue-900 <?php endif; ?>">
+        <a href="<?php echo e(route('my-comments')); ?>" class="mb-3 hover:bg-gray-200">
+          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('my-comments')): ?>) bg-blue-100 border-blue-900 <?php endif; ?>">
             <svg class="w-7 h-7 mr-2 ml-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"/></svg>
             My Answers
           </div>
@@ -107,7 +116,9 @@
         <?php if(auth()->user()->isAdmin()): ?>
         <a href="<?php echo e(route('admin.home')); ?>" class="mb-3 hover:bg-gray-200">
           <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('admin.home')): ?> bg-blue-100 border-blue-900 <?php endif; ?>">
-            <svg class="w-7 h-7 mr-2 ml-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 mr-2 ml-5"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            </svg>
             Admin
           </div>
         </a>
@@ -125,19 +136,22 @@
 
        <a href="<?php echo e(route('setting.index')); ?>" class="mb-1 hover:bg-gray-200">
         <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('setting.index')): ?> bg-blue-100 border-blue-900 <?php endif; ?>">
-         <users-icon class="invisible w-7 h-7 mr-2 ml-5"></users-icon>
-         Settings
-       </div>
-     </a>
+         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        Settings
+      </div>
+    </a>
 
-     <?php endif; ?>
+    <?php endif; ?>
 
-   </nav>
- </div>
+  </nav>
+</div>
 
- <?php echo $__env->yieldContent('section'); ?>
+<?php echo $__env->yieldContent('section'); ?>
 
- <div class="w-3/12 hidden lg:block">
+<div class="w-3/12 hidden lg:block">
 
   <a href="<?php echo e(route('post.create')); ?>">
     <div class="pt-1 pb-2 bg-blue-900 text-gray-100 font-semibold mb-3 hover:bg-blue-800 mt-4 text-center rounded-md">
@@ -148,19 +162,19 @@
 
   <div class="mt-10">
     <h2 class="font-semibold mb-2">Top Users</h2>
-    <div class="grid gap-y-2 mb-20 shadow-lg rounded-md p-4 bg-gray-100">
-      <?php $__currentLoopData = \App\Models\Post::with('user.profile')->OrderBy('views', 'desc')->take(6)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <div class="flex flex-1 justify-between">
+    <div class="grid gap-y-2 mb-20 shadow-lg rounded-md p-3 bg-gray-100">
+      <?php $__currentLoopData = \App\Models\User::withCount('posts')->orderBy('posts_count', 'desc')->take(5)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <div class="grid grid-cols-8">
         <img 
-        <?php if($post->user->profile->file): ?> 
-        src="/storage/uploads/<?php echo e($post->user->profile->file->file); ?>" 
+        <?php if($user->profile->file): ?> 
+        src="/storage/uploads/<?php echo e($user->profile->file->file); ?>" 
         <?php else: ?> src="/image-header.jpg" 
         <?php endif; ?>
         class="w-4 h-4 object-center object-cover rounded-full" alt="Profile Picture">
 
-        <span class="text-blue-900 font-semibold"><a href="<?php echo e(route('profile.show', $post->user->name)); ?>"><?php echo e($post->user->name); ?></a></span>
+        <span class="text-blue-900 font-semibold text-xs col-span-5"><a href="<?php echo e(route('profile.show', $user->name)); ?>"><?php echo e($user->name); ?></a></span>
 
-        <span>11</span>
+        <span><?php echo e($user->posts_count); ?></span>
 
         <span>  
           <svg class="fill-current text-gray-400 text-blue-900 w-4 h-6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

@@ -18,7 +18,7 @@ class PostController extends Controller
 
   public function index()
   {
-    return view('post.index')->withPosts(Post::orderBy('sort_at', 'desc')->withCount('comments')->with('user')->get());
+    return view('post.index')->withPosts(Post::orderBy('sort_at', 'desc')->latest()->withCount('comments')->with('user')->get());
   }   
 
   public function create()
@@ -67,11 +67,26 @@ class PostController extends Controller
   {
    $this->authorize('update', $post);
 
+   $slug = trim(Str::limit(Str::slug($request->title), 50, ''), '-');
+
+   $data = $request->except('images');
+
+   //request validate the request array 
+
+   $post->update(array_filter($data));
+
+   (new \App\Http\Helpers\File)->upload($request, $post);
+
+   return redirect()->route('post.show', $post)
+   ->withPost($post);
+
+
  }
 
  public function destroy(Post $post)
  {
    $this->authorize('update', $post);
- }
 
+   $post->delete();
+ }
 }

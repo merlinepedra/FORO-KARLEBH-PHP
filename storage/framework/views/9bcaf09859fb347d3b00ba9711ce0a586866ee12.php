@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-  <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+  <title><?php echo $__env->yieldContent('title'); ?></title>
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-  <!-- Styles -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
 
-  <!-- Scripts -->
   <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 </head>
-<body>
-  <div id="main" class="font-sans text-gray-900 antialiased">
-    <header class="p-6 bg-white dark:bg-gray-700 dark:text-gray-100 shadow-md">
+<div id="main">
+
+  <body class="antialiased">
+    <header class="px-6 pt-6 pb-3  bg-white dark:bg-gray-700 dark:text-gray-100 shadow-md relative">
       <div class="max-w-7xl font-semibold mx-auto">
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.forume.mobile-header','data' => []]); ?>
@@ -35,10 +33,22 @@
         <?php echo $__env->make('components.forume.desktop-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
       </div>
     </header>
+    <clip-design></clip-design>
 
-    <?php echo e($slot); ?>
+    <div class="relative flex items-top justify-center min-h-[85vh] bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex items-center pt-8 sm:justify-start sm:pt-0">
+          <div class="px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider">
+            <?php echo $__env->yieldContent('code'); ?>
+          </div>
 
-  </div>
-</body>
+          <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider">
+            <?php echo $__env->yieldContent('message'); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</div>
 </html>
-<?php /**PATH C:\laragon\www\Jet\resources\views/layouts/guest.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\laragon\www\Jet\resources\views/errors/minimal.blade.php ENDPATH**/ ?>

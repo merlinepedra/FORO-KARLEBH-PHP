@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
       auth()->user()->unreadNotifications->markAsRead();
 
-      return view('notifications')->withNotifications(auth()->user()->notifications());
+      return view('notifications')->withNotifications(auth()->user()->notifications);
     }
 
     public function notificationsCount()

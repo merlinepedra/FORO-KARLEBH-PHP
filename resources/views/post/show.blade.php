@@ -1,5 +1,7 @@
   @extends('layouts.app')
 
+  @section('title', $post->title)
+
   @section('section')
   
 
@@ -8,9 +10,9 @@
       <div>
         <h1 class="text-lg md:text-3xl font-semibold truncate">{{ $post->title }}</h1>
         <p class="font-base opacity-75 truncate">{{ $post->desc }}</p>
-        <div class="grid grid-cols-2 gap-3 place-items-center">
+        <div class="grid grid-cols-2 gap-x-5 place-items-center my-10">
           @foreach($post->files as $file) 
-          <img class="object-cover object-center" src="/storage/uploads/{{$file->file}}">
+          <img class="object-cover object-center shadow-md rounded-md" src="/storage/uploads/{{$file->file}}">
           @endforeach
         </div>
       </div>
@@ -19,7 +21,7 @@
     <div>
       <hr id="top">
 
-      <div class="inline-flex">
+      <div class="inline-flex items-center">
         <Like
         :likeable_id="{{ $post->id }}"
         likeable_type="{{ $post::class }}"
@@ -28,7 +30,11 @@
         ></Like>
 
         @can('update', $post)
-        <a href="{{ route('post.edit', $post) }}" class="text-gray-800 font-semibold textlg md:text-2xl">Edit</a>
+        <a href="{{ route('post.edit', $post) }}" class="text-gray-800 font-semibold textlg md:text-2xl">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+          </svg>
+        </a>
         @endcan
       </div>
 
@@ -83,10 +89,10 @@
 
         <p class="my-5 text-lg" id="comment-{{$comment->id}}">{{ $comment->comment }}</p>
 
-        <div class="grid @if($comment->files->count() > 1) grid-cols-2 gap-3 @endif place-items-center truncate overflow-auto">
+        <div class="grid @if($comment->files->count() > 1) grid-cols-2 gap-5 @endif place-items-center truncate overflow-auto">
           @foreach($comment->files as $item)
           @if(in_array($item->extension, ['.png', '.jpg']))
-          <img class="object-cover object-center h-56" src="/storage/uploads/{{$item->file}}">
+          <img class="object-cover object-center h-56 shadow-md rounded-md" src="/storage/uploads/{{$item->file}}">
           @else
           <p>
 
@@ -98,7 +104,7 @@
 
         {{-- Do not change the DOM arrangement. It is important for JS --}}
         <div>
-          <div class="mt-5 inline-flex">
+          <div class="mt-5 inline-flex items-center">
             <Like
             :likeable_id="{{ $comment->id }}"
             likeable_type="{{ $comment::class }}"
@@ -108,12 +114,19 @@
 
             {{-- <a href="#top" data-parent-id="{{ $comment->id }}" v-on:click="reply" class="scrollLinks text-gray-800 font-semibold text-2xl">Reply</a> --}}
             @can('reply')
-            <button data-parent-id="{{ $comment->id }}" v-on:click="openReplyBox" id="replyBtn" class="text-gray-800 font-semibold text-2xl mr-10">
-            Reply</button>
+            <button title="Reply" data-parent-id="{{ $comment->id }}" v-on:click="openReplyBox" id="replyBtn" class="text-gray-800 font-semibold text-2xl mr-10">
+              <svg  xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+              </svg>
+            </button>
             @endcan
 
             @can('update', $comment)
-            <a href="{{ route('comment.edit', $comment) }}" class="text-gray-800 font-semibold text-2xl">Edit</a>
+            <a href="{{ route('comment.edit', $comment) }}" class="text-gray-800 font-semibold text-2xl">
+              <svg title="edit" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+              </svg>
+            </a>
             @endcan
           </div>
 
@@ -156,7 +169,7 @@
             </div>
           </div>
 
-          <div class="inline-flex">
+          <div class="inline-flex items-center">
             <Like
             :likeable_id="{{ $reply->id }}"
             likeable_type="{{ $reply::class }}"
@@ -165,7 +178,11 @@
             ></Like>
 
             @can('update', $reply)
-            <a href="{{ route('comment.edit', $reply) }}" class="text-gray-800 font-semibold text-2xl">Edit</a>
+            <a href="{{ route('comment.edit', $reply) }}" class="text-gray-800 font-semibold text-2xl">
+              <svg title="Reply" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+              </svg>
+            </a>
             @endcan
             
             <div id="comment-{{$reply->id}}"></div>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'create a topic')
+
 @section('section')
 
 <div class="mx-auto w-full bg-gray-50 md:rounded-md p-6">

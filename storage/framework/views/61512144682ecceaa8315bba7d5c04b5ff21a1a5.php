@@ -33,7 +33,8 @@
         </div>
 
         <div class="flex text-sm mr-4">
-          <span class="mr-2">posted by</span>
+          <div class="mr-2"><span class="hidden md:inline mr-2">posted</span>by</div>
+
           <a href="<?php echo e(route('profile.show', $post->user->profile)); ?>" class="text-blue-900 font-semibold mr-2" ><?php echo e($post->user->name); ?></a>
           <span class="mr-2">in</span>
           <a href="<?php echo e(route('category.show', $post->category)); ?>" class="text-blue-900 font-semibold mr-2" >

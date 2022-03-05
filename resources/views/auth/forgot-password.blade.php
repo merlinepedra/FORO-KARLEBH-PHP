@@ -1,7 +1,7 @@
 <x-guest-layout>
 
-  <section class="md:grid grid-cols-2 h-screen">
-    <div class="bg-blue-100 hidden md:block order-2">
+  <section class="md:grid grid-cols-2 h-[87.8vh]">
+    <div class="bg-blue-100 hidden md:flex items-center justify-center p-10">
 
       Lorem ipsum dolor, sit, amet consectetur adipisicing elit. Id tempora beatae, ducimus exercitationem fugit ratione. In unde commodi voluptatem, non autem praesentium a nobis rem odit perferendis vitae cum natus.
 

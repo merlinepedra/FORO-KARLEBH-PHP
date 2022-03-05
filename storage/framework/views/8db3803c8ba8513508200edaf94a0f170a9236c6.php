@@ -12,11 +12,7 @@
     </div>
 
     <div class="w-5/12 relative">
-      
-
      <search-drop-down class=""></search-drop-down>
-     
-
    </div>
 
    <div class="flex items-center">
@@ -61,7 +57,8 @@
           </div>
         </transition>
         <?php else: ?>
-        <a href="<?php echo e(route('login')); ?>">Login</a>
+        <a class="mr-4 text-gray-700" href="<?php echo e(route('login')); ?>">login</a>
+        <a class="text-gray-700" href="<?php echo e(route('register')); ?>">register</a>
         <?php endif; ?>
       </div>
 
