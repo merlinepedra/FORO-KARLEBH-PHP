@@ -1,12 +1,14 @@
 
 
+<?php $__env->startSection('title', 'all posts'); ?>
+
 <?php $__env->startSection('section'); ?>
 
 <div class="mx-auto w-full">
 
   <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
   
-    <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
+    <div class="my-4 p-4 bg-gray-50 dark:bg-gray-400 dark:text-midnight shadow-md md:rounded-md">
       <div class="flex">
        <Vote
        :likeable_id="<?php echo e($post->id); ?>"
@@ -22,7 +24,7 @@
       </div>
     </div>
 
-    <hr class="my-2 bg-gray-400">
+    <hr class="my-2 bg-gray-400 dark:bg-gray-700">
 
     <div class="w-full py-1 flex justify-between items-center">
       <div class="flex justify-center">
@@ -45,7 +47,9 @@
       </div>
 
       <div class="flex items-center">
-        <svg class="mr-1" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"/></svg>
+         <svg class="w-6 h-6 mr-1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+          </svg>
         <span><?php echo e($post->comments_count); ?></span>
       </div>
     </div>

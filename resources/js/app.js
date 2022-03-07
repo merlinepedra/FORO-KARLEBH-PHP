@@ -48,6 +48,8 @@ Vue.component('CustomCheckbox', require('./components/CustomCheckbox.vue').defau
 Vue.component('UsersChart', require('./components/UsersChart.vue').default);
 Vue.component('CustomDropDown', require('./components/CustomDropDown.vue').default);
 Vue.component('Doughnut', require('./components/Doughnut.vue').default);
+Vue.component('DeleteNotification', require('./components/DeleteNotification.vue').default);
+Vue.component('DarkLightMode', require('./components/DarkLightMode.vue').default);
 
 
 const app = new Vue({

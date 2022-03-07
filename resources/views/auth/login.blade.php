@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-  <section class="md:grid grid-cols-2 h-[87.8vh]">
+  <section class="md:grid grid-cols-2 min-h-screen h-screen">
     <div class="bg-blue-100 hidden md:flex items-center justify-center p-10">
       <div class="text-3xl font-bold font-mono ">
         <div>

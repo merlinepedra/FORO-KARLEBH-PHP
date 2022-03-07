@@ -66,7 +66,6 @@
         .then(res => {
           this.liked = true
           this.count++
-          console.log(res.data)
         })
         .catch(err => console.log(err))
         // .catch(err => window.location.href = '/login')
@@ -98,8 +97,6 @@
         this.likeCount = data['likeCount']
         this.unlikeCount = data['unlikeCount']
         this.count = data['likeCount'] - data['unlikeCount']
-
-        console.log(data)
       }
     },
   }

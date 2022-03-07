@@ -5,7 +5,7 @@ use \App\Http\Controllers\Admin;
 
 
 Route::name('admin.')->prefix('admin')->middleware('admin')->group( function () {
-  Route::get('/overview', [Admin\AdminController::class, 'overview'])->name('home');
+  Route::get('/home', [Admin\AdminController::class, 'overview'])->name('home');
   Route::get('/make-admin', [Admin\AdminController::class, 'create'])->name('makeAdmin.create');
   Route::patch('/make-admin/{user}', [Admin\AdminController::class, 'makeAdmin'])->name('makeAdmin');
   Route::patch('/make-user/{user}', [Admin\AdminController::class, 'makeuser'])->name('makeUser');

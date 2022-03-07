@@ -40,7 +40,7 @@
     <main class="font-sans antialiased mx-auto">
       <div class="mx-auto max-w-[1500px] grid md:grid-cols-5">
 
-        <div class="bg-gray-400 w-auto md:min-h-[87.8vh] px-4 hidden md:block" id="adminMobileNav">
+        <div class="bg-gray-400 md:min-h-[87.8vh] px-4 hidden md:block" id="adminMobileNav">
           <div class="grid my-7">
             <a href="<?php echo e(route('admin.home')); ?>" class="font-semibold bg-gray-200 px-5 py-3 rounded-md <?php if(request()->routeIs('admin.home')): ?> bg-gray-800 text-gray-100 <?php endif; ?>">Overview</a>
             <a href="<?php echo e(route('admin.makeAdmin.create')); ?>" class="font-semibold bg-gray-200 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.makeAdmin.create')): ?> bg-gray-800 text-gray-100 <?php endif; ?>">Users</a>

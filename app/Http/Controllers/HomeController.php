@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -16,5 +17,11 @@ class HomeController extends Controller
     public function notificationsCount()
     {
       return auth()->user()->unreadNotifications->count();
+    }
+
+    public function deleteNotification($id)
+    {
+      // $this->authorize('delete', $id);
+      DB::table('notifications')->whereId($id)->delete();
     }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <button @click="openOptions = !openOptions" class="px-3 py-1 bg-blue-900 block rounded-md text-gray-100">
-      <div class="flex items-center justify-between w-40">
+      <div class="flex items-center justify-between w-28">
         <span class="mr-20">
           {{ buttonValue }}
         </span>
@@ -13,23 +13,24 @@
       </div>
     </button>
 
+    <transition name="fade">
+      <div v-if="openOptions" id="" class="options rounded-md text-gray-100 overflow-auto mt-3" style="max-height: 120px;">
 
-    <div v-if="openOptions" id="" class="options rounded-md text-gray-100 overflow-auto mt-3" style="max-height: 120px;">
-
-     <div v-for="cat in cats" :key="cat.id" class="cursor-pointer ">
-      <label class="option px-4 py-3 w-20 bg-blue-900 block">
-        <input @click="changeCategory(cat.id, $event)" type="radio" :value="cat.name" v-model="category" class="hidden">
-        {{ cat.name }}
-      </label>
+       <div v-for="cat in cats" :key="cat.id" class="cursor-pointer ">
+        <label class="option px-2 py-2 w-20 bg-blue-900 block border-b border-dashed border-white">
+          <input @click="changeCategory(cat.id, $event)" type="radio" :value="cat.name" v-model="category" class="hidden">
+          {{ cat.name }}
+        </label>
+      </div>
     </div>
+  </transition>
 
-  </div>
 </div>
 </template>
 
 <style scoped>
   .options::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
     background: lightblue;
   }
 

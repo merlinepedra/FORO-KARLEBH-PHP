@@ -23,9 +23,7 @@ class PostPolicy
      */
     public function update(User $user, $post)
     {
-      // dd($user->id, $post->user_id);
-
-      return $user->id == $post->user_id;
+      return $user->id === $post->user_id || $user->is_admin;
     }
 
     /**

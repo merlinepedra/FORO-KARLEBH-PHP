@@ -89,7 +89,7 @@
 
         <p class="my-5 text-lg" id="comment-{{$comment->id}}">{{ $comment->comment }}</p>
 
-        <div class="grid @if($comment->files->count() > 1) grid-cols-2 gap-5 @endif place-items-center truncate overflow-auto">
+        <div class="grid md:grid-cols-2 gap-5 place-items-center truncate overflow-auto">
           @foreach($comment->files as $item)
           @if(in_array($item->extension, ['.png', '.jpg']))
           <img class="object-cover object-center h-56 shadow-md rounded-md" src="/storage/uploads/{{$item->file}}">
@@ -132,7 +132,7 @@
 
 
           <div class="hidden mt-4 replyBox">
-            <form action="{{ route('comment.reply') }}" method="POST">
+            <form action="{{ route('comment.reply') }}" method="POST" enctype="multipart/form-data">
               {{-- For locating via id --}}
               <div id="comment-{{$comment->id}}"></div>
               @csrf

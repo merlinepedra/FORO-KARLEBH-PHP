@@ -1,13 +1,15 @@
 <template>
-  <canvas id="doughnut"></canvas>
+  <div class="relative max-w-screen max-h-64">
+    <canvas id="doughnut"></canvas>
+  </div>
 </template>
 
 <script>
   import Chart from 'chart.js/auto'
   export default {
     props: [
-      'posts',
-      'comments',
+    'posts',
+    'comments',
     ],
 
     mounted() {
@@ -26,8 +28,8 @@
               labels: "Overview",
               data: [this.posts, this.comments],
               backgroundColor: [
-              'rgba(255,99,132,.6)', 
               'rgba(54,162,235,.6)', 
+              'rgba(255,206,86.6)', 
               ],
             }],
           },

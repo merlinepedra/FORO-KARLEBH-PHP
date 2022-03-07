@@ -2,7 +2,6 @@
 
 namespace App\Http\Helpers;
 
-
 class File {
   public function upload($request, $model, $authId = '') {
     

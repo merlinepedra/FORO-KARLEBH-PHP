@@ -12,10 +12,12 @@
     </div>
 
     <div class="w-5/12 relative">
-     <search-drop-down class=""></search-drop-down>
+     <search-drop-down class="mr-8"></search-drop-down>
    </div>
 
    <div class="flex items-center">
+
+    <dark-light-mode class="mr-8"></dark-light-mode>
 
     @auth
     <span class="mr-8 relative">
@@ -36,14 +38,15 @@
         <button v-on:click="profileMenu = !profileMenu">
           @if(auth()->user()->profile->file)
           <img src="/storage/uploads/{{ auth()->user()->profile->file->file }}" 
-          class="w-8 h-8 object-center object-cover rounded-full border-2 border-gray-900" alt="Profile Picture">
+          class="relative z-20 w-8 h-8 object-center object-cover rounded-full border-2 border-gray-900" alt="Profile Picture">
           @else
-          <img src="/image-header.jpg" class="w-8 h-8 object-center object-cover rounded-full" alt="Profile Picture">
+          <img src="/image-header.jpg" class="relative z-20 w-8 h-8 object-center object-cover rounded-full" alt="Profile Picture">
           @endif
         </button>
 
+        <button class="inset-0 fixed w-full h-full bg-transparent z-10" v-if="profileMenu" v-on:click="profileMenu = false"></button>
         <transition name="flip">
-          <div v-if="profileMenu" id="profile-menu" class="font-light absolute right-0 bg-blue-900 text-blue-100 pt-4 mt-5 z-10 w-48 text-center shadow-md ">
+          <div v-if="profileMenu" id="profile-menu" class="font-light absolute right-0 bg-blue-900 text-blue-100 pt-4 mt-5 z-20 w-48 text-center shadow-md ">
             <a v-on:click="profileMenu = false" class="block mt-3 hover:bg-blue-100 hover:text-gray-900 px-2 py-2" href="{{ route('profile.edit', auth()->user()->profile->name) }}">Edit Profile</a>
             <a v-on:click="profileMenu = false" class="block mt-3 hover:bg-blue-100 hover:text-gray-900 px-2 py-2" href="{{ route('profile.show', auth()->user()->profile->name) }}">
               {{-- View Profile --}}
@@ -56,8 +59,10 @@
           </div>
         </transition>
         @else
-        <a class="mr-4 text-gray-700" href="{{ route('login') }}">login</a>
-        <a class="text-gray-700" href="{{ route('register') }}">register</a>
+        <div class="text-gray-700 dark:text-gray-300">
+          <a class="mr-4" href="{{ route('login') }}">login</a>
+          <a class="" href="{{ route('register') }}">register</a>
+        </div>
         @endauth
       </div>
 

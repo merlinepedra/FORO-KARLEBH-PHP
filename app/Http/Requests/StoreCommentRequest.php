@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreCommentRequest extends FormRequest
 {
@@ -24,7 +25,8 @@ class StoreCommentRequest extends FormRequest
     public function rules()
     {
       return [
-        'comment' => 'required|max:4000',
+        // 'comment' => [Rule::requiredIf(empty(request()->images)), 'min:3'],
+        'comment' => 'required|min:3',
         'post_id' => 'int',
         'parent_id' => 'int',
         'images' => 'nullable'

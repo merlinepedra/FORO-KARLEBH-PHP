@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\File;
 use Illuminate\Support\Facades\File as Files;
+use Intervention\Image\Facades\Image;
+
 
 class FileController extends Controller
 {
@@ -17,22 +19,17 @@ class FileController extends Controller
       $files = request()->file('images');
 
       foreach($files as $file) {
-
         $name = strtolower($file->getClientOriginalName());
-
         $fileName = str_replace(' ', '', $name);
-
-        $file->storeAs('uploads', $fileName, 'public');
+        $img = $file->storeAs('uploads', $fileName, 'public');
+        $image = Image::make(public_path("storage/{$img}"))->fit(1000, 1000)->save();
 
       }
-
       return $fileName;
-
     } else {
-
       return '';
-
     }
+
   }  
 
   public function delete($id)

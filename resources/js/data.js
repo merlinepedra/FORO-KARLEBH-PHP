@@ -2,7 +2,7 @@ export default {
   changeTitle: false,
   one: "from Vue",
   open: false,
-  navOpen: false,
+  navOpen: true,
   megaMenu: false,
   profileMenu: false,
   mobileNav: false,

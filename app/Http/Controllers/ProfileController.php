@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
   public function show(Profile $profile)
   {
-    return view('profile.show')->withProfile($profile);
+    return view('profile.show')->withProfile($profile->load(['user.posts', 'user.comments']));
   }
 
   public function edit(Profile $profile)

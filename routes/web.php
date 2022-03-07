@@ -20,6 +20,7 @@ Route::get('/search', Controllers\SearchController::class)->name('search');
 
 Route::get('/notifications', [Controllers\HomeController::class, 'notifications'])->name('notifications');
 Route::get('/notificationsCount', [Controllers\HomeController::class, 'notificationsCount']);
+Route::delete('/delete-notification/{id}', [Controllers\HomeController::class, 'deleteNotification']);
 
 Route::resources([
   '/category' => Controllers\CategoryController::class,

@@ -4,7 +4,7 @@
 
 <div class="grid md:grid-cols-4 gap-5">
 
-  <div class="col-span-2">
+  <div class="md:col-span-2">
     <div class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-lime-600 p-4 flex items-center justify-between">
       <div class="flex flex-col">
         <span class="text-4xl font-bold text-gray-50">
@@ -49,24 +49,16 @@
 
 </div>
 
-<div class="grid md:grid-cols-4 gap-5 items-center">
+{{--  --}}
 
-  <div class="md:col-span-2">
-    <div class="w-full h-64 bg-gray-200 rounded-xl flex">
-      <users-chart class="h-10/12" 
-      :users="{{ $users }}"
-      :posts="{{ $posts }}"
-      :comments="{{ $comments }}"
-      :likes="{{ $likes }}"
-      :categories="{{ $categories }}"
-      :files="{{ $files }}"
-      :admins="{{ $admins }}"
-      ></users-chart>
-    </div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-5 items-center">
 
+  <div>
+    <Doughnut 
+    :posts="{{ $posts }}"
+    :comments="{{ $comments }}"
+    ></Doughnut>
   </div>
-
-
 
   <div class="self-center">
     <div class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-blue-600 p-4 flex items-center justify-between">
@@ -81,23 +73,19 @@
     </div>
   </div>
 
-{{-- 
-  <div>
-    <div class="w-full h-64 bg-gray-600 rounded-xl"></div>
-
-  </div> --}}
-
-  <div>
-    <div class="w-full h-64 bg-gray-200 rounded-xl">
-      <Doughnut
-      :posts="{{ $posts }}"
-      :comments="{{ $comments }}"
-      ></Doughnut>
-    </div>
-
+  <div class="col-span-1 md:col-span-2">
+    <users-chart 
+    :users="{{ $users }}"
+    :files="{{ $files }}"
+    :admins="{{ $admins }}"
+    :categories="{{ $categories }}"
+    :likes="{{ $likes }}"
+    ></users-chart>
   </div>
 
 </div>
+
+{{--  --}}
 
 <div class="grid md:grid-cols-4 gap-5">
 

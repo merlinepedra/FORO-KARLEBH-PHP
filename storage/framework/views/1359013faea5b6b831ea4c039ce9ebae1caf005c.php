@@ -8,9 +8,9 @@
   <div class="grid grid-cols-2 md:grid-cols-4 py-10 md:py-5 bg-gray-50 justify-between items-center px-3 rounded-md shadow-lg">
     <div>
       <?php if($profile->file): ?>
-      <img class="w-28 h-32 rounded-lg" src="/storage/uploads/<?php echo e($profile->file->file); ?>" alt="">
+      <img class="w-28 h-32 rounded-full" src="/storage/uploads/<?php echo e($profile->file->file); ?>" alt="">
       <?php else: ?> 
-      <img class="w-28 h-32 rounded-lg" src="/image-header.jpg" >
+      <img class="w-28 h-32 rounded-full" src="/image-header.jpg" >
       <?php endif; ?>
     </div>
 

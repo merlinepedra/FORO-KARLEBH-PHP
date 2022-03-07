@@ -2,7 +2,7 @@
   <div>
     <button v-text="buttonText" @click="follow" 
     :class="classObject"
-    class="px-4 py-1 font-md text-gray-200 rounded-md"></button>
+    class="px-8 py-3 font-md text-gray-200 rounded-md"></button>
   </div>
 </template>
 

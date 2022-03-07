@@ -19,14 +19,16 @@ class CommentController extends Controller
 
     (new \App\Http\Helpers\File)->upload($request, $comment);
 
+    $url = '/post/' . $comment->post->slug . '#comment-' . $comment->id;
+
     if (
       // $comment->post->user->id !== auth()->user() &&
      $comment->user->setting->comment_notifiable
    ) {
-      $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post));
+      $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post, $url));
     }
 
-    return redirect('/post/' . $comment->post->slug . '#comment-' . $comment->id);
+    return redirect($url);
   }
 
   public function storeReply(Request $request)
