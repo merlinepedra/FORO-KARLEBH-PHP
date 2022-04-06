@@ -59,7 +59,7 @@
   <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 </head>
 <body>
-  <div id="main" v-cloak class="bg-gray-200 dark:bg-gray-900">
+  <div id="main" v-cloak class="bg-gray-200 dark:bg-gray-600">
 
     
     <a class="<?php if(request()->routeIs('post.create')): ?> hidden <?php endif; ?>" href="<?php echo e(route('post.create')); ?>">
@@ -69,7 +69,7 @@
     </a>
     
 
-    <header class="px-6 pt-6 pb-3 bg-white dark:bg-midnight dark:text-gray-100 shadow-md relative">
+    <header class="px-6 pt-6 pb-3 bg-white dark:bg-gray-600 dark:text-gray-100 shadow-md relative">
       <div class="max-w-7xl font-semibold mx-auto">
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.forume.mobile-header','data' => []]); ?>
@@ -90,7 +90,7 @@
 
     <main class="font-sans antialiased mx-auto my-10 flex gap-x-10 max-w-7xl">
       <div class="w-3/12 hidden md:block">
-       <nav class="flex flex-col dark:text-gray-300">
+       <nav class="flex flex-col dark:text-gray-400">
 
         <div class="py-2 inline-flex w-full border-l-4 border-transparent">
           <div class="w-7 h-7 mr-2 ml-5"></div>

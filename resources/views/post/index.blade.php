@@ -8,7 +8,7 @@
 
   @forelse($posts as $post)
   {{-- <a href="{{ route('post.show', $post) }}"> --}}
-    <div class="my-4 p-4 bg-gray-50 dark:bg-gray-400 dark:text-midnight shadow-md md:rounded-md">
+    <div class="my-4 p-4 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md md:rounded-md">
       <div class="flex">
        <Vote
        :likeable_id="{{ $post->id }}"

@@ -8,7 +8,7 @@
 
   <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
   
-    <div class="my-4 p-4 bg-gray-50 dark:bg-gray-400 dark:text-midnight shadow-md md:rounded-md">
+    <div class="my-4 p-4 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md md:rounded-md">
       <div class="flex">
        <Vote
        :likeable_id="<?php echo e($post->id); ?>"
