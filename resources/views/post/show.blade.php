@@ -43,7 +43,7 @@
         @csrf
         <div id="firstChild" class="md:w-9/12 mx-auto mt-10">
           <textarea id="textarea" name="comment" placeholder="Comment here..." 
-          class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500"></textarea>
+          class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500 placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300"></textarea>
           @error('comment')
           <div class="text-sm text-red-500 justify-end">{{ $message }}</div>
           @enderror

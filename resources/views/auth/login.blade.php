@@ -1,23 +1,23 @@
 <x-guest-layout>
 
-  <section class="md:grid grid-cols-2 min-h-screen h-screen">
-    <div class="bg-blue-100 hidden md:flex items-center justify-center p-10">
+  <section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
+    <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10">
       <div class="text-3xl font-bold font-mono ">
         <div>
-          Welcome back <span class="text-blue-700">User!</span>
+          Welcome back <span class="text-blue-700 dark:text-gray-700">User!</span>
         </div>
-         <div class="mt-5 text-gray-500">
+         <div class="mt-5 text-gray-500 dark:text-gray-300">
            kindly enter your data.
          </div>
 
-         <div class="mt-3 text-blue-600">
+         <div class="mt-3 text-blue-600 dark:text-gray-700">
           Fun and answers awaits!
            
          </div>
       </div>
     </div>
 
-    <div class="w-10/12 grid items-center mx-auto mt-40 md:mt-0">
+    <div class="w-10/12 grid items-center mx-auto pt-20">
 
       <div class="">
 
@@ -31,12 +31,13 @@
           <div>
             <x-label for="email" :value="__('Email')" />
 
-            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <x-input id="email" autocomplete="off" class="block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300" type="email" name="email" :value="old('email')" required autofocus />
           </div>
           <div class="mt-4">
             <x-label for="password" :value="__('Password')" />
 
-            <x-input id="password" class="block mt-1 w-full"
+            <x-input id="password" autocomplete="off" 
+            class="block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300"
             type="password"
             name="password"
             required autocomplete="current-password" />

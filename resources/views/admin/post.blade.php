@@ -5,13 +5,10 @@
 <change-title v-if="changeTitle" v-on:close="changeTitle = false"></change-title>
 
 <div>
-
   <div class="flex justify-between items-center">
-
     <div>
       <h1 class="text-2xl">Posts ({{ $posts->count() }})</h1>
     </div>
-
     <a href="{{ route('post.create') }}">
       <div class="pt-1 pb-2 bg-blue-900 text-gray-100 font-semibold mb-3 hover:bg-blue-800 mt-4 text-center rounded-md w-48">
         <span class="text-lg">+</span>
@@ -22,7 +19,7 @@
 
   <div style="height: .05rem;" class="bg-gray-400 mb-3"></div>
 
-  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 p-4 rounded-md shadow">
+  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-300 p-4 rounded-md shadow">
     <div>Title</div>
     <div>Views</div>
     <div>Comments</div>
@@ -35,7 +32,7 @@
   </div>
 
   @forelse($posts as $post)
-  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 p-4 rounded-md shadow hover:shadow-2xl hover:mb-4 transition-all duration-300">
+  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-300 p-4 rounded-md shadow hover:shadow-2xl hover:mb-4 transition-all duration-300">
     <div>
       <h4>
         {{ $post->title }}

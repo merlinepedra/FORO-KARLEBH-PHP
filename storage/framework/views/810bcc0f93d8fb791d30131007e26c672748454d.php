@@ -51,6 +51,8 @@
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
+<h1 class="text-center text-gray-800 dark:text-gray-200">No Answers Yet.</h1>
+
 <?php endif; ?>
 
 </div>

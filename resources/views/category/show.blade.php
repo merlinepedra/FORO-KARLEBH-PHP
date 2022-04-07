@@ -1,13 +1,14 @@
 @extends('layouts.app')
+@section('title', $category->name)
 
 @section('section')
 <div class="mx-auto w-full">
 
-  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-600">
+  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-400">
 
     <h1 class="text-2xl font-base text-center">{{ ucfirst($category->name) }}</h1>
 
-    @forelse($category->posts as $post)
+    @forelse($posts as $post)
     <div class="my-10 border-b border-gray-500">
       <div class="flex justify-between">
         <div>
@@ -22,7 +23,7 @@
       </div>
 
       <div class="w-full py-4">
-        <p>by <a href="{{ route('profile.show', $post->user->name) }}" class="text-lime-500 text-sm">{{ $post->user->name }}</a>  {{ $post->created_at->diffForHumans() }}</p>
+        <p>by <a href="{{ route('profile.show', $post->user->name) }}" class="text-lime-500 dark:text-gray-200 text-sm">{{ $post->user->name }}</a>  {{ $post->created_at->diffForHumans() }}</p>
       </div>
 
     </div>
@@ -32,6 +33,7 @@
 
     @endforelse
 
+    {{ $posts->links() }}
   </div> 
 
   <div class="grid grid-flow-col grid-rows-2 grid-cols-3 gap-8">

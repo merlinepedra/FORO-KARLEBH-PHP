@@ -5,24 +5,24 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
 
-  <section class="md:grid grid-cols-2 h-[87.8vh]">
-   <div class="bg-blue-100 hidden md:flex items-center justify-center p-10 order-2">
+  <section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
+   <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10 order-2">
     <div class="text-3xl font-bold font-mono ">
       <div>
-        Welcome <span class="text-blue-700">Guest!</span>
+        Welcome <span class="text-blue-700 dark:text-gray-700">Guest!</span>
       </div>
-      <div class="mt-5 text-gray-500">
+      <div class="mt-5 text-gray-500 dark:text-gray-300">
        Registration takes less than a minute. It's that fast!
      </div>
 
-     <div class="mt-3 text-blue-600">
+     <div class="mt-3 text-blue-600 dark:text-gray-700">
       Fun and answers awaits!
 
     </div>
   </div>
 </div>
 
-<div class="w-10/12 grid items-center mx-auto mt-40 md:mt-0 order-1">
+<div class="w-10/12 grid items-center mx-auto pt-18 md:mt-0 order-1">
 
   <div class="">
 
@@ -59,11 +59,11 @@
 <?php endif; ?>
 
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'name','class' => 'block mt-1 w-full','type' => 'text','name' => 'name','value' => old('name'),'required' => true,'autofocus' => true]]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'name','autocomplete' => 'off','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'text','name' => 'name','value' => old('name'),'required' => true,'autofocus' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['id' => 'name','class' => 'block mt-1 w-full','type' => 'text','name' => 'name','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('name')),'required' => true,'autofocus' => true]); ?>
+<?php $component->withAttributes(['id' => 'name','autocomplete' => 'off','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'text','name' => 'name','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('name')),'required' => true,'autofocus' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -88,11 +88,11 @@
 <?php endif; ?>
 
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'email','class' => 'block mt-1 w-full','type' => 'email','name' => 'email','value' => old('email'),'required' => true]]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'email','autocomplete' => 'off','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'email','name' => 'email','value' => old('email'),'required' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['id' => 'email','class' => 'block mt-1 w-full','type' => 'email','name' => 'email','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('email')),'required' => true]); ?>
+<?php $component->withAttributes(['id' => 'email','autocomplete' => 'off','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'email','name' => 'email','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('email')),'required' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -117,11 +117,11 @@
 <?php endif; ?>
 
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'password','class' => 'block mt-1 w-full','type' => 'password','name' => 'password','required' => true,'autocomplete' => 'new-password']]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'password','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','autocomplete' => 'new-password','type' => 'password','name' => 'password','required' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['id' => 'password','class' => 'block mt-1 w-full','type' => 'password','name' => 'password','required' => true,'autocomplete' => 'new-password']); ?>
+<?php $component->withAttributes(['id' => 'password','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','autocomplete' => 'new-password','type' => 'password','name' => 'password','required' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -146,11 +146,11 @@
 <?php endif; ?>
 
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'password_confirmation','class' => 'block mt-1 w-full','type' => 'password','name' => 'password_confirmation','required' => true]]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'password_confirmation','class' => 'block mt-1 w-full dark:placeholder-gray-300 dark:bg-gray-300','autocomplete' => 'off','type' => 'password','name' => 'password_confirmation','required' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['id' => 'password_confirmation','class' => 'block mt-1 w-full','type' => 'password','name' => 'password_confirmation','required' => true]); ?>
+<?php $component->withAttributes(['id' => 'password_confirmation','class' => 'block mt-1 w-full dark:placeholder-gray-300 dark:bg-gray-300','autocomplete' => 'off','type' => 'password','name' => 'password_confirmation','required' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>

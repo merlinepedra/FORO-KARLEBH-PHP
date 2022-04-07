@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('section'); ?>
 
-<div class="mx-auto w-full bg-gray-50 md:rounded-md p-6 text-gray-800 dark:bg-gray-500">
+<div class="mx-auto w-full bg-gray-50 md:rounded-md p-6 mt-5 text-gray-800 dark:bg-gray-500">
 
  <form action="<?php echo e(route('post.store')); ?>" method="POST" enctype="multipart/form-data" 
  class=" dark:text-gray-700">
@@ -77,7 +77,7 @@ unset($__errorArgs, $__bag); ?>
         multiple
         data-allow-reorder="true"
         data-max-file-size="3MB"
-        data-max-files="3" 
+        data-max-files="3"
         >
       </div>
 

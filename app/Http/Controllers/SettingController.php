@@ -20,6 +20,8 @@ class SettingController extends Controller
 
     if (! $user->setting->like_notifiable) {
       $user->setting->update(['like_notifiable' => 1]);
+
+      // event(new NotifiableEvent());
       return "Updated Successfully";
     } else {
       $user->setting->update(['like_notifiable' => 0]);
@@ -35,6 +37,8 @@ class SettingController extends Controller
     if (! $user->setting->follow_notifiable) {
       $user->setting->update(['follow_notifiable' => 1]);
       return "Updated Successfully";
+
+      // event(new NotifiableEvent());
     } else {
       $user->setting->update(['follow_notifiable' => 0]);
       return "Updated Successfully";
@@ -47,6 +51,8 @@ class SettingController extends Controller
 
      if (! $user->setting->comment_notifiable) {
       $user->setting->update(['comment_notifiable' => 1]);
+      
+      // event(new NotifiableEvent());
       return "Updated Successfully";
     } else {
       $user->setting->update(['comment_notifiable' => 0]);

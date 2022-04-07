@@ -23,10 +23,6 @@
 	top: 26rem
 }
 
-footer {
-	height: 404.78px;
-	background: hsla(168, 34%, 41%, 0.55);
-}
 
 .toolTipMenu::after {
 	content: " ";
@@ -97,3 +93,9 @@ footer {
     0 0, 100% 0, 100% 55%, 0 90%
   );
 } 
+
+@media  screen and (min-width: 370px) {
+  .profile-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -5,24 +5,24 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
 
-  <section class="md:grid grid-cols-2 min-h-screen h-screen">
-    <div class="bg-blue-100 hidden md:flex items-center justify-center p-10">
+  <section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
+    <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10">
       <div class="text-3xl font-bold font-mono ">
         <div>
-          Welcome back <span class="text-blue-700">User!</span>
+          Welcome back <span class="text-blue-700 dark:text-gray-700">User!</span>
         </div>
-         <div class="mt-5 text-gray-500">
+         <div class="mt-5 text-gray-500 dark:text-gray-300">
            kindly enter your data.
          </div>
 
-         <div class="mt-3 text-blue-600">
+         <div class="mt-3 text-blue-600 dark:text-gray-700">
           Fun and answers awaits!
            
          </div>
       </div>
     </div>
 
-    <div class="w-10/12 grid items-center mx-auto mt-40 md:mt-0">
+    <div class="w-10/12 grid items-center mx-auto pt-20">
 
       <div class="">
 
@@ -70,11 +70,11 @@
 <?php endif; ?>
 
             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'email','class' => 'block mt-1 w-full','type' => 'email','name' => 'email','value' => old('email'),'required' => true,'autofocus' => true]]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'email','autocomplete' => 'off','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'email','name' => 'email','value' => old('email'),'required' => true,'autofocus' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['id' => 'email','class' => 'block mt-1 w-full','type' => 'email','name' => 'email','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('email')),'required' => true,'autofocus' => true]); ?>
+<?php $component->withAttributes(['id' => 'email','autocomplete' => 'off','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'email','name' => 'email','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('email')),'required' => true,'autofocus' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
@@ -97,11 +97,11 @@
 <?php endif; ?>
 
             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'password','class' => 'block mt-1 w-full','type' => 'password','name' => 'password','required' => true,'autocomplete' => 'current-password']]); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'password','autocomplete' => 'current-password','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'password','name' => 'password','required' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['id' => 'password','class' => 'block mt-1 w-full','type' => 'password','name' => 'password','required' => true,'autocomplete' => 'current-password']); ?>
+<?php $component->withAttributes(['id' => 'password','autocomplete' => 'current-password','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'password','name' => 'password','required' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>

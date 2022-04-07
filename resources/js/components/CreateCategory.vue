@@ -8,7 +8,8 @@
 
       <div class="mt-4 w-11/12 mx-auto">
         <input type="text" 
-        v-model="name" placeholder="Name here..." class="w-full rounded-md focus:ring-0 focus:border-purple-500"> 
+        v-model="name" placeholder="Name here..." 
+        class="w-full rounded-md focus:ring-0 focus:border-purple-500 placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300"> 
       </div>
 
 

@@ -8,7 +8,7 @@
           </svg>
         </button>
         <a href="{{ route('post.index') }}">
-          <h1 class="text-lg font-bold"><span class="dark:text-gray-300">foru</span><span class="text-blue-900">me</span></h1>
+          <h1 class="text-lg font-bold"><span class="dark:text-gray-200">foru</span><span class="text-blue-900">me</span></h1>
         </a>
       </div>
 
@@ -20,7 +20,7 @@
         </div>
         @endguest
 
-        <dark-light-mode class="mr-4 hidden sm:block align-baseline"></dark-light-mode>
+        <dark-light-mode class="mr-4 hidden sm:block mt-1"></dark-light-mode>
 
         <button v-on:click="searchBoxOpen = !searchBoxOpen">
           <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-current mr-4">

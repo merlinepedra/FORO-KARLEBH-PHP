@@ -23,7 +23,8 @@ class CategoryController extends Controller
     $category->increment('views');
 
     return view('category.show')
-    ->withCategory($category->load('posts.comments'));
+    ->withPosts(\App\Models\Post::with('comments')->whereCategoryId($category->id)->paginate())
+    ->withCategory($category);
   }
 
   public function create()

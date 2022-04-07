@@ -1,7 +1,6 @@
-  <h1 class="text-center text-lg">Recent Posts</h1>
+  <h1 class="text-center text-lg dark:text-gray-800">Recent Posts</h1>
   <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-  
-    <div class="my-4 p-4 bg-gray-200 shadow-md rounded-md">
+    <div class="my-4 p-4 bg-gray-200 shadow-md rounded-md dark:bg-gray-400 dark:text-gray-700">
       <div class="flex">
        <div class="w-11/12">
         <a href="<?php echo e(route('post.show', $post)); ?>">
@@ -30,7 +29,6 @@
       </div>
     </div>
   </div>
-
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
 <h1 class="text-center">No Posts Yet <a href="<?php echo e(route('post.create')); ?>" class="ml-4 text-blue-900 font-semibold">Create a Topic</a></h1>

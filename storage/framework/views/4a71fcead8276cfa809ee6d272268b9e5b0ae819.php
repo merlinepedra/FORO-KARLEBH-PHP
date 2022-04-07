@@ -64,7 +64,7 @@
 
     
     <a class="<?php if(request()->routeIs('post.create')): ?> hidden <?php endif; ?>" href="<?php echo e(route('post.create')); ?>">
-      <div class="bg-blue-900 hover:bg-blue-800 h-12 w-12 rounded-full fixed z-50 bottom-10 right-7 grid place-items-center md:hidden">
+      <div class="bg-blue-900 hover:bg-blue-800 h-12 w-12 rounded-full fixed z-50 bottom-10 right-7 grid place-items-center lg:hidden">
         <span class="text-gray-50 font-black text-4xl">+</span>
       </div>
     </a>
@@ -214,7 +214,8 @@
     </div>
   </div>
 
-  <div class="flex justify-between text-xs font-semibold text-gray-500 dark:text-gray-900 p-4 bg-gray-100 dark:bg-gray-400 shadow rounded-md">
+
+  <div class="flex justify-between text-xs font-semibold text-gray-500 dark:text-gray-800 p-4 bg-gray-100 dark:bg-gray-400 shadow rounded-md">
 
     <div class="grid gap-y-2">
       <a href="#">Help</a>
@@ -239,8 +240,7 @@
 
 </main>
 
-<div class="flex justify-evenly text-gray-500 dark:text-gray-200 md:hidden">
-
+<div class="flex lg:hidden justify-evenly text-gray-500 dark:text-gray-200">
   <div class="grid">
     <a href="#">Help</a>
     <a href="#">ForumePro</a>

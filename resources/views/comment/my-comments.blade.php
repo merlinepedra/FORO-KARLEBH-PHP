@@ -51,6 +51,8 @@
 </div>
 @empty
 
+<h1 class="text-center text-gray-800 dark:text-gray-200">No Answers Yet.</h1>
+
 @endforelse
 
 </div>

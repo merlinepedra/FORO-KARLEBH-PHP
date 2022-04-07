@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-<div class="grid md:grid-cols-4 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 p-4 rounded-md shadow">
+<div class="grid md:grid-cols-4 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-300 p-4 rounded-md shadow">
   <div>Comment</div>
   <div>Owner</div>
   <div>Post</div>
@@ -12,7 +12,7 @@
 <?php $__empty_1 = true; $__currentLoopData = $comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
 
 <div 
-class="grid md:grid-cols-4 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 p-4 rounded-md shadow hover:shadow-2xl hover:mb-4 transition-all duration-300">
+class="grid md:grid-cols-4 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-300 p-4 rounded-md shadow hover:shadow-2xl hover:mb-4 transition-all duration-300">
 <div>
   <p>
     <?php echo e(Str::limit($comment->comment, 10)); ?>
