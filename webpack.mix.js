@@ -10,4 +10,4 @@ mix
     require('autoprefixer'),
 ])
 .css('resources/css/extra.css', 'public/css/app.css')
-.browserSync('jet.test')
+.browserSync('forume.test')
