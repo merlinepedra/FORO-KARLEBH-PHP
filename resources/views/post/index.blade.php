@@ -8,14 +8,14 @@
 
   @forelse($posts as $post)
   {{-- <a href="{{ route('post.show', $post) }}"> --}}
-    <div class="my-4 p-4 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md md:rounded-md">
+    <div class="my-4 py-4 px-6 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md rounded-md">
       <div class="flex">
-       <Vote
+      {{--  <Vote
        :likeable_id="{{ $post->id }}"
        likeable_type="{{ $post::class }}"
        :user_id="{{ $post->user_id }}"
        class="w-1/12 mx-auto"
-       ></Vote>
+       ></Vote> --}}
        <div class="w-11/12">
         <a href="{{ route('post.show', $post) }}">
           <h1 class="lg:text-xl font-semibold truncate">{{ $post->title }}</h1>

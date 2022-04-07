@@ -56655,7 +56655,7 @@ var render = function () {
               ],
               staticClass:
                 "flex-1 bg-gray-200 dark:bg-gray-400 dark:text-gray-800 rounded-r-sm focus:outline-none",
-              attrs: { placeholder: "Search for topics" },
+              attrs: { placeholder: "Search for topics", readonly: "" },
               domProps: { value: _vm.item },
               on: {
                 input: [

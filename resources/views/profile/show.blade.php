@@ -9,7 +9,7 @@
 
     <div class="flex flex-col sm:flex-row justify-evenly gap-y-5 sm:gap-y-0 gap-x-5 md:gap-x-1">
       <div class="w-5/12">
-        <img class="h-28 md:h-40 rounded-md" @if($profile->file) src="/storage/uploads/{{ $profile->file->file }}" @else src="/image-header.jpg" @endif alt="">
+        <img class="h-28 md:h-40 rounded-md" @if($profile->file) src="/storage/uploads/{{ $profile->file->file }}" @else src="/image-header.jpg" @endif>
       </div>
 
       <div class="w-7/12 md:w-5/12 flex flex-col justify-between">
