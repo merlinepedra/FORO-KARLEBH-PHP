@@ -5,7 +5,7 @@
   @section('section')
   
 
-  <div class="mx-auto w-full bg-gray-50 md:rounded-md p-6">
+  <div class="mx-auto w-full bg-gray-50 md:rounded-md p-6 dark:bg-gray-400 dark:text-gray-700">
     <div>
       <div>
         <h1 class="text-lg md:text-3xl font-semibold truncate">{{ $post->title }}</h1>

@@ -4,10 +4,10 @@
 
 @section('section')
 
-<div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md">
+<div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md dark:bg-gray-500">
  @forelse($comments as $comment)
 
- <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
+ <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-400 dark:text-gray-700">
   <div class="flex">
    <div class="w-11/12">
     <a href="{{ route('post.show', $comment->post) }}">
@@ -54,4 +54,6 @@
 @endforelse
 
 </div>
+
+{{ $comments->links() }}
 @endsection

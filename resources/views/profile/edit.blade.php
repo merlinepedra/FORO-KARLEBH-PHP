@@ -1,8 +1,9 @@
 @extends('layouts.app')
+@section('title', 'edit profile')
 
 @section('section')
 
-<div class="mx-auto w-full bg-gray-100 md:rounded-md p-6">
+<div class="mx-auto w-full bg-gray-100 md:rounded-md p-6 mt-5 dark:bg-gray-400 dark:text-gray-700">
   <form action="{{ route('profile.update', $profile) }}" method="POST" enctype="multipart/form-data" class="py-3" enctype="multipart/form-data">
     @method('PATCH')
     @csrf

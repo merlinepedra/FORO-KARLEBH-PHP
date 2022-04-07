@@ -72,7 +72,8 @@ class CommentController extends Controller
 
   public function myComments()
   {
-    return view('comment.my-comments')->withComments(Comment::withCount('likes')->with('post')->whereUserId(auth()->id())->paginate());
+    return view('comment.my-comments')
+    ->withComments(Comment::withCount('likes')->with('post')->whereUserId(auth()->id())->paginate());
   }
 
   public function destroy(Comment $comment)

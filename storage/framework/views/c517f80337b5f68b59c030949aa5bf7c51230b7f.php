@@ -5,16 +5,16 @@
 <div class="grid gap-y-4">
 <?php $__empty_1 = true; $__currentLoopData = $profiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 py-10 md:py-5 bg-gray-50 justify-between items-center px-3 rounded-md shadow-lg">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 py-10 md:py-5 bg-gray-50 justify-between items-center px-3 rounded-md shadow-lg">
     <div>
       <?php if($profile->file): ?>
-      <img class="w-28 h-32 rounded-full" src="/storage/uploads/<?php echo e($profile->file->file); ?>" alt="">
+      <img class="w-8 h-8 object-center object-cover rounded-full" src="/storage/uploads/<?php echo e($profile->file->file); ?>" alt="">
       <?php else: ?> 
-      <img class="w-28 h-32 rounded-full" src="/image-header.jpg" >
+      <img class="w-8 h-8 object-center object-cover rounded-full" src="/image-header.jpg" >
       <?php endif; ?>
     </div>
 
-    <div class=" text-blue-800 font-bold text-xl">
+    <div class=" text-blue-800 font-bold text-md">
       <a href="<?php echo e(route('profile.show', $profile->name)); ?>"><?php echo e($profile->name); ?></a>
     </div>
 
@@ -30,11 +30,12 @@
       ></toggle-admin>
     </div>
   </div>
-  
-
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
 <?php endif; ?>
+
+<?php echo e($profiles->links()); ?>
+
 </div>
 
 <?php $__env->stopSection(); ?>

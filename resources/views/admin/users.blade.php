@@ -5,16 +5,16 @@
 <div class="grid gap-y-4">
 @forelse($profiles as $profile)
 
-  <div class="grid grid-cols-2 md:grid-cols-4 py-10 md:py-5 bg-gray-50 justify-between items-center px-3 rounded-md shadow-lg">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 py-10 md:py-5 bg-gray-50 justify-between items-center px-3 rounded-md shadow-lg">
     <div>
       @if($profile->file)
-      <img class="w-28 h-32 rounded-full" src="/storage/uploads/{{ $profile->file->file }}" alt="">
+      <img class="w-8 h-8 object-center object-cover rounded-full" src="/storage/uploads/{{ $profile->file->file }}" alt="">
       @else 
-      <img class="w-28 h-32 rounded-full" src="/image-header.jpg" >
+      <img class="w-8 h-8 object-center object-cover rounded-full" src="/image-header.jpg" >
       @endif
     </div>
 
-    <div class=" text-blue-800 font-bold text-xl">
+    <div class=" text-blue-800 font-bold text-md">
       <a href="{{ route('profile.show', $profile->name) }}">{{ $profile->name }}</a>
     </div>
 
@@ -30,11 +30,11 @@
       ></toggle-admin>
     </div>
   </div>
-  
-
 @empty
 
 @endforelse
+
+{{ $profiles->links() }}
 </div>
 
 @endsection

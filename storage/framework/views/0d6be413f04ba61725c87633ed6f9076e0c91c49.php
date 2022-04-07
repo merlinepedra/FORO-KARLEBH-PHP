@@ -1,11 +1,14 @@
   <div class="md:hidden">
     <div class="flex justify-between">
       <div class="flex">
-        <svg class="mr-2 fill-current text-blue-600 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 7V17M9 10V14M6 8V16M3 11V13M15 4V20M18 9V15M21 11V13" stroke="#001A72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <button class="text-blue-900">
+          <svg class="mr-2 text-blue-600 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7V17M9 10V14M6 8V16M3 11V13M15 4V20M18 9V15M21 11V13" 
+            stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
         <a href="<?php echo e(route('post.index')); ?>">
-          <h1 class="text-lg font-bold">foru<span class="text-blue-900">me</span></h1>
+          <h1 class="text-lg font-bold"><span class="dark:text-gray-300">foru</span><span class="text-blue-900">me</span></h1>
         </a>
       </div>
 

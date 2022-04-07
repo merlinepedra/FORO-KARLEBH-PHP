@@ -18,7 +18,7 @@ class PostController extends Controller
 
   public function index()
   {
-    return view('post.index')->withPosts(Post::orderBy('sort_at', 'desc')->latest()->withCount('comments')->with('user')->get());
+    return view('post.index')->withPosts(Post::orderBy('sort_at', 'desc')->latest()->withCount('comments')->with('user')->paginate());
   }   
 
   public function create()

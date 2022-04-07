@@ -1,19 +1,14 @@
 @extends('layouts.app')
 
+@section('title', 'my topics')
+
 @section('section')
 
-<div class="mx-auto w-full">
+<div class="mt-5 p-6 mx-auto w-full dark:bg-gray-400 rounded-md dark:bg-gray-500">
 
   @forelse($posts as $post)
-  {{-- <a href="{{ route('post.show', $post) }}"> --}}
-    <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
+    <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-400 dark:text-gray-700">
       <div class="flex">
-       <Vote
-       :likeable_id="{{ $post->id }}"
-       likeable_type="{{ $post::class }}"
-       :user_id="{{ $post->user_id }}"
-       class="w-1/12 mx-auto"
-       ></Vote>
        <div class="w-11/12">
         <a href="{{ route('post.show', $post) }}">
           <h1 class="lg:text-xl font-semibold truncate">{{ $post->title }}</h1>
@@ -49,12 +44,13 @@
       </div>
     </div>
   </div>
-{{-- </a> --}}
 @empty
 
 <h1>No Posts Yet</h1>
 
 @endforelse
+
+{{ $posts->links() }}
 
 </div>
 

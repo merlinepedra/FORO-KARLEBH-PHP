@@ -99,7 +99,7 @@
         </div>
 
         <a href="<?php echo e(route('post.index')); ?>" class="mb-3">
-          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('post.index')): ?> bg-blue-100 dark:text-gray-500 border-blue-900 <?php endif; ?>">
+          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('post.index')): ?> bg-blue-100 dark:text-gray-900 dark:bg-gray-400 border-blue-900 <?php endif; ?>">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
             </svg>
@@ -108,7 +108,7 @@
         </a>
 
         <a href="<?php echo e(route('user.posts')); ?>" class="mb-3">
-          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('user.posts')): ?> bg-blue-100 dark:text-gray-500 border-blue-900 <?php endif; ?>">
+          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('user.posts')): ?> bg-blue-100 dark:text-gray-900 dark:bg-gray-400 border-blue-900 <?php endif; ?>">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -117,7 +117,7 @@
         </a>
 
         <a href="<?php echo e(route('my-comments')); ?>" class="mb-3">
-          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('my-comments')): ?>) bg-blue-100 dark:text-gray-500 border-blue-900 <?php endif; ?>">
+          <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('my-comments')): ?>) bg-blue-100 dark:text-gray-900 dark:bg-gray-400 border-blue-900 <?php endif; ?>">
            <svg class="w-6 h-6 mr-2 ml-5" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
           </svg>
@@ -126,7 +126,7 @@
       </a>
 
       <a href="<?php echo e(route('category.index')); ?>" class="mb-3">
-        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('category.index')): ?> bg-blue-100 dark:text-gray-500 border-blue-900 <?php endif; ?>">
+        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('category.index')): ?> bg-blue-100 dark:text-gray-900 dark:bg-gray-400 border-blue-900 <?php endif; ?>">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
           </svg>
@@ -137,7 +137,7 @@
       <?php if(auth()->guard()->check()): ?>
       <?php if(auth()->user()->isAdmin()): ?>
       <a href="<?php echo e(route('admin.home')); ?>" class="mb-3">
-        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('admin.home')): ?> bg-blue-100 dark:text-gray-500 border-blue-900 <?php endif; ?>">
+        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('admin.home')): ?> bg-blue-100 dark:text-gray-900 dark:bg-gray-400 border-blue-900 <?php endif; ?>">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 ml-5"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
@@ -148,7 +148,7 @@
       <?php endif; ?>
 
       <a href="<?php echo e(route('users')); ?>" class="mb-1">
-        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('users')): ?> bg-blue-100 dark:text-gray-500 border-blue-900 <?php endif; ?>">
+        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('users')): ?> bg-blue-100 dark:text-gray-900 dark:bg-gray-400 border-blue-900 <?php endif; ?>">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
           </svg>
@@ -159,7 +159,7 @@
       <?php if(auth()->guard()->check()): ?>
 
       <a href="<?php echo e(route('setting.index')); ?>" class="mb-1">
-        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('setting.index')): ?> bg-blue-100 dark:text-gray-500 border-blue-900 <?php endif; ?>">
+        <div class="py-2 inline-flex w-full border-l-4 border-transparent <?php if(request()->routeIs('setting.index')): ?> bg-blue-100 dark:text-gray-900 dark:bg-gray-400 border-blue-900 <?php endif; ?>">
          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -214,7 +214,7 @@
     </div>
   </div>
 
-  <div class="flex justify-between text-xs font-semibold text-gray-500 dark:text-gray-700 p-4 bg-gray-100 dark:bg-gray-400 shadow rounded-md">
+  <div class="flex justify-between text-xs font-semibold text-gray-500 dark:text-gray-900 p-4 bg-gray-100 dark:bg-gray-400 shadow rounded-md">
 
     <div class="grid gap-y-2">
       <a href="#">Help</a>
@@ -239,7 +239,7 @@
 
 </main>
 
-<div class="flex justify-evenly text-gray-500 md:hidden">
+<div class="flex justify-evenly text-gray-500 dark:text-gray-200 md:hidden">
 
   <div class="grid">
     <a href="#">Help</a>
@@ -264,38 +264,6 @@
 <br>
 <br>
 </div>
-<script>
-  let theme = localStorage.getItem('theme')
-  let htmlClasses = document.querySelector('html').classList
-
-  document.getElementById('switch').addEventListener('click', function () {
-    alert(222)
-    // if (theme == 'dark') {
-    //   htmlClasses.remove('dark')
-    //   localStorage.removeItem('theme')
-    // } else {
-    //   htmlClasses.add('dark')
-    //   localStorage.theme = 'dark'
-    // }
-  })
-
-    // if (theme == 'dark') {
-    //   htmlClasses.add('dark')
-    // } else {
-    //   htmlClasses.remove('dark')
-    // }
-
-    // document.getElementById('switch')
-    // .addEventListener('click', () => {
-    //   htmlClasses.toggle('dark')
-
-    //   if (localStorage.hasOwnProperty('theme')) {
-    //     localStorage.removeItem('theme')
-    //   } else {
-    //     localStorage.theme = 'dark'
-    //   }
-    // })
-  </script>
 </body>
 </html>
 <?php /**PATH C:\laragon\www\Forume\resources\views/layouts/app.blade.php ENDPATH**/ ?>

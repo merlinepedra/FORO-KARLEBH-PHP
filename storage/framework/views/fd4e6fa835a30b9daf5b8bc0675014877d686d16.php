@@ -1,19 +1,14 @@
 
 
+<?php $__env->startSection('title', 'my topics'); ?>
+
 <?php $__env->startSection('section'); ?>
 
-<div class="mx-auto w-full">
+<div class="mt-5 p-6 mx-auto w-full dark:bg-gray-400 rounded-md dark:bg-gray-500">
 
   <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-  
-    <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
+    <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-400 dark:text-gray-700">
       <div class="flex">
-       <Vote
-       :likeable_id="<?php echo e($post->id); ?>"
-       likeable_type="<?php echo e($post::class); ?>"
-       :user_id="<?php echo e($post->user_id); ?>"
-       class="w-1/12 mx-auto"
-       ></Vote>
        <div class="w-11/12">
         <a href="<?php echo e(route('post.show', $post)); ?>">
           <h1 class="lg:text-xl font-semibold truncate"><?php echo e($post->title); ?></h1>
@@ -49,12 +44,14 @@
       </div>
     </div>
   </div>
-
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
 <h1>No Posts Yet</h1>
 
 <?php endif; ?>
+
+<?php echo e($posts->links()); ?>
+
 
 </div>
 

@@ -1,9 +1,10 @@
 
+<?php $__env->startSection('title', 'categories'); ?>
 
 <?php $__env->startSection('section'); ?>
 <div class="mx-auto w-full">
   <?php $__empty_1 = true; $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
+  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:text-gray-700 dark:bg-gray-400">
     <div class="flex">
      <div class="w-11/12">
       <a href="<?php echo e(route('category.show', $category)); ?>">
@@ -36,6 +37,9 @@
 <?php endif; ?>
 
 </div>
+
+<?php echo e($categories->links()); ?>
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\Forume\resources\views/category/index.blade.php ENDPATH**/ ?>

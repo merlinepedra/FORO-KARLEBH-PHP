@@ -1,7 +1,7 @@
 <template>
   
   <div class="hero">
-    <div class="cont bg-blue-100">
+    <div class="cont bg-blue-100 dark:bg-gray-400">
     </div>
     <div class="below bg-blue-900 shadow-md"></div>
   </div>

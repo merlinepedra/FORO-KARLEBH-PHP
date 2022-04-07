@@ -1,8 +1,9 @@
 
+<?php $__env->startSection('title', 'edit profile'); ?>
 
 <?php $__env->startSection('section'); ?>
 
-<div class="mx-auto w-full bg-gray-100 md:rounded-md p-6">
+<div class="mx-auto w-full bg-gray-100 md:rounded-md p-6 mt-5 dark:bg-gray-400 dark:text-gray-700">
   <form action="<?php echo e(route('profile.update', $profile)); ?>" method="POST" enctype="multipart/form-data" class="py-3" enctype="multipart/form-data">
     <?php echo method_field('PATCH'); ?>
     <?php echo csrf_field(); ?>
@@ -15,8 +16,10 @@
 
     <div class="mt-7 md:w-9/12 mx-auto">
       <label for="city">City</label>
-      <input type="text" 
-      name="city" placeholder="Enter the name of your city" class="mt-3 w-full rounded-md focus:ring-0 focus:border-purple-500 <?php if($profile->city): ?> bg-gray-300 <?php endif; ?>" 
+      <input 
+      autocomplete="off" 
+      name="city" placeholder="Enter the name of your city" 
+      class="mt-3 placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-400 dark:text-gray-300 w-full rounded-md focus:ring-0 focus:border-purple-500 <?php if($profile->city): ?> bg-gray-300 <?php endif; ?>" 
       <?php if($profile->city): ?> value="<?php echo e($profile->city); ?>" <?php else: ?> value="<?php echo e(old('city')); ?>" <?php endif; ?>>
       <?php $__errorArgs = ['city'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -32,8 +35,10 @@ unset($__errorArgs, $__bag); ?>
 
     <div class="mt-10 md:w-9/12 mx-auto">
       <label for="city">Country</label>
-      <input type="text" 
-      name="country" placeholder="What country are you from?" class="mt-3 w-full rounded-md focus:ring-0 focus:border-purple-500 <?php if($profile->country): ?> bg-gray-300 <?php endif; ?>" 
+      <input 
+      autocomplete="off" 
+      name="country" placeholder="What country are you from?" 
+      class="placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-400 dark:text-gray-300 mt-3 w-full rounded-md focus:ring-0 focus:border-purple-500 <?php if($profile->country): ?> bg-gray-300 <?php endif; ?>" 
       <?php if($profile->country): ?> value="<?php echo e($profile->country); ?>" <?php else: ?> value="<?php echo e(old('country')); ?>" <?php endif; ?>>
       <?php $__errorArgs = ['country'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -49,8 +54,10 @@ unset($__errorArgs, $__bag); ?>
 
     <div class="mt-10 md:w-9/12 mx-auto">
       <label for="city">Phone</label>
-      <input type="text" 
-      name="phone" placeholder="We do not mind if you share your phone number" class="mt-3 w-full rounded-md focus:ring-0 focus:border-purple-500 <?php if($profile->phone): ?> bg-gray-300 <?php endif; ?>" 
+      <input 
+      autocomplete="off"
+      name="phone" placeholder="We do not mind if you share your phone number" 
+      class="mt-3 placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-400 dark:text-gray-300 w-full rounded-md focus:ring-0 focus:border-purple-500 <?php if($profile->phone): ?> bg-gray-300 <?php endif; ?>" 
       <?php if($profile->phone): ?> value="<?php echo e($profile->phone); ?>" <?php else: ?> value="<?php echo e(old('phone')); ?>" <?php endif; ?>>
       <small class="text-blue-500 font-semibold my-2">Your number is visible to you only</small>
       <?php $__errorArgs = ['phone'];

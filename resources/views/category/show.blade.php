@@ -3,7 +3,7 @@
 @section('section')
 <div class="mx-auto w-full">
 
-  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
+  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-600">
 
     <h1 class="text-2xl font-base text-center">{{ ucfirst($category->name) }}</h1>
 

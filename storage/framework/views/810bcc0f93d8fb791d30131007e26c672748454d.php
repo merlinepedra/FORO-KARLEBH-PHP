@@ -4,10 +4,10 @@
 
 <?php $__env->startSection('section'); ?>
 
-<div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md">
+<div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md dark:bg-gray-500">
  <?php $__empty_1 = true; $__currentLoopData = $comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
 
- <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md">
+ <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-400 dark:text-gray-700">
   <div class="flex">
    <div class="w-11/12">
     <a href="<?php echo e(route('post.show', $comment->post)); ?>">
@@ -54,6 +54,9 @@
 <?php endif; ?>
 
 </div>
+
+<?php echo e($comments->links()); ?>
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\Forume\resources\views/comment/my-comments.blade.php ENDPATH**/ ?>

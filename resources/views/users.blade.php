@@ -1,20 +1,20 @@
 @extends('layouts.app')
+@section('title', 'all users')
+
 
 @section('section')
 
-<div class="mx-auto w-full bg-gray-50 rounded-md py-10 px-6">
+<div class="mx-auto w-full place-items-center bg-gray-50 rounded-md py-10 px-6 dark:bg-gray-500">
 
   <div>
-
-
     @foreach($users as $user)
-    <div class="mt-4 grid grid-cols-3 place-content-evenly">
+    <div class="mt-4 flex justify-between px-8">
 
       <span class="">
-        <a class="text-blue-500 font-semibold" href="{{ route('profile.show', $user->name) }}">{{ $user->name }}</a>
+        <a class="text-blue-500 dark:text-gray-200 font-semibold" href="{{ route('profile.show', $user->name) }}">{{ $user->name }}</a>
       </span>
 
-      <span class="">Joined <span class="font-semibold">{{ $user->created_at->diffForHumans() }}</span></span>
+      <span class="dark:text-gray-200">Joined <span class="font-semibold">{{ $user->created_at->diffForHumans() }}</span></span>
 
       <Follow 
       :user_id="{{ $user->id }}"
@@ -24,8 +24,9 @@
     </div>
     @endforeach
 
-    {{ $users->links() }}
   </div>
+  <br>
+  {{ $users->links() }}
 
 </div>
 
