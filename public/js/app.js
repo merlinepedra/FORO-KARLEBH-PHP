@@ -3088,7 +3088,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    Echo.channel('like').listen('NotifiableEvent', function (notification) {
+    Echo.channel('like').listen("\\App\\Events\\LikeEvent", function (notification) {
       console.log('Realtime baby!!'); // this.counter++
     });
   }

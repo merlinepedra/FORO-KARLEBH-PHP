@@ -80,4 +80,8 @@ class CommentController extends Controller
   {
     $comment->delete();
   }
+
+  public function commentsAdmin() {
+    return view('admin.comment')->withComments(\App\Models\Comment::paginate());
+  }
 }

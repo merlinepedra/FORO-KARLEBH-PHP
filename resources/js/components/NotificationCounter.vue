@@ -13,7 +13,7 @@
 
       mounted() {
         Echo.channel('like')
-        .listen('NotifiableEvent', notification => {
+        .listen("\\App\\Events\\LikeEvent", notification => {
           console.log('Realtime baby!!')
           // this.counter++
         })

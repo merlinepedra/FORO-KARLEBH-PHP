@@ -14,8 +14,9 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group( function () 
   Route::patch('/unblock/{user}', [Admin\AdminController::class, 'unblockUser'])->name('unblockUser');
 
   Route::get('/posts', [Admin\PostController::class, 'posts'])->name('posts');
-  Route::view('/comments', 'admin.comment', ['comments' => \App\Models\Comment::paginate()])->name('comments');
-  Route::view('/categories', 'admin.category', ['categories' => \App\Models\Category::paginate()])->name('categories');
+
+  Route::get('/comments', [\App\Http\Controllers\CommentController::class, 'commentsAdmin'])->name('comments');
+  Route::view('/categories', 'admin.category')->name('categories');
 
   Route::patch('/make-latest/{post}', [Admin\PostController::class, 'makeLatest']);
   Route::patch('/change-category/{post}', [Admin\PostController::class, 'changeCategory']);
