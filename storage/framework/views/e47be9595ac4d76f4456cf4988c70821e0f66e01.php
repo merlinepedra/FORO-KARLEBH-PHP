@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('section'); ?>
 
-<div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md">
+<div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md dark:bg-gray-400 dark:text-gray-700">
 
   <form action="<?php echo e(route('comment.update', $comment)); ?>" method="POST" 
   class="py-3" enctype="multipart/form-data">
@@ -16,7 +16,7 @@
 
   <div class="md:w-9/12 mx-auto mt-10">
     <textarea type="text" name="comment" placeholder="Description here..." 
-    class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500"><?php echo e($comment->comment); ?></textarea>
+    class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500 placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300"><?php echo e($comment->comment); ?></textarea>
     <?php $__errorArgs = ['comment'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -30,7 +30,7 @@ unset($__errorArgs, $__bag); ?>
   </div>
 
   
-  <div class="md:w-9/12 mx-auto mt-10">
+  <div class="md:w-9/12 mx-auto mt-10 dark:bg-gray-400">
     <input 
     type="file" 
     id="photo" 
@@ -55,7 +55,7 @@ unset($__errorArgs, $__bag); ?>
   </div>
 
   <div class="mt-8 md:w-9/12 mx-auto">
-    <input type="submit" value="Update Comment" class="px-3 py-2 bg-gray-700 text-gray-100 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
+    <input type="submit" value="Update Comment" class="px-3 py-2 bg-gray-700 text-gray-100 dark:text-gray-200 rounded-md focus:ring-0 focus:border-purple-500 font-semibold">
   </div>
 
 </form>
@@ -65,4 +65,4 @@ unset($__errorArgs, $__bag); ?>
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\Jet\resources\views/comment/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\Forume\resources\views/comment/edit.blade.php ENDPATH**/ ?>

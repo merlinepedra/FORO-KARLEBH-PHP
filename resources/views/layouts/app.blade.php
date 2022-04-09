@@ -59,8 +59,8 @@
 
   <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body>
-  <div id="main" v-cloak class="bg-gray-200 dark:bg-gray-600">
+<body class="bg-gray-200 dark:bg-gray-600 min-h-screen antialiased">
+  <div id="main" v-cloak>
 
     {{-- Mobile Fixed Create Topic Button --}}
     <a class="@if(request()->routeIs('post.create')) hidden @endif" href="{{ route('post.create') }}">

@@ -19,8 +19,8 @@
     computed: {
       classObject() {
         return {
-          'bg-lime-500': this.status,
-          'bg-blue-500': !this.status
+          'bg-red-500': this.status,
+          'bg-blue-500 dark:bg-blue-900': !this.status
         }
       },
 

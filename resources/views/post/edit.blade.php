@@ -3,28 +3,30 @@
 @section('title', 'edit your post')
 
 @section('section')
-<div class="mx-auto w-full bg-gray-100 p-6 rounded-md">
+<div class="mx-auto w-full bg-gray-100 p-6 mt-5 rounded-md dark:bg-gray-500 dark:text-gray-700">
 
 
   <form action="{{ route('post.update', $post) }}" method="POST" enctype="multipart/form-data" class="py-3" enctype="multipart/form-data">
-  @method('PATCH')
-  @csrf
+    @method('PATCH')
+    @csrf
 
-  <h1 class="text-2xl font-base text-center">Update Post</h1>
+    <h1 class="text-2xl font-base text-center">Update Post</h1>
 
-  <div class="mt-10 md:w-9/12 mx-auto">
-    <input type="text" 
-    name="title" placeholder="Title here..." class="w-full rounded-md focus:ring-0 focus:border-purple-500" 
-    value="{{ $post->title }}">
-    @error('title')
-    <div class="text-sm text-red-500 justify-end">{{ $message }}</div>
-    @enderror
+    <div class="mt-10 md:w-9/12 mx-auto">
+      <input type="text" 
+      name="title" placeholder="Title here..."  
+      class="w-full placeholder-gray-800 dark:placeholder-gray-300 rounded-md focus:ring-0 focus:border-purple-500 dark:bg-gray-400 dark:text-gray-300" 
+      value="{{ $post->title }}">
+      @error('title')
+      <div class="text-sm text-red-500 justify-end">{{ $message }}</div>
+      @enderror
 
-  </div>
+    </div>
 
 
-  <div class="md:w-9/12 mx-auto mt-10">
-    <select name="category_id" class="w-full rounded-md focus:ring-0 focus:border-purple-500">
+    <div class="md:w-9/12 mx-auto mt-10">
+      <select name="category_id" 
+      class="w-full placeholder-gray-800 dark:placeholder-gray-300 rounded-md focus:ring-0 focus:border-purple-500 dark:bg-gray-400 dark:text-gray-300">
       <option value="">Select a category</option>
       @forelse($categories as $category)
       <option @if($post->category_id === $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
@@ -40,7 +42,7 @@
 
   <div class="md:w-9/12 mx-auto mt-10">
     <textarea type="text" name="desc" placeholder="Description here..." 
-    class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500">{{ $post->desc }}</textarea>
+    class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500 placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-400 dark:text-gray-300">{{ $post->desc }}</textarea>
     @error('desc')
     <div class="text-sm text-red-500 justify-end">{{ $message }}</div>
     @enderror

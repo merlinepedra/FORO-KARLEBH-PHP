@@ -11,10 +11,10 @@
     <div class="mt-4 flex justify-between px-8">
 
       <span class="">
-        <a class="text-blue-500 dark:text-gray-200 font-semibold" href="<?php echo e(route('profile.show', $user->name)); ?>"><?php echo e($user->name); ?></a>
+        <a class="text-blue-500 dark:text-blue-900 font-semibold" href="<?php echo e(route('profile.show', $user->name)); ?>"><?php echo e($user->name); ?></a>
       </span>
 
-      <span class="dark:text-gray-200">Joined <span class="font-semibold"><?php echo e($user->created_at->diffForHumans()); ?></span></span>
+      <span class="dark:text-gray-300">Joined <span class="font-semibold"><?php echo e($user->created_at->diffForHumans()); ?></span></span>
 
       <Follow 
       :user_id="<?php echo e($user->id); ?>"

@@ -21,7 +21,7 @@
     <div>
       <hr id="top">
 
-      <div class="inline-flex items-center">
+      <div class="flex items-center">
         <Like
         :likeable_id="{{ $post->id }}"
         likeable_type="{{ $post::class }}"
@@ -30,12 +30,22 @@
         ></Like>
 
         @can('update', $post)
-        <a href="{{ route('post.edit', $post) }}" class="text-gray-800 font-semibold textlg md:text-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <a href="{{ route('post.edit', $post) }}" class="text-gray-800 font-semibold textlg md:text-2xl mr-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
           </svg>
         </a>
         @endcan
+
+        <span class="inline-flex">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <span class="text-blue-900 font-bold">
+            {{ $post->views}}
+          </span>
+        </span>
       </div>
 
       @can('comment', $post)
@@ -45,7 +55,7 @@
           <textarea id="textarea" name="comment" placeholder="Comment here..." 
           class="w-full rounded-md resize-none h-40 focus:ring-0 focus:border-purple-500 placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300"></textarea>
           @error('comment')
-          <div class="text-sm text-red-500 justify-end">{{ $message }}</div>
+          <div class="text-sm text-red-500 dark:text-gray-200 dark:py-3 dark:pl-3 dark:rounded-md dark:bg-red-500 justify-end">{{ $message }}</div>
           @enderror
         </div>
 
@@ -65,7 +75,7 @@
           class="w-full bg-gray-400">
 
           <div class="flex justify-between mt-8">
-            <small class="font-semibold text-blue-500">Grab images to re-order</small>
+            <small class="font-semibold text-blue-500 dark:text-blue-900">Grab images to re-order</small>
             <small class="font-bold text-md text-gray-900 uppercase tracking-wider">max size is 5MB</small>
           </div>
         </div>
@@ -115,7 +125,7 @@
             {{-- <a href="#top" data-parent-id="{{ $comment->id }}" v-on:click="reply" class="scrollLinks text-gray-800 font-semibold text-2xl">Reply</a> --}}
             @can('reply')
             <button title="Reply" data-parent-id="{{ $comment->id }}" v-on:click="openReplyBox" id="replyBtn" class="text-gray-800 font-semibold text-2xl mr-10">
-              <svg  xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
               </svg>
             </button>
@@ -123,7 +133,7 @@
 
             @can('update', $comment)
             <a href="{{ route('comment.edit', $comment) }}" class="text-gray-800 font-semibold text-2xl">
-              <svg title="edit" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg title="edit" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
               </svg>
             </a>
@@ -179,7 +189,7 @@
 
             @can('update', $reply)
             <a href="{{ route('comment.edit', $reply) }}" class="text-gray-800 font-semibold text-2xl">
-              <svg title="Reply" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg title="Reply" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
               </svg>
             </a>

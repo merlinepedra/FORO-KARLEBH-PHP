@@ -14,9 +14,9 @@ Route::get('/mail', function () {
 Route::resource('/profile', Controllers\ProfileController::class)->middleware('auth');
 
 Route::get('/users', [Controllers\UserController::class, 'index'])->name('users');
-Route::get('/user-posts', [Controllers\UserController::class, 'posts'])->name('user.posts');
+Route::get('/user-posts', [Controllers\UserController::class, 'posts'])->name('user.posts')->middleware('auth');
 
-Route::get('/search', Controllers\SearchController::class)->name('search');
+Route::post('/search', Controllers\SearchController::class)->name('search');
 
 Route::get('/notifications', [Controllers\HomeController::class, 'notifications'])->name('notifications');
 Route::get('/notificationsCount', [Controllers\HomeController::class, 'notificationsCount']);

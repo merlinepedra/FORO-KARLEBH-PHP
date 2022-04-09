@@ -9,6 +9,14 @@
       return {
         counter: this.count
       }
-    }
+    },
+
+      mounted() {
+        Echo.channel('like')
+        .listen('NotifiableEvent', notification => {
+          console.log('Realtime baby!!')
+          // this.counter++
+        })
+      }
   }
 </script>

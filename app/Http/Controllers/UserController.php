@@ -20,7 +20,7 @@ class UserController extends Controller
   public function posts()
   {
     return view('post.user-posts')
-    ->withPosts(Post::whereUserId(auth()->id())->paginate());
+    ->withPosts(Post::withCount('comments')->whereUserId(auth()->id())->paginate());
   }
 
 

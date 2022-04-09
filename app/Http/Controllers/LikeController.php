@@ -40,9 +40,14 @@ class LikeController extends Controller
 			'like' => 'like'
 		]);
 
-		$user = \App\Models\User::findOrFail(request()->user_id);
     $likeable = \App\Models\Like::whereLikeableId(request()->likeable_id)->whereLikeableType(request()->likeable_type)->get()[0];
+		$user = \App\Models\User::findOrFail(request()->user_id);
 
+    // Event Logic
+    event(new \App\Events\LikeEvent($likeable));
+
+
+    // Notification Logic
     $url = request()->url;
 
     if (request()->likeable_type == 'App\Models\Post') {

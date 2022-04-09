@@ -7,7 +7,7 @@
 <div class="mx-auto w-full">
 
   <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-  <div class="my-4 py-4 px-6 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md rounded-md">
+  <div class="my-4 py-4 px-2 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md rounded-md">
     <div class="flex">
        <div class="w-11/12">
         <a href="<?php echo e(route('post.show', $post)); ?>">
@@ -43,7 +43,7 @@
          <svg class="w-6 h-6 mr-1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
-        <span><?php echo e($post->comments_count); ?></span>
+        <span class="text-blue-900 font-bold"><?php echo e($post->comments_count); ?></span>
       </div>
     </div>
   </div>

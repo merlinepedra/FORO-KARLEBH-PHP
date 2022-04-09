@@ -160,13 +160,13 @@
 
   @auth
   <div  class="text-sm italic py-2">
-    <a class="block mt-1 hover:bg-blue-100 px-2 py-1" href="{{ route('profile.edit', auth()->user()->profile->name) }}">Edit Profile</a>
-    <a class="block mt-1 hover:bg-blue-100 px-2 py-1" href="{{ route('profile.show', auth()->user()->profile->name) }}">
+    <a class="block mt-1 hover:bg-blue-100 dark:hover:bg-gray-500 px-2 py-1" href="{{ route('profile.edit', auth()->user()->profile->name) }}">Edit Profile</a>
+    <a class="block mt-1 hover:bg-blue-100 dark:hover:bg-gray-500 px-2 py-1" href="{{ route('profile.show', auth()->user()->profile->name) }}">
       View Profile
     </a>
     <form action="{{ route('logout') }}" method="post" class="inline">
       @csrf
-      <button type="submit" class="font-semibold text-left mt-1 hover:bg-blue-100 px-2 py-1 w-full italic">Logout</button>
+      <button type="submit" class="font-semibold text-left mt-1 hover:bg-blue-100 dark:hover:bg-gray-500 px-2 py-1 w-full italic">Logout</button>
     </form>
   </div>
   @endauth

@@ -16,10 +16,9 @@
     </button>
   </div>
 
-  <span class="text-blue-900 font-semibold text-lg md:text-xl" 
-  :class="{'visible': count > 0, 'invisible': count < 1}" v-if="count > 0">
-    {{ count }}
-  </span>
+  <span class="text-blue-900 font-semibold text-lg md:text-xl" v-if="count > 0">
+  {{ count }}
+</span>
 
 </div>
 </template>
@@ -60,29 +59,29 @@
           this.liked = true
           this.count = this.count + 1
         })
-          // .catch(err => window.location.href = '/login')
+        .catch(err =>  err.response.status === 401 ? window.location.href = '/login' : '')
 
-        },
-
-        async unlike() {
-          await axios
-          .post(`/delete-like`, {
-            likeable_id: this.likeable_id, 
-            likeable_type: this.likeable_type,
-            url: window.location.href,
-          })
-          .then(res => {
-            this.liked = false
-            this.count--
-          })
-          // .catch(err => window.location.href = '/login')
-        },
-
-        async likeData() {
-          const { data } = await axios.post(`/like-data`, {likeable_id: this.likeable_id, likeable_type: this.likeable_type})
-          data[0] == 'liked' ? this.liked = true : this.liked = false
-          this.count = data[1]
-        }
       },
-    }
-  </script>
+
+      async unlike() {
+        await axios
+        .post(`/delete-like`, {
+          likeable_id: this.likeable_id, 
+          likeable_type: this.likeable_type,
+          url: window.location.href,
+        })
+        .then(res => {
+          this.liked = false
+          this.count--
+        })
+        .catch(err =>  err.response.status === 401 ? window.location.href = '/login' : '')
+      },
+
+      async likeData() {
+        const { data } = await axios.post(`/like-data`, {likeable_id: this.likeable_id, likeable_type: this.likeable_type})
+        data[0] == 'liked' ? this.liked = true : this.liked = false
+        this.count = data[1]
+      }
+    },
+  }
+</script>

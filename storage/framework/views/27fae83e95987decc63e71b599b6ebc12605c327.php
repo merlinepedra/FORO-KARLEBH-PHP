@@ -21,7 +21,7 @@
     <div>
       <hr id="top">
 
-      <div class="inline-flex items-center">
+      <div class="flex items-center">
         <Like
         :likeable_id="<?php echo e($post->id); ?>"
         likeable_type="<?php echo e($post::class); ?>"
@@ -30,12 +30,23 @@
         ></Like>
 
         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $post)): ?>
-        <a href="<?php echo e(route('post.edit', $post)); ?>" class="text-gray-800 font-semibold textlg md:text-2xl">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <a href="<?php echo e(route('post.edit', $post)); ?>" class="text-gray-800 font-semibold textlg md:text-2xl mr-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
           </svg>
         </a>
         <?php endif; ?>
+
+        <span class="inline-flex">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <span class="text-blue-900 font-bold">
+            <?php echo e($post->views); ?>
+
+          </span>
+        </span>
       </div>
 
       <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('comment', $post)): ?>
@@ -49,7 +60,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-          <div class="text-sm text-red-500 justify-end"><?php echo e($message); ?></div>
+          <div class="text-sm text-red-500 dark:text-gray-200 dark:py-3 dark:pl-3 dark:rounded-md dark:bg-red-500 justify-end"><?php echo e($message); ?></div>
           <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -72,7 +83,7 @@ unset($__errorArgs, $__bag); ?>
           class="w-full bg-gray-400">
 
           <div class="flex justify-between mt-8">
-            <small class="font-semibold text-blue-500">Grab images to re-order</small>
+            <small class="font-semibold text-blue-500 dark:text-blue-900">Grab images to re-order</small>
             <small class="font-bold text-md text-gray-900 uppercase tracking-wider">max size is 5MB</small>
           </div>
         </div>
@@ -124,7 +135,7 @@ unset($__errorArgs, $__bag); ?>
             
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('reply')): ?>
             <button title="Reply" data-parent-id="<?php echo e($comment->id); ?>" v-on:click="openReplyBox" id="replyBtn" class="text-gray-800 font-semibold text-2xl mr-10">
-              <svg  xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg  xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
               </svg>
             </button>
@@ -132,7 +143,7 @@ unset($__errorArgs, $__bag); ?>
 
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $comment)): ?>
             <a href="<?php echo e(route('comment.edit', $comment)); ?>" class="text-gray-800 font-semibold text-2xl">
-              <svg title="edit" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg title="edit" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
               </svg>
             </a>
@@ -189,7 +200,7 @@ unset($__errorArgs, $__bag); ?>
 
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $reply)): ?>
             <a href="<?php echo e(route('comment.edit', $reply)); ?>" class="text-gray-800 font-semibold text-2xl">
-              <svg title="Reply" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <svg title="Reply" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
               </svg>
             </a>

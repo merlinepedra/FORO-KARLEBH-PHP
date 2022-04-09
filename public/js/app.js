@@ -2774,8 +2774,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   computed: {
     classObject: function classObject() {
       return {
-        'bg-lime-500': this.status,
-        'bg-blue-500': !this.status
+        'bg-red-500': this.status,
+        'bg-blue-500 dark:bg-blue-900': !this.status
       };
     },
     buttonText: function buttonText() {
@@ -2934,7 +2934,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['likeable_id', 'likeable_type', 'user_id'],
   data: function data() {
@@ -2964,6 +2963,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (res) {
                   _this.liked = true;
                   _this.count = _this.count + 1;
+                })["catch"](function (err) {
+                  return err.response.status === 401 ? window.location.href = '/login' : '';
                 });
 
               case 2:
@@ -2990,6 +2991,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (res) {
                   _this2.liked = false;
                   _this2.count--;
+                })["catch"](function (err) {
+                  return err.response.status === 401 ? window.location.href = '/login' : '';
                 });
 
               case 2:
@@ -3083,6 +3086,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       counter: this.count
     };
+  },
+  mounted: function mounted() {
+    Echo.channel('like').listen('NotifiableEvent', function (notification) {
+      console.log('Realtime baby!!'); // this.counter++
+    });
   }
 });
 
@@ -3155,12 +3163,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       item: '',
-      results: ''
+      results: []
     };
   },
   methods: {
@@ -3175,15 +3196,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return axios.get("/search", {
+                _context.t0 = _this.item.length > 0;
+
+                if (!_context.t0) {
+                  _context.next = 4;
+                  break;
+                }
+
+                _context.next = 4;
+                return axios.post("/search", {
                   item: _this.item
                 }).then(function (res) {
-                  // console.log(res.data)
-                  _this.results = res.data.splice(-10);
+                  console.log(res.data);
+                  console.log(res.data[1]);
+                  _this.results = res.data[1];
                 });
 
-              case 2:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -62494,11 +62523,8 @@ var render = function () {
     _vm.count > 0
       ? _c(
           "span",
-          {
-            staticClass: "text-blue-900 font-semibold text-lg md:text-xl",
-            class: { visible: _vm.count > 0, invisible: _vm.count < 1 },
-          },
-          [_vm._v("\n    " + _vm._s(_vm.count) + "\n  ")]
+          { staticClass: "text-blue-900 font-semibold text-lg md:text-xl" },
+          [_vm._v("\n  " + _vm._s(_vm.count) + "\n")]
         )
       : _vm._e(),
   ])
@@ -62743,21 +62769,19 @@ var render = function () {
                     _c(
                       "svg",
                       {
-                        staticClass: "h-6 w-6",
+                        staticClass: "h-5 w-5",
                         attrs: {
-                          stroke: "currentColor",
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20",
                           fill: "none",
-                          viewBox: "0 0 24 24",
                         },
                       },
                       [
                         _c("path", {
-                          staticClass: "inline-flex",
                           attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
-                            d: "M6 18L18 6M6 6l12 12",
+                            "fill-rule": "evenodd",
+                            d: "M6.707 4.879A3 3 0 018.828 4H15a3 3 0 013 3v6a3 3 0 01-3 3H8.828a3 3 0 01-2.12-.879l-4.415-4.414a1 1 0 010-1.414l4.414-4.414zm4 2.414a1 1 0 00-1.414 1.414L10.586 10l-1.293 1.293a1 1 0 101.414 1.414L12 11.414l1.293 1.293a1 1 0 001.414-1.414L13.414 10l1.293-1.293a1 1 0 00-1.414-1.414L12 8.586l-1.293-1.293z",
+                            "clip-rule": "evenodd",
                           },
                         }),
                       ]
@@ -62796,27 +62820,29 @@ var render = function () {
       "div",
       { staticClass: "hidden md:block relative bg-gray-200 dark:bg-gray-400" },
       [
-        _c("form", { attrs: { action: "flex" } }, [
+        _c("form", { attrs: { action: "flex rounded-lg overflow-hidden" } }, [
           _c(
             "div",
             { staticClass: "flex-1 flex px-3 py-2 rounded-lg overflow-hidden" },
             [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-6 w-6  mr-3",
-                  attrs: { viewBox: "0 0 24 24", "aria-hidden": "true" },
-                },
-                [
-                  _c("g", [
-                    _c("path", {
-                      attrs: {
-                        d: "M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z",
-                      },
-                    }),
-                  ]),
-                ]
-              ),
+              _c("button", [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "h-6 w-6  mr-3",
+                    attrs: { viewBox: "0 0 24 24", "aria-hidden": "true" },
+                  },
+                  [
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          d: "M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z",
+                        },
+                      }),
+                    ]),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -62828,8 +62854,8 @@ var render = function () {
                   },
                 ],
                 staticClass:
-                  "flex-1 bg-gray-200 dark:bg-gray-400 dark:text-gray-800 rounded-r-sm focus:outline-none",
-                attrs: { placeholder: "Search for topics", readonly: "" },
+                  "flex-1 bg-gray-200 dark:bg-gray-400 dark:text-gray-800 rounded-r-md focus:outline-none",
+                attrs: { placeholder: "Search for topics" },
                 domProps: { value: _vm.item },
                 on: {
                   input: [
@@ -62890,23 +62916,39 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  "absolute z-10 rounded-md shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
+                  "absolute z-10 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
               },
               _vm._l(_vm.results, function (result) {
                 return _c(
-                  "div",
-                  {
-                    key: result.id,
-                    staticClass: "px-3 py-2 hover:bg-blue-100",
-                  },
+                  "a",
+                  { key: result.id, attrs: { href: _vm.getUrl(result.slug) } },
                   [
-                    _c("a", { attrs: { href: _vm.getUrl(result.slug) } }, [
-                      _vm._v(_vm._s(result.title) + "   "),
+                    _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
+                      _vm._v(
+                        "\n           " + _vm._s(result.title) + "  \n         "
+                      ),
                     ]),
                   ]
                 )
               }),
               0
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        Array.isArray(_vm.results) && _vm.results.length == 0
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "absolute z-10 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
+              },
+              [
+                _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
+                  _vm._v(
+                    "\n        no result for " + _vm._s(_vm.item) + "  \n      "
+                  ),
+                ]),
+              ]
             )
           : _vm._e(),
       ]

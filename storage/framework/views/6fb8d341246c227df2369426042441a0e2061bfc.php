@@ -7,7 +7,7 @@
         <path d="M12 7V17M9 10V14M6 8V16M3 11V13M15 4V20M18 9V15M21 11V13" stroke="#001A72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <a href="<?php echo e(route('post.index')); ?>">
-        <h1 class="text-lg font-bold"><span class="dark:text-gray-200">foru</span><span class="text-blue-900 font-black">me</span></h1>
+        <h1 class="text-xl font-bold"><span class="dark:text-gray-200">foru</span><span style="font-weight: 700;" class="text-blue-900 dark:text-blue-900">me</span></h1>
       </a>
     </div>
 

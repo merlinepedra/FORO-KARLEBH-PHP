@@ -59,8 +59,8 @@
 
   <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 </head>
-<body>
-  <div id="main" v-cloak class="bg-gray-200 dark:bg-gray-600">
+<body class="bg-gray-200 dark:bg-gray-600 min-h-screen antialiased">
+  <div id="main" v-cloak>
 
     
     <a class="<?php if(request()->routeIs('post.create')): ?> hidden <?php endif; ?>" href="<?php echo e(route('post.create')); ?>">
