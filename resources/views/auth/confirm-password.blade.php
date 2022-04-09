@@ -1,7 +1,7 @@
 <x-guest-layout>
 
-<section class="md:grid grid-cols-2 h-[87.8vh]">
-  <div class="bg-blue-100 hidden md:block">
+<section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
+  <div class="bg-blue-100 dark:bg-gray-500 hidden md:block">
     <div class="mb-4 text-sm text-gray-600">
       {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
     </div>
@@ -22,7 +22,7 @@
     <div>
       <x-label for="password" :value="__('Password')" />
 
-      <x-input id="password" class="block mt-1 w-full"
+      <x-input id="password" class="block mt-1 w-full dark:placeholder-gray-300 dark:bg-gray-300"
       type="password"
       name="password"
       required autocomplete="current-password" />

@@ -61911,6 +61911,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "w-40 relative" },
     [
       _c(
         "button",
@@ -61923,7 +61924,7 @@ var render = function () {
           },
         },
         [
-          _c("div", { staticClass: "flex items-center justify-between w-28" }, [
+          _c("div", { staticClass: "flex items-center justify-between" }, [
             _c("span", { staticClass: "mr-20" }, [
               _vm._v("\n          " + _vm._s(_vm.buttonValue) + "\n        "),
             ]),
@@ -61970,20 +61971,20 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  "options rounded-md text-gray-100 overflow-auto mt-3",
+                  "options absolute z-10 w-full flex flex-col rounded-md text-gray-100 overflow-auto mt-3",
                 staticStyle: { "max-height": "120px" },
                 attrs: { id: "" },
               },
               _vm._l(_vm.cats, function (cat) {
                 return _c(
                   "div",
-                  { key: cat.id, staticClass: "cursor-pointer " },
+                  { key: cat.id, staticClass: "cursor-pointer flex-1" },
                   [
                     _c(
                       "label",
                       {
                         staticClass:
-                          "option px-2 py-2 w-20 bg-blue-900 block border-b border-dashed border-white",
+                          "option px-2 py-2 bg-blue-900 block border-b border-dashed border-white",
                       },
                       [
                         _c("input", {

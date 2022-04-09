@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="w-40 relative">
     <button @click="openOptions = !openOptions" class="px-3 py-1 bg-blue-900 block rounded-md text-gray-100">
-      <div class="flex items-center justify-between w-28">
+      <div class="flex items-center justify-between">
         <span class="mr-20">
           {{ buttonValue }}
         </span>
@@ -14,10 +14,10 @@
     </button>
 
     <transition name="fade">
-      <div v-if="openOptions" id="" class="options rounded-md text-gray-100 overflow-auto mt-3" style="max-height: 120px;">
+      <div v-if="openOptions" id="" class="options absolute z-10 w-full flex flex-col rounded-md text-gray-100 overflow-auto mt-3" style="max-height: 120px;">
 
-       <div v-for="cat in cats" :key="cat.id" class="cursor-pointer ">
-        <label class="option px-2 py-2 w-20 bg-blue-900 block border-b border-dashed border-white">
+       <div v-for="cat in cats" :key="cat.id" class="cursor-pointer flex-1">
+        <label class="option px-2 py-2 bg-blue-900 block border-b border-dashed border-white">
           <input @click="changeCategory(cat.id, $event)" type="radio" :value="cat.name" v-model="category" class="hidden">
           {{ cat.name }}
         </label>

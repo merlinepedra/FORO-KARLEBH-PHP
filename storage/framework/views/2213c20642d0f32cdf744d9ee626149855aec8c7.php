@@ -2,8 +2,6 @@
 
 <?php $__env->startSection('content'); ?>
 
-<change-title v-if="changeTitle" v-on:close="changeTitle = false"></change-title>
-
 <div>
   <div class="flex justify-between items-center">
     <div>

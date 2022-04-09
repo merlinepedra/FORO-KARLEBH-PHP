@@ -1,17 +1,17 @@
 
 
 <x-guest-layout>
-  <section class="md:grid grid-cols-2 h-[87.8vh]">
-    <div class="bg-blue-100 hidden md:flex items-center justify-center p-10">
+  <section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
+    <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10">
     <div class="text-3xl font-bold font-mono ">
       <div>
-        Welcome <span class="text-blue-700">User!</span>
+        Welcome <span class="text-blue-700 dark:text-gray-700">User!</span>
       </div>
-      <div class="mt-5 text-gray-500">
+      <div class="mt-5 text-gray-500 dark:text-gray-300">
        Password reset takes less than a minute. It's that fast!
      </div>
 
-     <div class="mt-3 text-blue-600">
+     <div class="mt-3 text-blue-600 dark:text-gray-700">
       Fun and answers awaits!
 
     </div>
