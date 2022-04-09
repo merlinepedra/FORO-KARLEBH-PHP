@@ -16,7 +16,8 @@ Route::resource('/profile', Controllers\ProfileController::class)->middleware('a
 Route::get('/users', [Controllers\UserController::class, 'index'])->name('users');
 Route::get('/user-posts', [Controllers\UserController::class, 'posts'])->name('user.posts')->middleware('auth');
 
-Route::post('/search', Controllers\SearchController::class)->name('search');
+Route::post('/search', [Controllers\SearchController::class, 'search'])->name('search');
+Route::get('/mobile-search', [Controllers\SearchController::class, 'mobileSearch'])->name('mobile-search');
 
 Route::get('/notifications', [Controllers\HomeController::class, 'notifications'])->name('notifications');
 Route::get('/notificationsCount', [Controllers\HomeController::class, 'notificationsCount']);

@@ -4,7 +4,7 @@
 
 @section('message')
 
-<p>The resources you requested is not found! Sorry!</p>
+<p style="text-align: center;">The resourcs you requested is not found! Sorry!</p>
 
 <br>
 <br>

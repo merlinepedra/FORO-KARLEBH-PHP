@@ -65,6 +65,7 @@
         </div>
 
         <div class="mt-4 mb-2" v-if="searchBoxOpen">
+          {{-- <search-drop-down :url="{{ route('mobile-search') }}" csrf="{{ @csrf }}"></search-drop-down> --}}
           <search-drop-down></search-drop-down>
         </div>
 

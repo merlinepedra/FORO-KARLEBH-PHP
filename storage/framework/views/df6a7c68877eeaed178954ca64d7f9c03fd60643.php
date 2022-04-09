@@ -5,7 +5,7 @@
 <?php $__env->startSection('section'); ?>
 
 
-<div class="mx-auto w-full bg-gray-100 p-6 mt-6 rounded-md">
+<div class="mx-auto w-full bg-gray-100 p-6 mt-6 rounded-md dark:bg-gray-500">
   <div>
     <?php $__empty_1 = true; $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
 

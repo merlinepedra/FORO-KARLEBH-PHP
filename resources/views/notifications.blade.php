@@ -5,7 +5,7 @@
 @section('section')
 
 
-<div class="mx-auto w-full bg-gray-100 p-6 mt-6 rounded-md">
+<div class="mx-auto w-full bg-gray-100 p-6 mt-6 rounded-md dark:bg-gray-500">
   <div>
     @forelse($notifications as $notification)
 

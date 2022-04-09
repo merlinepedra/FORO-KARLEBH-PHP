@@ -3172,16 +3172,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       item: '',
-      results: []
+      results: [],
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      url: window.location.origin + '/mobile-search'
     };
   },
   methods: {
@@ -62723,75 +62721,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "relative" }, [
     _c("div", { staticClass: "md:hidden relative" }, [
-      _c("form", { attrs: { action: "flex" } }, [
-        _c(
-          "div",
-          { staticClass: "flex-1 flex items-center px-3 py-2 rounded-md" },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.item,
-                  expression: "item",
-                },
-              ],
-              staticClass:
-                "w-full rounded-md bg-gray-200 focus:ring-0 focus:border-blue-900",
-              attrs: { type: "text", placeholder: "Search for topics" },
-              domProps: { value: _vm.item },
-              on: {
-                input: [
-                  function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.item = $event.target.value
-                  },
-                  _vm.searcher,
-                ],
-              },
-            }),
-            _vm._v(" "),
-            _vm.item.length > 0
-              ? _c(
-                  "button",
-                  {
-                    on: {
-                      click: function ($event) {
-                        $event.preventDefault()
-                        return _vm.clearInput.apply(null, arguments)
-                      },
-                    },
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-5 w-5",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          viewBox: "0 0 20 20",
-                          fill: "none",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "fill-rule": "evenodd",
-                            d: "M6.707 4.879A3 3 0 018.828 4H15a3 3 0 013 3v6a3 3 0 01-3 3H8.828a3 3 0 01-2.12-.879l-4.415-4.414a1 1 0 010-1.414l4.414-4.414zm4 2.414a1 1 0 00-1.414 1.414L10.586 10l-1.293 1.293a1 1 0 101.414 1.414L12 11.414l1.293 1.293a1 1 0 001.414-1.414L13.414 10l1.293-1.293a1 1 0 00-1.414-1.414L12 8.586l-1.293-1.293z",
-                            "clip-rule": "evenodd",
-                          },
-                        }),
-                      ]
-                    ),
-                  ]
-                )
-              : _vm._e(),
-          ]
-        ),
-      ]),
+      _c("form", { attrs: { action: _vm.url, method: "get" } }, [_vm._m(0)]),
       _vm._v(" "),
       _vm.results.length > 0
         ? _c(
@@ -62925,7 +62855,9 @@ var render = function () {
                   [
                     _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
                       _vm._v(
-                        "\n           " + _vm._s(result.title) + "  \n         "
+                        "\n            " +
+                          _vm._s(result.title) +
+                          "  \n          "
                       ),
                     ]),
                   ]
@@ -62945,7 +62877,7 @@ var render = function () {
               [
                 _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
                   _vm._v(
-                    "\n        no result for " + _vm._s(_vm.item) + "  \n      "
+                    "\n       no result for " + _vm._s(_vm.item) + "  \n     "
                   ),
                 ]),
               ]
@@ -62955,7 +62887,29 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex-1 flex items-center px-3 py-2 rounded-md" },
+      [
+        _c("input", {
+          staticClass:
+            "w-full rounded-md bg-gray-200 focus:ring-0 focus:border-blue-900 dark:bg-gray-400 dark:text-gray-800",
+          attrs: {
+            autocomplete: "off",
+            type: "text",
+            name: "search",
+            placeholder: "Search for topics",
+          },
+        }),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 

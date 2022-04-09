@@ -7,10 +7,8 @@ use App\Models\Post;
 
 class SearchController extends Controller
 {
-  public function __invoke()
+  public function search()
   {
-      //validate requests
-
     $data = request()->validate([
       'item' => 'max:20|min:1|string',
     ]);
@@ -21,5 +19,16 @@ class SearchController extends Controller
 
 
     return [request()->item, $results];
+  }
+
+  public function mobileSearch()
+  {
+    $data = request()->validate([
+      'search' => 'max:20|min:1|string',
+    ]);
+
+    $results = Post::search($data['search'])->paginate();
+
+    return view('search')->withResults($results)->withItem(request()->search);
   }
 }
