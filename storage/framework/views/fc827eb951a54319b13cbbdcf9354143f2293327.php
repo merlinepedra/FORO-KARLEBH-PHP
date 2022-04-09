@@ -6,7 +6,7 @@
 
 <div class="mx-auto w-full">
 
-  <h1 class="text-center text-gray-800 dark:text-gray-200 text-lg font-bold"><?php echo e($results->count()); ?> result(s) for "<?php echo e($item); ?>"</h1>
+  <h1 class="text-center text-gray-800 dark:text-gray-300 text-lg font-bold"><?php echo e($results->count()); ?> result(s) for "<?php echo e($item); ?>"</h1>
 
   <?php $__empty_1 = true; $__currentLoopData = $results; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
   <div class="my-4 py-4 px-2 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md rounded-md">
@@ -50,8 +50,6 @@
     </div>
   </div>
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-
-  <h1 class="text-center">No Posts Yet <a href="<?php echo e(route('post.create')); ?>" class="ml-4 text-blue-900 dark:bg-gray-400 font-semibold">Create a Topic</a></h1>
 
   <?php endif; ?>
 

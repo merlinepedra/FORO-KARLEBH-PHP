@@ -3170,8 +3170,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -3179,13 +3177,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       item: '',
       results: [],
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      url: window.location.origin + '/mobile-search'
+      url: window.location.origin + '/search-view'
     };
   },
   methods: {
+    closeOverlay: function closeOverlay() {
+      this.results = '';
+      this.item = '';
+    },
     searcher: (0,lodash_es__WEBPACK_IMPORTED_MODULE_1__["default"])(function (event) {
       this.search();
-    }, 500),
+    }, 300),
     search: function search() {
       var _this = this;
 
@@ -3205,8 +3207,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.post("/search", {
                   item: _this.item
                 }).then(function (res) {
-                  console.log(res.data);
-                  console.log(res.data[1]);
                   _this.results = res.data[1];
                 });
 
@@ -62746,145 +62746,116 @@ var render = function () {
         : _vm._e(),
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "hidden md:block relative bg-gray-200 dark:bg-gray-400" },
-      [
-        _c("form", { attrs: { action: "flex rounded-lg overflow-hidden" } }, [
-          _c(
-            "div",
-            { staticClass: "flex-1 flex px-3 py-2 rounded-lg overflow-hidden" },
-            [
-              _c("button", [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-6 w-6  mr-3",
-                    attrs: { viewBox: "0 0 24 24", "aria-hidden": "true" },
+    _c("div", { staticClass: "hidden md:block relative" }, [
+      _c("form", { attrs: { action: _vm.url, method: "get" } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex-1 flex px-3 py-2 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-400",
+            staticStyle: { perspective: "1px" },
+          },
+          [
+            _c("button", [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-6 w-6 mr-3",
+                  attrs: { viewBox: "0 0 24 24", "aria-hidden": "true" },
+                },
+                [
+                  _c("g", [
+                    _c("path", {
+                      attrs: {
+                        d: "M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z",
+                      },
+                    }),
+                  ]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.item,
+                  expression: "item",
+                },
+              ],
+              staticClass:
+                "bg-gray-200 dark:bg-gray-400 dark:text-gray-800 focus:outline-none flex-1",
+              attrs: {
+                placeholder: "Search for topics",
+                name: "search",
+                autocomplete: "off",
+              },
+              domProps: { value: _vm.item },
+              on: {
+                input: [
+                  function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.item = $event.target.value
                   },
-                  [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d: "M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z",
-                        },
-                      }),
-                    ]),
-                  ]
+                  _vm.searcher,
+                ],
+              },
+            }),
+          ]
+        ),
+      ]),
+      _vm._v(" "),
+      _vm.results.length > 0
+        ? _c("button", {
+            staticClass: "bg-transparent inset-0 w-full h-full fixed z-10",
+            on: { click: _vm.closeOverlay },
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.results.length > 0
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "absolute z-20 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
+            },
+            _vm._l(_vm.results, function (result) {
+              return _c(
+                "a",
+                { key: result.id, attrs: { href: _vm.getUrl(result.slug) } },
+                [
+                  _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
+                    _vm._v(
+                      "\n          " + _vm._s(result.title) + "  \n        "
+                    ),
+                  ]),
+                ]
+              )
+            }),
+            0
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      Array.isArray(_vm.results) && _vm.results.length == 0
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "absolute z-10 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
+            },
+            [
+              _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
+                _vm._v(
+                  '\n      no result for "' + _vm._s(_vm.item) + '" \n    '
                 ),
               ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.item,
-                    expression: "item",
-                  },
-                ],
-                staticClass:
-                  "flex-1 bg-gray-200 dark:bg-gray-400 dark:text-gray-800 rounded-r-md focus:outline-none",
-                attrs: { placeholder: "Search for topics" },
-                domProps: { value: _vm.item },
-                on: {
-                  input: [
-                    function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.item = $event.target.value
-                    },
-                    _vm.searcher,
-                  ],
-                },
-              }),
-              _vm._v(" "),
-              _vm.item.length > 0
-                ? _c(
-                    "button",
-                    {
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.clearInput.apply(null, arguments)
-                        },
-                      },
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "h-6 w-6",
-                          attrs: {
-                            stroke: "none",
-                            fill: "none",
-                            viewBox: "0 0 24 24",
-                          },
-                        },
-                        [
-                          _c("path", {
-                            staticClass: "inline-flex",
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              "stroke-width": "2",
-                              d: "M6 18L18 6M6 6l12 12",
-                            },
-                          }),
-                        ]
-                      ),
-                    ]
-                  )
-                : _vm._e(),
             ]
-          ),
-        ]),
-        _vm._v(" "),
-        _vm.results.length > 0
-          ? _c(
-              "div",
-              {
-                staticClass:
-                  "absolute z-10 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
-              },
-              _vm._l(_vm.results, function (result) {
-                return _c(
-                  "a",
-                  { key: result.id, attrs: { href: _vm.getUrl(result.slug) } },
-                  [
-                    _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(result.title) +
-                          "  \n          "
-                      ),
-                    ]),
-                  ]
-                )
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        Array.isArray(_vm.results) && _vm.results.length == 0
-          ? _c(
-              "div",
-              {
-                staticClass:
-                  "absolute z-10 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
-              },
-              [
-                _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
-                  _vm._v(
-                    "\n       no result for " + _vm._s(_vm.item) + "  \n     "
-                  ),
-                ]),
-              ]
-            )
-          : _vm._e(),
-      ]
-    ),
+          )
+        : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = [
