@@ -58,15 +58,14 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-  <div id="main" class="font-sans text-gray-900 antialiased max-h-screen h-screen">
-    <header class="p-6 bg-white dark:bg-gray-700 dark:text-gray-100 shadow-md">
+  <div id="main" class="font-sans text-gray-900 antialiased">
+    <header class="p-6 bg-white dark:bg-gray-600 dark:text-gray-100 shadow-md">
       <div class="max-w-7xl font-semibold mx-auto">
         <x-forume.mobile-header/>
         @include('components.forume.desktop-header')
       </div>
     </header>
-
-    {{ $slot }}
+      {{ $slot }}
   </div>
 </body>
 </html>

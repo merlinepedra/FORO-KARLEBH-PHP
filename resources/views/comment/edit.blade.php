@@ -5,7 +5,6 @@
 @section('section')
 
 <div class="w-full mt-5 mx-auto bg-gray-100 p-6 rounded-md dark:bg-gray-400 dark:text-gray-700">
-
   <form action="{{ route('comment.update', $comment) }}" method="POST" 
   class="py-3" enctype="multipart/form-data">
   @method('PATCH')

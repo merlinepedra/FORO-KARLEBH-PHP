@@ -7,7 +7,9 @@
 
   <div class="grid place-items-center sm:grid-cols-2">
     <div>
-      <img class="h-28 md:h-40 rounded-md" @if($profile->file) src="/storage/uploads/{{ $profile->file->file }}" @else src="/image-header.jpg" @endif>
+      <img class="h-28 md:h-40 rounded-md" @if($latestPic) src="/storage/uploads/{{ $latestPic }}" @else src="/image-header.jpg" @endif>
+      {{ $latestPic }}
+      {{-- <img class="h-28 md:h-40 rounded-md" @if($latestPic) src="/storage/uploads/{{ $latestPic }}" @else src="/image-header.jpg" @endif> --}}
     </div>
 
     <div class="flex flex-col">

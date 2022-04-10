@@ -22,8 +22,8 @@ class FileController extends Controller
         $name = strtolower($file->getClientOriginalName());
         $fileName = str_replace(' ', '', $name);
         $img = $file->storeAs('uploads', $fileName, 'public');
-        $image = Image::make(public_path("storage/{$img}"))->fit(1000, 1000)->save();
-
+        // $image = Image::make(public_path("storage/uploads/{$fileName}"))->fit(1000, 1000)->save();
+        $image = Image::make(storage_path() . "/app/public/uploads/{$fileName}")->fit(1000, 1000)->save();
       }
       return $fileName;
     } else {

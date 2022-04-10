@@ -7,7 +7,10 @@
 
   <div class="grid place-items-center sm:grid-cols-2">
     <div>
-      <img class="h-28 md:h-40 rounded-md" <?php if($profile->file): ?> src="/storage/uploads/<?php echo e($profile->file->file); ?>" <?php else: ?> src="/image-header.jpg" <?php endif; ?>>
+      <img class="h-28 md:h-40 rounded-md" <?php if($latestPic): ?> src="/storage/uploads/<?php echo e($latestPic); ?>" <?php else: ?> src="/image-header.jpg" <?php endif; ?>>
+      <?php echo e($latestPic); ?>
+
+      
     </div>
 
     <div class="flex flex-col">

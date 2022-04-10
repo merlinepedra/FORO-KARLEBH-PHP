@@ -11,23 +11,23 @@
         <div>
           Welcome back <span class="text-blue-700 dark:text-gray-700">User!</span>
         </div>
-         <div class="mt-5 text-gray-500 dark:text-gray-300">
-           kindly enter your data.
-         </div>
+        <div class="mt-5 text-gray-500 dark:text-gray-300">
+         kindly enter your data.
+       </div>
 
-         <div class="mt-3 text-blue-600 dark:text-gray-700">
-          Fun and answers awaits!
-           
-         </div>
+       <div class="mt-3 text-blue-600 dark:text-gray-700">
+        Fun and answers awaits!
+
       </div>
     </div>
+  </div>
 
-    <div class="w-10/12 grid items-center mx-auto pt-20">
+  <div class="w-10/12 grid items-center mx-auto pt-20">
 
-      <div class="">
+    <div class="">
 
-        <!-- Session Status -->
-        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+      <!-- Session Status -->
+      <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.auth-session-status','data' => ['class' => 'mb-4','status' => session('status')]]); ?>
 <?php $component->withName('auth-session-status'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -40,8 +40,8 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
 
-        <!-- Validation Errors -->
-        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+      <!-- Validation Errors -->
+      <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.auth-validation-errors','data' => ['class' => 'mb-4','errors' => $errors]]); ?>
 <?php $component->withName('auth-validation-errors'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -53,10 +53,10 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-        <form method="POST" action="<?php echo e(route('login')); ?>">
-          <?php echo csrf_field(); ?>
-          <div>
-            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+      <form method="POST" action="<?php echo e(route('login')); ?>">
+        <?php echo csrf_field(); ?>
+        <div>
+          <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.label','data' => ['for' => 'email','value' => __('Email')]]); ?>
 <?php $component->withName('label'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -69,7 +69,7 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
 
-            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+          <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'email','autocomplete' => 'off','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'email','name' => 'email','value' => old('email'),'required' => true,'autofocus' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -81,9 +81,9 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-          </div>
-          <div class="mt-4">
-            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+        </div>
+        <div class="mt-4">
+          <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.label','data' => ['for' => 'password','value' => __('Password')]]); ?>
 <?php $component->withName('label'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -96,7 +96,7 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
 
-            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+          <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.input','data' => ['id' => 'password','autocomplete' => 'current-password','class' => 'block mt-1 w-full placeholder-gray-800 dark:placeholder-gray-300 dark:bg-gray-300','type' => 'password','name' => 'password','required' => true]]); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -108,48 +108,44 @@
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-          </div>
-          <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-              <input id="remember_me" type="checkbox" 
-              class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-300" name="remember">
-              <span class="ml-2 text-sm text-gray-600"><?php echo e(__('Remember me')); ?></span>
-            </label>
-          </div>
+        </div>
+        <div class="block mt-4">
+          <label for="remember_me" class="inline-flex items-center">
+            <input id="remember_me" type="checkbox" 
+            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-300" name="remember">
+            <span class="ml-2 text-sm text-gray-600"><?php echo e(__('Remember me')); ?></span>
+          </label>
+        </div>
 
-          <div class="flex items-center justify-end mt-4">
-            <?php if(Route::has('password.request')): ?>
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 mr-3" href="<?php echo e(route('password.request')); ?>">
-              <?php echo e(__('Forgot your password?')); ?>
+        <div class="flex items-center justify-end mt-4">
+          <?php if(Route::has('password.request')): ?>
+          <a class="underline text-sm text-gray-600 hover:text-gray-900 mr-3" href="<?php echo e(route('password.request')); ?>">
+            <?php echo e(__('Forgot your password?')); ?>
 
-            </a>
-            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="<?php echo e(route('register')); ?>">
-              <?php echo e(__('Register')); ?>
+          </a>
+          <?php endif; ?>
 
-            </a>
-            <?php endif; ?>
-
-            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.button','data' => ['class' => 'ml-3']]); ?>
+          <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.button','data' => ['class' => 'ml-4']]); ?>
 <?php $component->withName('button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes(['class' => 'ml-3']); ?>
-              <?php echo e(__('Log in')); ?>
+<?php $component->withAttributes(['class' => 'ml-4']); ?>
+            <?php echo e(__('Login')); ?>
 
-             <?php echo $__env->renderComponent(); ?>
+           <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
-          </div>
-        </form>
-
-      </div>
+        </div>
+      </form>
 
     </div>
-  </section>
+
+  </div>
+</section>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015)): ?>

@@ -26,8 +26,8 @@ class Profile extends Model
       return $this->belongsTo(User::class);
     }
 
-    public function file()
+    public function files()
     {
-      return $this->morphOne(File::class, 'fileable');
+      return $this->morphMany(File::class, 'fileable');
     }
 }

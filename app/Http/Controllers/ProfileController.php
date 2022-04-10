@@ -10,7 +10,10 @@ class ProfileController extends Controller
 {
   public function show(Profile $profile)
   {
-    return view('profile.show')->withProfile($profile->load(['user.posts', 'user.comments']));
+    $latestPic = $profile->files()->latest()->first()['file'];
+    return view('profile.show')
+    ->withProfile($profile->load(['user.posts', 'user.comments']))
+    ->withLatestPic($latestPic);
   }
 
   public function edit(Profile $profile)
@@ -31,7 +34,7 @@ class ProfileController extends Controller
 
     (new \App\Http\Helpers\File)->upload($request, $profile);
 
-   return back();
+   return redirect()->route('profile.show', $profile);
  }
 
     /**
