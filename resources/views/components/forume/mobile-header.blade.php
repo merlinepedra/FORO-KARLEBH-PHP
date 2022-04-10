@@ -33,7 +33,7 @@
       </div>
       @endguest
 
-      <dark-light-mode class="mr-4 hidden sm:block mt-1"></dark-light-mode>
+      <dark-light-mode class="hidden sm:block mt-1 mx-auto"></dark-light-mode>
 
       <button v-on:click="searchBoxOpen = !searchBoxOpen">
         <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-current mr-4">
@@ -184,7 +184,7 @@
   </div>
   @endauth
 
-  <dark-light-mode class="ml-2 sm:hidden"></dark-light-mode>
+  <dark-light-mode class="ml-28 sm:hidden"></dark-light-mode>
 </div>
 
 </nav>
