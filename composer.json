@@ -15,7 +15,8 @@
         "laravel/scout": "^9.4",
         "laravel/tinker": "^2.5",
         "pusher/pusher-php-server": "^7.0",
-        "yab/laravel-scout-mysql-driver": "^5.1"
+        "yab/laravel-scout-mysql-driver": "^5.1",
+        "ext-gd":" *"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
