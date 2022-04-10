@@ -58,7 +58,7 @@
   <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 </head>
 <body>
-  <div id="main" class="font-sans text-gray-900 antialiased">
+  <div id="main" class="font-sans text-gray-900 antialiased max-h-screen h-screen">
     <header class="p-6 bg-white dark:bg-gray-700 dark:text-gray-100 shadow-md">
       <div class="max-w-7xl font-semibold mx-auto">
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>

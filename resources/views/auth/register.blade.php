@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<div class="w-10/12 grid items-center mx-auto pt-20 md:mt-0 order-1">
+<div class="w-10/12 grid items-center mx-auto pt-20 md:-pt-10 order-1">
 
   <div class="">
 
