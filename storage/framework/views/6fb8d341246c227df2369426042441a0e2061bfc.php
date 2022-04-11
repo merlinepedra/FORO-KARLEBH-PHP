@@ -37,7 +37,7 @@
   <div class="relative flex-shrink-0">
     <?php if(auth()->guard()->check()): ?>
     <button v-on:click="profileMenu = !profileMenu">
-      <?php if(auth()->user()->profile->files()->latest()->first()['file']): ?>
+      <?php if(auth()->user()->profile->files()->latest()->first()): ?>
       <img src="/storage/uploads/<?php echo e(auth()->user()->profile->files()->latest()->first()['file']); ?>" 
       class="relative z-20 w-8 h-8 object-center object-cover rounded-full border-2 border-gray-900">
       <?php else: ?>

@@ -11,7 +11,7 @@
 
     
     <?php if($notification->type === 'App\Notifications\LikeNotification'): ?> 
-    <div class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 text-gray-700 flex justify-between">
+    <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 text-gray-700 flex justify-between">
       <div>
         <a href="<?php echo e(route('profile.show', $notification->data['liker']['name'])); ?>" 
           class="capitalize font-semibold text-blue-400"><?php echo e(str_replace('-', ' ',  $notification->data['liker']['name'])); ?></a>
@@ -36,7 +36,7 @@
 
       
       <?php if($notification->type === 'App\Notifications\FollowNotification'): ?> 
-      <div class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
+      <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
         <div>
           <a href="<?php echo e(route('profile.show', $notification->data['follower']['name'])); ?>" 
             class="capitalize font-semibold text-blue-400"><?php echo e(str_replace('-', ' ',  $notification->data['follower']['name'])); ?></a>
@@ -50,7 +50,7 @@
 
         
         <?php if($notification->type === 'App\Notifications\CommentCreated'): ?> 
-        <div class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
+        <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
           <div>
             <a href="<?php echo e(route('profile.show', $notification->data['sender']['name'])); ?>" 
               class="capitalize font-semibold text-blue-400"><?php echo e(str_replace('-', ' ',  $notification->data['sender']['name'])); ?></a>

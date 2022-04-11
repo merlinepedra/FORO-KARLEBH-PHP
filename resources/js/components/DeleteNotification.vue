@@ -14,6 +14,7 @@
       async deleteNotification(event) {
         await axios.delete(`/delete-notification/${this.id}`)
         // event.target.parentElement.parentElement.remove()
+        document.getElementById(`'${this.id}'`).style.display = none
       }
     }
   }

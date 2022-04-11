@@ -85,14 +85,14 @@
       <nav v-if="mobileNav" class="flex flex-col text-gray-600 dark:text-gray-200">
 
         <a href="{{ route('post.create') }}">
-          <div class="pt-1 pb-2 bg-blue-900 text-gray-100 font-semibold mb-3 hover:bg-blue-800 mt-4 text-center">
+          <div class="pt-1 pb-2 bg-blue-900 text-gray-100 font-semibold mb-3 hover:bg-blue-800 mt-4 text-center rounded-md">
             <span class="text-xl">+</span>
             <span class="ml-2">Start a New Topic</span>
           </div>
         </a>
 
         <a href="{{ route('post.index') }}" class="mb-1 text-sm">
-          <div class="py-1 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('post.index')) dark:text-gray-500 bg-blue-100 border-blue-900 @endif">
+          <div class="py-1 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('post.index')) dark:text-gray-500 dark:bg-gray-400 rounded bg-blue-100 border-blue-900 @endif">
            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
           </svg>
@@ -101,7 +101,7 @@
       </a>
 
       <a href="{{ route('user.posts') }}" class="mb-1 text-sm">
-        <div class="py-1 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('user.posts')) dark:text-gray-500 bg-blue-100 border-blue-900 @endif">
+        <div class="py-1 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('user.posts')) dark:text-gray-500 dark:bg-gray-400 rounded bg-blue-100 border-blue-900 @endif">
          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg> 
@@ -110,7 +110,7 @@
     </a>
 
     <a href="{{ route('my-comments') }}" class="mb-1 text-sm">
-      <div class="py-2 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('my-comments')) dark:text-gray-500 bg-blue-100 border-blue-900 @endif">
+      <div class="py-2 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('my-comments')) dark:text-gray-500 dark:bg-gray-400 rounded bg-blue-100 border-blue-900 @endif">
         <svg class="w-6 h-6 mr-2 ml-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
@@ -119,7 +119,7 @@
     </a>
 
     <a href="{{ route('category.index') }}" class="mb-1 text-sm">
-      <div class="py-2 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('category.index')) dark:text-gray-500 bg-blue-100 border-blue-900 @endif">
+      <div class="py-2 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('category.index')) dark:text-gray-500 dark:bg-gray-400 rounded bg-blue-100 border-blue-900 @endif">
        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
       </svg>
@@ -130,7 +130,7 @@
   @auth
   @if(auth()->user()->isAdmin())
   <a href="{{ route('admin.home') }}" class="mb-1 text-sm">
-    <div class="py-2 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('admin.home')) dark:text-gray-500 bg-blue-100 border-blue-900 @endif">
+    <div class="py-2 inline-flex items-center w-full border-l-4 border-transparent @if(request()->routeIs('admin.home')) dark:text-gray-500 dark:bg-gray-400 rounded bg-blue-100 border-blue-900 @endif">
      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2 ml-5"  fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
     </svg>
@@ -141,7 +141,7 @@
 
 
 <a href="{{ route('setting.index') }}" class="mb-1">
-  <div class="py-2 inline-flex w-full border-l-4 border-transparent @if(request()->routeIs('setting.index')) dark:text-gray-500 bg-blue-100 border-blue-900 @endif">
+  <div class="py-2 inline-flex w-full border-l-4 border-transparent @if(request()->routeIs('setting.index')) dark:text-gray-500 dark:bg-gray-400 rounded bg-blue-100 border-blue-900 @endif">
    <svg class="w-6 h-6 mr-2 ml-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="stl-text-grey-400 stl-ml-[-3px]"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
    Settings
  </div>
@@ -149,7 +149,7 @@
 @endauth
 
 <a href="{{ route('users') }}" class="mb-1 text-sm">
-  <div class="py-2 inline-flex w-full border-l-4 border-transparent @if(request()->routeIs('users')) dark:text-gray-500 bg-blue-100 border-blue-900 @endif">
+  <div class="py-2 inline-flex w-full border-l-4 border-transparent @if(request()->routeIs('users')) dark:text-gray-500 dark:bg-gray-400 rounded bg-blue-100 border-blue-900 @endif">
    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
   </svg>

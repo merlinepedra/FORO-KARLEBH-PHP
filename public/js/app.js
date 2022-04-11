@@ -2670,6 +2670,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios["delete"]("/delete-notification/".concat(_this.id));
 
               case 2:
+                // event.target.parentElement.parentElement.remove()
+                document.getElementById("'".concat(_this.id, "'")).style.display = none;
+
+              case 3:
               case "end":
                 return _context.stop();
             }
