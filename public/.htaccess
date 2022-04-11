@@ -5,10 +5,10 @@ Options -MultiViews -Indexes
 
 RewriteEngine On
 
-RewriteCond %{HTTP_HOST} !=localhost
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https 
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} !=localhost
 
 # Handle Authorization Header
 RewriteCond %{HTTP:Authorization} .
