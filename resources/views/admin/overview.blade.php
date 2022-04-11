@@ -53,7 +53,7 @@
 
 <div class="grid grid-cols-1 md:grid-cols-4 gap-5 items-center">
 
-  <div>
+  <div class="col-span-1">
     <Doughnut 
     :posts="{{ $posts }}"
     :comments="{{ $comments }}"

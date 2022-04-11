@@ -164,7 +164,7 @@
     @auth
     <img 
     @if(auth()->user()->profile->files()->latest()->first())
-    src="/storage/uploads/{{ auth()->user()->profile->files()->latest()->first()['file'] }}" 
+    src="/uploads/{{ auth()->user()->profile->files()->latest()->first()['file'] }}" 
     @else src="/image-header.jpg" @endif
     class="w-8 h-8 object-center object-cover rounded-full mr-4">
     <p>{{ auth()->user()->name }}</p>

@@ -11,17 +11,17 @@
 
     
     <?php if($notification->type === 'App\Notifications\LikeNotification'): ?> 
-    <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 text-gray-700 flex justify-between">
+    <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 dark:bg-gray-400 min-h-40 rounded-md shadow mb-3 p-4 text-gray-700 flex justify-between">
       <div>
         <a href="<?php echo e(route('profile.show', $notification->data['liker']['name'])); ?>" 
-          class="capitalize font-semibold text-blue-400"><?php echo e(str_replace('-', ' ',  $notification->data['liker']['name'])); ?></a>
+          class="capitalize font-semibold text-blue-400 dark:text-gray-200"><?php echo e(str_replace('-', ' ',  $notification->data['liker']['name'])); ?></a>
 
           liked 
 
           <?php if($notification->data['likeable_type'] === 'App\Models\Post'): ?>
-          <a href="<?php echo e($notification->data['url']); ?>" class="font-semibold text-blue-400">your post</a>
+          <a href="<?php echo e($notification->data['url']); ?>" class="font-semibold text-blue-400 dark:text-gray-200">your post</a>
           <?php elseif($notification->data['likeable_type'] === 'App\Models\Comment'): ?>
-          <a href="<?php echo e($notification->data['url']); ?>" class="font-semibold text-blue-400">your comment</a>
+          <a href="<?php echo e($notification->data['url']); ?>" class="font-semibold text-blue-400 dark:text-gray-200">your comment</a>
           <?php endif; ?>
 
 
@@ -36,10 +36,10 @@
 
       
       <?php if($notification->type === 'App\Notifications\FollowNotification'): ?> 
-      <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
+      <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 dark:bg-gray-400 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
         <div>
           <a href="<?php echo e(route('profile.show', $notification->data['follower']['name'])); ?>" 
-            class="capitalize font-semibold text-blue-400"><?php echo e(str_replace('-', ' ',  $notification->data['follower']['name'])); ?></a>
+            class="capitalize font-semibold text-blue-400 dark:text-gray-200"><?php echo e(str_replace('-', ' ',  $notification->data['follower']['name'])); ?></a>
             followed you  <?php echo e($notification->created_at->diffForHumans()); ?>
 
         </div>
@@ -50,11 +50,11 @@
 
         
         <?php if($notification->type === 'App\Notifications\CommentCreated'): ?> 
-        <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
+        <div id="<?php echo e($notification->id); ?>" class="bg-blue-200 dark:bg-gray-400 min-h-40 rounded-md shadow mb-3 p-4 flex justify-between">
           <div>
             <a href="<?php echo e(route('profile.show', $notification->data['sender']['name'])); ?>" 
-              class="capitalize font-semibold text-blue-400"><?php echo e(str_replace('-', ' ',  $notification->data['sender']['name'])); ?></a>
-              made a comment on <a class="font-semibold text-blue-400" href="<?php echo e($notification->data['url']); ?>">your post</a>
+              class="capitalize font-semibold text-blue-400 dark:text-gray-200"><?php echo e(str_replace('-', ' ',  $notification->data['sender']['name'])); ?></a>
+              made a comment on <a class="font-semibold text-blue-400 dark:text-gray-200" href="<?php echo e($notification->data['url']); ?>">your post</a>
               <?php echo e($notification->created_at->diffForHumans()); ?>
 
           </div>
@@ -64,7 +64,7 @@
 
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?> 
 
-          <h3 class="text-center">No new notifications yet.</h3>
+          <h3 class="text-center dark:text-gray-200">No new notifications yet.</h3>
 
           <?php endif; ?>
 

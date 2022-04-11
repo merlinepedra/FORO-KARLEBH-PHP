@@ -12,7 +12,7 @@
         <p class="font-base opacity-75 truncate">{{ $post->desc }}</p>
         <div class="grid grid-cols-2 gap-x-5 place-items-center my-10">
           @foreach($post->files as $file) 
-          <img class="object-cover object-center shadow-md rounded-md" src="/storage/uploads/{{$file->file}}">
+          <img class="object-cover object-center shadow-md rounded-md" src="/uploads/{{$file->file}}">
           @endforeach
         </div>
       </div>
@@ -102,7 +102,7 @@
         <div class="grid md:grid-cols-2 gap-5 place-items-center truncate overflow-auto">
           @foreach($comment->files as $item)
           @if(in_array($item->extension, ['.png', '.jpg']))
-          <img class="object-cover object-center h-56 shadow-md rounded-md" src="/storage/uploads/{{$item->file}}">
+          <img class="object-cover object-center h-56 shadow-md rounded-md" src="/uploads/{{$item->file}}">
           @else
           <p>
 
@@ -168,7 +168,7 @@
             <div class="grid @if($reply->files->count() > 1) grid-cols-2 gap-3 @endif place-items-center truncate overflow-auto">
               @foreach($reply->files as $item)
               @if(in_array($item->extension, ['.png', '.jpg']))
-              <img class="object-cover object-center h-56" src="/storage/uploads/{{$item->file}}">
+              <img class="object-cover object-center h-56" src="/uploads/{{$item->file}}">
               @else
               <p>
 

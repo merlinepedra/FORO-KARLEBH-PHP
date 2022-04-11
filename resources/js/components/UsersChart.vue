@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-screen max-h-64">
+  <div>
     <canvas id="usersChart"></canvas>
   </div>
 </template>

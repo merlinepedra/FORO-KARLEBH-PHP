@@ -38,7 +38,7 @@
     @auth
     <button v-on:click="profileMenu = !profileMenu">
       @if(auth()->user()->profile->files()->latest()->first())
-      <img src="/storage/uploads/{{ auth()->user()->profile->files()->latest()->first()['file'] }}" 
+      <img src="/uploads/{{ auth()->user()->profile->files()->latest()->first()['file'] }}" 
       class="relative z-20 w-8 h-8 object-center object-cover rounded-full border-2 border-gray-900">
       @else
       <img src="/image-header.jpg" class="relative z-20 w-8 h-8 object-center object-cover rounded-full">

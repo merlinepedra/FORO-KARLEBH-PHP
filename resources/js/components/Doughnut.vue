@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-screen max-h-64">
+  <div>
     <canvas id="doughnut"></canvas>
   </div>
 </template>
@@ -25,7 +25,7 @@
           data: {
             labels: ['Posts', 'Comments'],
             datasets: [{
-              labels: "Overview",
+              label: "Activities",
               data: [this.posts, this.comments],
               backgroundColor: [
               'rgba(54,162,235,.6)', 
@@ -34,6 +34,7 @@
             }],
           },
           options: {
+            responsive: true,
             // plugins: {legend: {display: false},},
             scales: {
               y: {display: false},

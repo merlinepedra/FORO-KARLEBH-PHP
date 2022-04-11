@@ -164,7 +164,7 @@
     <?php if(auth()->guard()->check()): ?>
     <img 
     <?php if(auth()->user()->profile->files()->latest()->first()): ?>
-    src="/storage/uploads/<?php echo e(auth()->user()->profile->files()->latest()->first()['file']); ?>" 
+    src="/uploads/<?php echo e(auth()->user()->profile->files()->latest()->first()['file']); ?>" 
     <?php else: ?> src="/image-header.jpg" <?php endif; ?>
     class="w-8 h-8 object-center object-cover rounded-full mr-4">
     <p><?php echo e(auth()->user()->name); ?></p>

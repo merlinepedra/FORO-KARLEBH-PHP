@@ -9,7 +9,7 @@
   class="grid grid-cols-2 md:grid-cols-4 gap-y-8 py-10 md:py-5 bg-gray-50 dark:bg-gray-300 justify-between items-center px-3 rounded-md shadow-lg">
     <div>
       @if($profile->file)
-      <img class="w-8 h-8 object-center object-cover rounded-full" src="/storage/uploads/{{ $profile->file->file }}" alt="">
+      <img class="w-8 h-8 object-center object-cover rounded-full" src="/uploads/{{ $profile->file->file }}" alt="">
       @else 
       <img class="w-8 h-8 object-center object-cover rounded-full" src="/image-header.jpg" >
       @endif
