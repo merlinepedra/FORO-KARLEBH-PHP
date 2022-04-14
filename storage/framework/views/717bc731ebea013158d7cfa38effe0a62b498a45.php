@@ -50,7 +50,7 @@
   </div>
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
-  <h1 class="text-center">No Posts Yet <a href="<?php echo e(route('post.create')); ?>" class="ml-4 text-blue-900 dark:bg-gray-400 font-semibold">Create a Topic</a></h1>
+  <h1 class="text-center dark:text-gray-400">No Posts Yet <a href="<?php echo e(route('post.create')); ?>" class="ml-4 text-blue-900 dark:text-gray-400 font-semibold">Create a Topic</a></h1>
 
   <?php endif; ?>
 

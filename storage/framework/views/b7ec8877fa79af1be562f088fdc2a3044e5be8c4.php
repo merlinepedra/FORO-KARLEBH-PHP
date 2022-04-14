@@ -1,6 +1,6 @@
-@extends('layouts.admin')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="grid md:grid-cols-4 gap-5">
 
         <div class="md:col-span-2">
@@ -8,7 +8,8 @@
                 class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-lime-600 p-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     <span class="text-4xl font-bold text-gray-50">
-                        {{ $users }}
+                        <?php echo e($users); ?>
+
                     </span>
                     <small class="font-extralight text-xs text-gray-50 mt-4">Total user registered.</small>
                 </div>
@@ -22,7 +23,8 @@
                 class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-purple-600 p-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     <span class="text-4xl font-bold text-gray-50">
-                        {{ $categories }}
+                        <?php echo e($categories); ?>
+
                     </span>
                     <small class="font-extralight text-xs text-gray-50 mt-4">Total categories created.</small>
                 </div>
@@ -39,7 +41,8 @@
                 class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-yellow-600 p-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     <span class="text-4xl font-bold text-gray-50">
-                        {{ $comments }}
+                        <?php echo e($comments); ?>
+
                     </span>
                     <small class="font-extralight text-xs text-gray-50 mt-4">Total comments created.</small>
                 </div>
@@ -56,12 +59,12 @@
 
     </div>
 
-    {{--  --}}
+    
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-5 items-center">
 
         <div class="col-span-1">
-            <Doughnut :posts="{{ $posts }}" :comments="{{ $comments }}"></Doughnut>
+            <Doughnut :posts="<?php echo e($posts); ?>" :comments="<?php echo e($comments); ?>"></Doughnut>
         </div>
 
         <div class="self-center">
@@ -69,7 +72,8 @@
                 class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-emerald-600 p-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     <span class="text-4xl font-bold text-gray-50">
-                        {{ $posts }}
+                        <?php echo e($posts); ?>
+
                     </span>
                     <small class="font-extralight text-xs text-gray-50 mt-4">Total posts created.</small>
                 </div>
@@ -85,13 +89,13 @@
         </div>
 
         <div class="col-span-1 md:col-span-2">
-            <users-chart :users="{{ $users }}" :files="{{ $files }}" :admins="{{ $admins }}"
-                :categories="{{ $categories }}" :likes="{{ $likes }}"></users-chart>
+            <users-chart :users="<?php echo e($users); ?>" :files="<?php echo e($files); ?>" :admins="<?php echo e($admins); ?>"
+                :categories="<?php echo e($categories); ?>" :likes="<?php echo e($likes); ?>"></users-chart>
         </div>
 
     </div>
 
-    {{--  --}}
+    
 
     <div class="grid md:grid-cols-4 gap-5">
 
@@ -100,7 +104,8 @@
                 class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-blue-600 p-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     <span class="text-4xl font-bold text-gray-50">
-                        {{ $files }}
+                        <?php echo e($files); ?>
+
                     </span>
                     <small class="font-extralight text-xs text-gray-50 mt-4">Total files uploaded.</small>
                 </div>
@@ -120,7 +125,8 @@
                 class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-cyan-600 p-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     <span class="text-4xl font-bold text-gray-50">
-                        {{ $admins }}
+                        <?php echo e($admins); ?>
+
                     </span>
                     <small class="font-extralight text-xs text-gray-50 mt-4">Total admin superuser.</small>
                 </div>
@@ -137,7 +143,8 @@
                 class="bg-gray-600 w-full h-32 rounded-b-xl border-t-4 border-sky-600 p-4 flex items-center justify-between">
                 <div class="flex flex-col">
                     <span class="text-4xl font-bold text-gray-50">
-                        {{ $likes }}
+                        <?php echo e($likes); ?>
+
                     </span>
                     <small class="font-extralight text-xs text-gray-50 mt-4">Total likes.</small>
                 </div>
@@ -151,4 +158,6 @@
         </div>
 
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\Forume\resources\views/admin/overview.blade.php ENDPATH**/ ?>

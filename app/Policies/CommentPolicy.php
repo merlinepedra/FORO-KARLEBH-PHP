@@ -13,7 +13,6 @@ class CommentPolicy
 
   public function update(User $user, Comment $comment)
   {
-    // return $user->id === $comment->user_id;
-    return true;
+    return $user->id === $comment->user_id || $user->is_admin;
   }
 }

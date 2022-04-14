@@ -12,7 +12,11 @@
         <p class="font-base opacity-75 truncate"><?php echo e($post->desc); ?></p>
         <div class="grid grid-cols-2 gap-x-5 place-items-center my-10">
           <?php $__currentLoopData = $post->files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $file): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+          <?php if(\Illuminate\Support\Facades\App::environment('production')): ?> 
+          <img class="object-cover object-center shadow-md rounded-md" src="/uploads/<?php echo e($file->file_url); ?>">
+          <?php else: ?>
           <img class="object-cover object-center shadow-md rounded-md" src="/uploads/<?php echo e($file->file); ?>">
+          <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
       </div>
@@ -111,7 +115,11 @@ unset($__errorArgs, $__bag); ?>
         <div class="grid md:grid-cols-2 gap-5 place-items-center truncate overflow-auto">
           <?php $__currentLoopData = $comment->files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <?php if(in_array($item->extension, ['.png', '.jpg'])): ?>
-          <img class="object-cover object-center h-56 shadow-md rounded-md" src="/uploads/<?php echo e($item->file); ?>">
+           <?php if(\Illuminate\Support\Facades\App::environment('production')): ?> 
+          <img class="object-cover object-center shadow-md rounded-md" src="/uploads/<?php echo e($file->file_url); ?>">
+          <?php else: ?>
+          <img class="object-cover object-center shadow-md rounded-md" src="/uploads/<?php echo e($file->file); ?>">
+          <?php endif; ?>
           <?php else: ?>
           <p>
 

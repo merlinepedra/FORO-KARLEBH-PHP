@@ -18,6 +18,7 @@ class CreateFilesTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->morphs('fileable');
             $table->string('file');
+            $table->string('file_url')->nullable();
             $table->string('extension');
             $table->timestamps();
         });
