@@ -1,11 +1,12 @@
 <div class="hidden md:block desktop-header">
 
   <div class="flex justify-between items-center">
-
-    <div class="flex">
-     <svg class="mr-2 text-blue-600 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 7V17M9 10V14M6 8V16M3 11V13M15 4V20M18 9V15M21 11V13" class="stroke-blue-900 dark:stroke-gray-200"stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <div class="flex items-center">
+      <button class="mr-2">
+        <svg class="text-blue-600 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 7V17M9 10V14M6 8V16M3 11V13M15 4V20M18 9V15M21 11V13" class="stroke-blue-900 dark:stroke-gray-200"stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
     <a href="<?php echo e(route('post.index')); ?>">
       <h1 class="text-lg font-bold"><span class="dark:text-gray-200">foru</span><span class="text-blue-900 dark:text-gray-400">me</span></h1>
     </a>

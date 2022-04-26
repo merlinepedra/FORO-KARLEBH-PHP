@@ -12,6 +12,8 @@ class CommentController extends Controller
 {
   public function store(StoreCommentRequest $request)
   {
+    $this->authorize('store');
+
     $comment = $request->user()->comments()->create([
       'comment' => $request->comment,
       'post_id' => $request->post_id,
@@ -31,8 +33,16 @@ class CommentController extends Controller
     return redirect($url);
   }
 
+  public function createReply(Comment $comment)
+  {
+    // $this->authorize('store');
+    return view('comment.reply')->withComment($comment->load('post'));
+  }
+
   public function storeReply(Request $request)
   {
+    // $this->authorize('store');
+
     $data = $request->validate([
       'comment' => 'required|max:5000',
       'parent_id' => 'required|int',
@@ -47,7 +57,9 @@ class CommentController extends Controller
       // $comment->post->user->id !== auth()->user() &&
      $comment->user->setting->comment_notifiable
    ) {
-      $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post));
+      $url = '/post/' . $comment->post->slug . '#comment-' . $comment->id;
+
+      $comment->post->user->notify(new \App\Notifications\CommentCreated(auth()->user(), $comment->post, $url));
     }
 
     return redirect('/post/' . $comment->post->slug . '#comment-' . $comment->id);
@@ -55,6 +67,8 @@ class CommentController extends Controller
 
   public function edit(Comment $comment)
   {
+    $this->authorize('update', $comment);
+
     $files = File::whereFileableId($comment->id)->whereFileableType($comment::class)->get();
     return view('comment.edit')
     ->withComment($comment)
@@ -63,6 +77,8 @@ class CommentController extends Controller
 
   public function update(UpdateCommentRequest $request, Comment $comment)
   {
+    $this->authorize('update', $comment);
+
     $comment->update(['comment' => $request->comment]);
 
     (new \App\Http\Helpers\File)->upload($request, $comment);
@@ -78,6 +94,7 @@ class CommentController extends Controller
 
   public function destroy(Comment $comment)
   {
+    $this->authorize('update', $comment);
     $comment->delete();
   }
 

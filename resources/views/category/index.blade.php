@@ -4,7 +4,7 @@
 @section('section')
 <div class="mx-auto w-full">
   @forelse($categories as $category)
-  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:text-gray-700 dark:bg-gray-400">
+  <div class="my-4 p-4 bg-gray-50 shadow-md rounded-md dark:text-gray-700 dark:bg-gray-400">
     <div class="flex">
      <div class="w-11/12">
       <a href="{{ route('category.show', $category) }}">

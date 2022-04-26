@@ -2,7 +2,6 @@
 
 namespace App\Http\Helpers;
 
-use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Support\Facades\App;
 
 
@@ -17,8 +16,8 @@ class File {
         $extension = strrchr($img, '.');
 
         if (App::environment('production')) {
-          Cloudder::upload($image, null);
-          $imageUrl= Cloudder::show(Cloudder::getPublicId(), ["width" => 1000, "height"=> 1000]);
+          cloudinary()->upload($image, null);
+          $imageUrl= cloudinary()->show(cloudinary()->getPublicId(), ["width" => 1000, "height"=> 1000]);
         }
 
         \App\Models\File::create([

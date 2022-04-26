@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
   public function show(Profile $profile)
   {
-    $latestPic = $profile->files()->latest()->first()['file'];
+    $latestPic = $profile->files()->latest()->first() ?  $profile->files()->latest()->first()['file'] : '';
     return view('profile.show')
     ->withProfile($profile->load(['user.posts', 'user.comments']))
     ->withLatestPic($latestPic);

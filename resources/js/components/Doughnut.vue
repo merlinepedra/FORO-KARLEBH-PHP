@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dark:text-gray-200">
     <canvas id="doughnut"></canvas>
   </div>
 </template>
@@ -20,10 +20,12 @@
 
       draw() {
         const chart = document.getElementById('doughnut').getContext('2d')
+        chart.defaultFontColor = 'White'
         const data = new Chart(chart, {
           type: 'doughnut',
           data: {
             labels: ['Posts', 'Comments'],
+            color: 'white',
             datasets: [{
               label: "Activities",
               data: [this.posts, this.comments],

@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-  <section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
+  <section class="md:grid md:grid-cols-2 dark:bg-gray-400">
    <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10 order-2">
     <div class="text-3xl font-bold font-mono ">
       <div>
@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<div class="w-10/12 grid items-center mx-auto pt-20 md:-pt-10 order-1">
+<div class="w-10/12 grid items-center mx-auto pt-20 md:pt-0 order-1">
 
   <div class="">
 

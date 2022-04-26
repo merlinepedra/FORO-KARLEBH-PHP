@@ -4,12 +4,12 @@
 @section('section')
 <div class="mx-auto w-full">
 
-  <div class="my-4 p-4 bg-gray-50 shadow-md md:rounded-md dark:bg-gray-400">
+  <div class="my-4 p-4 bg-gray-50 shadow-md rounded-md dark:bg-gray-400">
 
     <h1 class="text-2xl font-base text-center">{{ ucfirst($category->name) }}</h1>
 
     @forelse($posts as $post)
-    <div class="my-10 border-b border-gray-500">
+    <div class="my-10 border-b border-gray-500 rounded-md">
       <div class="flex justify-between">
         <div>
           <a href="{{ route('post.show', $post) }}">
@@ -35,26 +35,6 @@
 
     {{ $posts->links() }}
   </div> 
-
-  <div class="grid grid-flow-col grid-rows-2 grid-cols-3 gap-8">
-    <div>
-      <div class="w-auto h-40 bg-red-500"></div>
-    </div>
-    <div class="col-start-3">
-      <div class="w-auto h-40 bg-blue-500"></div>
-    </div>
-    <div>
-      <div class="w-auto h-40 bg-yellow-500"></div>
-    </div>
-    <div>
-      <div class="w-auto h-40 bg-lime-500"></div>
-    </div>
-    {{-- <div class=""> --}}
-      <div class="row-start-1 col-start-2 col-span-2">
-        <div class="w-auto h-40 bg-purple-500"></div>
-      </div>
-    </div>
-
 
   </div>
   @endsection

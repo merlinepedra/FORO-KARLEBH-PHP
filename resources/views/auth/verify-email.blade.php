@@ -2,7 +2,7 @@
 
   <section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
 
-    <div class="bg-blue-100 dark:bg-gray-500 hidden md:block md:flex items-center justify-center p-10 order-2">
+    <div class="bg-blue-100 dark:bg-gray-500 hidden  md:flex items-center justify-center p-10 order-2">
      <div class="mb-4 text-sm text-gray-600">
       {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>
@@ -14,8 +14,7 @@
     @endif
   </div>
 
-  <div class="w-10/12 grid items-center mx-auto mt-40 md:mt-0 order-1">
-
+  <div class="w-10/12 grid items-center mx-auto pt-20 order-1">
     <div class="">
 
       <!-- Validation Errors -->

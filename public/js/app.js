@@ -2714,10 +2714,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     draw: function draw() {
       var chart = document.getElementById('doughnut').getContext('2d');
+      chart.defaultFontColor = 'White';
       var data = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](chart, {
         type: 'doughnut',
         data: {
           labels: ['Posts', 'Comments'],
+          color: 'white',
           datasets: [{
             label: "Activities",
             data: [this.posts, this.comments],
@@ -3169,6 +3171,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -3184,9 +3197,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.results = '';
       this.item = '';
     },
+    clear: function clear() {
+      document.getElementById('mobileSearch').value = '';
+    },
     searcher: (0,lodash_es__WEBPACK_IMPORTED_MODULE_1__["default"])(function (event) {
       this.search();
-    }, 300),
+    }, 250),
     search: function search() {
       var _this = this;
 
@@ -62130,7 +62146,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("canvas", { attrs: { id: "doughnut" } })])
+    return _c("div", { staticClass: "dark:text-gray-200" }, [
+      _c("canvas", { attrs: { id: "doughnut" } }),
+    ])
   },
 ]
 render._withStripped = true
@@ -62368,8 +62386,8 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex" }, [
-    _c("div", [
+  return _c("div", { staticClass: "inline-flex items-center" }, [
+    _c("div", { staticClass: "inline-flex" }, [
       !_vm.liked
         ? _c(
             "button",
@@ -62409,7 +62427,7 @@ var render = function () {
         : _vm._e(),
     ]),
     _vm._v(" "),
-    _c("div", [
+    _c("div", { staticClass: "inline-flex" }, [
       _vm.liked
         ? _c(
             "button",
@@ -62428,7 +62446,7 @@ var render = function () {
                   staticClass: "h-6 w-6",
                   attrs: {
                     xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 24 24",
+                    viewBox: "0 0 20 20",
                     fill: "currentColor",
                   },
                 },
@@ -62448,7 +62466,7 @@ var render = function () {
     ]),
     _vm._v(" "),
     _vm.count > 0
-      ? _c("span", { staticClass: "text-blue-900 font-bold" }, [
+      ? _c("div", { staticClass: "text-blue-900 font-bold inline-flex" }, [
           _vm._v("\n    " + _vm._s(_vm.count) + "\n  "),
         ])
       : _vm._e(),
@@ -62648,7 +62666,66 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "relative" }, [
     _c("div", { staticClass: "md:hidden relative" }, [
-      _c("form", { attrs: { action: _vm.url, method: "get" } }, [_vm._m(0)]),
+      _c("form", { attrs: { action: _vm.url, method: "get" } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex-1 flex items-center px-3 py-2 rounded-md relative",
+          },
+          [
+            _c("input", {
+              staticClass:
+                "pr-10 w-full rounded-md bg-gray-200 focus:ring-0 focus:border-blue-900 dark:bg-gray-400 dark:text-gray-800",
+              attrs: {
+                autocomplete: "off",
+                type: "text",
+                name: "search",
+                id: "mobileSearch",
+                placeholder: "Search for topics",
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "text-gray-800 absolute",
+                staticStyle: { right: "1.2rem" },
+                on: {
+                  click: function ($event) {
+                    $event.preventDefault()
+                    return _vm.clear.apply(null, arguments)
+                  },
+                },
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "h-6 w-6",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor",
+                      "stroke-width": "1.5",
+                    },
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        d: "M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z",
+                      },
+                    }),
+                  ]
+                ),
+              ]
+            ),
+          ]
+        ),
+      ]),
       _vm._v(" "),
       _vm.results.length > 0
         ? _c(
@@ -62673,7 +62750,7 @@ var render = function () {
         : _vm._e(),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "hidden md:block relative" }, [
+    _c("div", { staticClass: "hidden md:block relative z-30" }, [
       _c("form", { attrs: { action: _vm.url, method: "get" } }, [
         _c(
           "div",
@@ -62731,13 +62808,49 @@ var render = function () {
                 ],
               },
             }),
+            _vm._v(" "),
+            _vm.item.length > 1
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "text-gray-800",
+                    on: { click: _vm.closeOverlay },
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-6 w-6",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "1.5",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                )
+              : _vm._e(),
           ]
         ),
       ]),
       _vm._v(" "),
-      _vm.results.length > 0
+      _vm.results.length > 0 ||
+      (Array.isArray(_vm.results) && _vm.results.length == 0)
         ? _c("button", {
-            staticClass: "bg-transparent inset-0 w-full h-full fixed z-10",
+            staticClass: "bg-transparent inset-0 w-full h-full fixed",
+            staticStyle: { "z-index": "30" },
             on: { click: _vm.closeOverlay },
           })
         : _vm._e(),
@@ -62747,7 +62860,7 @@ var render = function () {
             "div",
             {
               staticClass:
-                "absolute z-20 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
+                "absolute z-30 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800",
             },
             _vm._l(_vm.results, function (result) {
               return _c(
@@ -62756,7 +62869,7 @@ var render = function () {
                 [
                   _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
                     _vm._v(
-                      "\n          " + _vm._s(result.title) + "  \n        "
+                      "\n            " + _vm._s(result.title) + "  \n          "
                     ),
                   ]),
                 ]
@@ -62776,7 +62889,7 @@ var render = function () {
             [
               _c("div", { staticClass: "px-3 py-2 hover:bg-blue-100" }, [
                 _vm._v(
-                  '\n      no result for "' + _vm._s(_vm.item) + '" \n    '
+                  '\n        no result for "' + _vm._s(_vm.item) + '" \n      '
                 ),
               ]),
             ]
@@ -62785,29 +62898,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "flex-1 flex items-center px-3 py-2 rounded-md" },
-      [
-        _c("input", {
-          staticClass:
-            "w-full rounded-md bg-gray-200 focus:ring-0 focus:border-blue-900 dark:bg-gray-400 dark:text-gray-800",
-          attrs: {
-            autocomplete: "off",
-            type: "text",
-            name: "search",
-            placeholder: "Search for topics",
-          },
-        }),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

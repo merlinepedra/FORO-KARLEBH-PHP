@@ -47,7 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('/dropzone', [Controllers\FileController::class, 'dropzoneUpload']);
   Route::post('/file/{file}', [Controllers\FileController::class, 'delete'])->name('file.delete');
 
-  Route::post('/reply', [Controllers\CommentController::class, 'storeReply'])->name('comment.reply');
+  Route::get('/create-reply/{comment}', [Controllers\CommentController::class, 'createReply'])->name('reply.create');
+  Route::post('/reply', [Controllers\CommentController::class, 'storeReply'])->name('reply.store');
   Route::post('/comment', [Controllers\CommentController::class, 'store'])->name('comment.store');
   Route::get('/comment/{comment}/edit', [Controllers\CommentController::class, 'edit'])->name('comment.edit');
   Route::patch('/comment/{comment}', [Controllers\CommentController::class, 'update'])->name('comment.update');

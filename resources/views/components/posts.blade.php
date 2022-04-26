@@ -31,6 +31,6 @@
   </div>
 @empty
 
-<h1 class="text-center">No Posts Yet <a href="{{ route('post.create') }}" class="ml-4 text-blue-900 font-semibold">Create a Topic</a></h1>
+<h1 class="text-center"> <span class="dark:text-gray-500">No Posts Yet</span> <a href="{{ route('post.create') }}" class="ml-4 text-blue-900 font-semibold">Create a Topic</a></h1>
 
 @endforelse

@@ -4,8 +4,7 @@
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
-
-  <section class="md:grid grid-cols-2 h-screen dark:bg-gray-400">
+  <section class="md:grid grid-cols-2 dark:bg-gray-400">
     <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10">
       <div class="text-3xl font-bold font-mono ">
         <div>
@@ -22,7 +21,7 @@
     </div>
   </div>
 
-  <div class="w-10/12 grid items-center mx-auto pt-20">
+  <div class="w-10/12 grid items-center mx-auto pt-20 md:pt-0">
 
     <div class="">
 
@@ -131,8 +130,7 @@
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes(['class' => 'ml-4']); ?>
-            <?php echo e(__('Login')); ?>
-
+            Login
            <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
