@@ -6,12 +6,12 @@
 
 {{-- <div class="mx-auto w-full"> --}}
   
-<div class="mx-auto w-full bg-gray-50 md:rounded-md p-6 mt-5 text-gray-800 dark:bg-gray-500">
+<div class="mx-auto w-full bg-gray-50 rounded-md p-6 mt-5 text-gray-800 dark:bg-gray-500">
 
   <h1 class="text-center text-gray-800 dark:text-gray-300 text-lg font-bold">{{ $results->count() }} result(s) for "{{ $item }}"</h1>
 
   @forelse($results as $post)
-  <div class="my-4 py-4 px-2 bg-gray-50 dark:bg-gray-300 dark:text-gray-700 shadow-md rounded-md">
+  <div class="my-4 py-4 px-2 bg-gray-50 dark:bg-gray-400 dark:text-gray-700 shadow-md rounded-md">
     <div class="flex">
        <div class="w-11/12">
         <a href="{{ route('post.show', $post) }}">

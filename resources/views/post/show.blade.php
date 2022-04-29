@@ -4,6 +4,8 @@
 
   @section('section')
 
+  {{-- <div id="editor"></div>              --}}
+
 
   <div class="mx-auto w-full bg-gray-50 rounded-md p-6 dark:bg-gray-400 dark:text-gray-700">
     <div>

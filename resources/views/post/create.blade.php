@@ -4,7 +4,7 @@
 
 @section('section')
 
-<div class="mx-auto w-full bg-gray-50 md:rounded-md p-6 mt-5 text-gray-800 dark:bg-gray-500">
+<div class="mx-auto w-full bg-gray-50 rounded-md p-6 mt-5 text-gray-800 dark:bg-gray-500">
 
  <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data" 
  class=" dark:text-gray-700">

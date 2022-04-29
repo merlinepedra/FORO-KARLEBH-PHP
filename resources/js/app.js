@@ -95,4 +95,8 @@ FilePond.setOptions({
 //   paramName: 'dropzone',
 // })
 
+const ctkEditor = require("@ckeditor/ckeditor5-build-classic")
+ctkEditor.create(document.querySelector('ctkeditor'))
+.then(editor => console.log('Editor created'))
+.catch(editor => console.log('Editor error'))
 
