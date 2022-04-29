@@ -12,7 +12,7 @@ class CommentController extends Controller
 {
   public function store(StoreCommentRequest $request)
   {
-    $this->authorize('store');
+    // $this->authorize('store');
 
     $comment = $request->user()->comments()->create([
       'comment' => $request->comment,

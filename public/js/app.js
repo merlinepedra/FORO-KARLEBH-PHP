@@ -63043,7 +63043,7 @@ var render = function () {
           "button",
           {
             staticClass:
-              "px-4 py-2 bg-green-600 font-semibold text-gray-100 rounded-md",
+              "px-4 py-2 bg-blue-900 font-semibold text-gray-100 rounded-md",
             on: { click: _vm.makeAdmin },
           },
           [_vm._v("Make Admin")]
