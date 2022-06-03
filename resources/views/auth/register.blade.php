@@ -17,7 +17,7 @@
   </div>
 </div>
 
-<div class="w-10/12 grid items-center mx-auto pt-20 md:pt-0 order-1">
+<div class="w-8/12 grid items-center mx-auto md:ml-auto md:mr-24 pt-20 md:pt-0 order-1">
 
   <div class="">
 
@@ -60,7 +60,7 @@
         name="password_confirmation" required />
       </div>
 
-      <div class="flex items-center justify-end mt-4">
+      <div class="flex items-center justify-end mt-8">
         <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
           {{ __('Already registered?') }}
         </a>
@@ -77,5 +77,3 @@
 </div>
 </section>
 </x-guest-layout>
-
-

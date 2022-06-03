@@ -30,7 +30,8 @@ module.exports = {
         sans: ['Fraunces', 'Barlow', 'Nunito'],
       },
       colors: {
-        ...colors,
+        // ...colors,
+        gray: colors.slate,
         'yellow': colors.yellow,
         'midnight': 'rgb(23 25 35/1)',
       },

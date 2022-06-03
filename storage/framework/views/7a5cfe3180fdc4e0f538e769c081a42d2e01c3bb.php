@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="w-10/12 grid items-center mx-auto pt-20 md:pt-0">
+  <div class="w-8/12 grid items-center mx-auto md:mr-auto md:ml-24 pt-20 md:pt-0">
 
     <div class="">
 
@@ -149,5 +149,4 @@
 <?php if (isset($__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015)): ?>
 <?php $component = $__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015; ?>
 <?php unset($__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015); ?>
-<?php endif; ?>
-<?php /**PATH C:\laragon\www\Forume\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH C:\laragon\www\Forume\resources\views/auth/login.blade.php ENDPATH**/ ?>

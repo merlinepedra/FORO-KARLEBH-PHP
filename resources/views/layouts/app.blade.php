@@ -244,7 +244,7 @@ Settings
      class="mr-2 w-4 h-4 object-center object-cover rounded-full">
 
      <span class="text-blue-900 font-semibold text-xs col-span-5"><a
-       href="{{ route('profile.show', $user->name) }}">{{ $user->name }}</a></span>
+       href="{{ route('profile.show', $user->profile->name) }}">{{ $user->name }}</a></span>
 
        <span>{{ $user->posts_count }}</span>
 

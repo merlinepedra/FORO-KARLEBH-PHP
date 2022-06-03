@@ -1,4 +1,4 @@
-
+ 
 
 <?php $__env->startSection('title', 'all posts'); ?>
 

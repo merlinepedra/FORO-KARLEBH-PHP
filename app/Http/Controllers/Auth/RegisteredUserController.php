@@ -43,7 +43,8 @@ class RegisteredUserController extends Controller
           ]);
         }
 
-        $user->profile()->create(['name' => $user->name]);
+        $name = strtolower(str_replace(' ', '-', $user->name));
+        $user->profile()->create(['name' => $name]);
         // Mail::to($user)->send(new \App\Mail\WelcomeMail);
         
         $user->setting()->create([]);

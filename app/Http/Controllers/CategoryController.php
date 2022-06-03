@@ -35,7 +35,7 @@ class CategoryController extends Controller
   public function store(StoreCategoryRequest $request)
   {
     $data = $request->validate([
-      'name' => ['required', 'string', 'unique:categories,name', 'min:3', 'max:20']
+      'name' => ['required', 'string', 'unique:categories,name', 'min:3', 'max:8']
     ]);
 
     $name = str_replace(' ', '', $data['name']);

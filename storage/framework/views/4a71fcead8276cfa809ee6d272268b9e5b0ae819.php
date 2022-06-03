@@ -253,7 +253,7 @@ Settings
      class="mr-2 w-4 h-4 object-center object-cover rounded-full">
 
      <span class="text-blue-900 font-semibold text-xs col-span-5"><a
-       href="<?php echo e(route('profile.show', $user->name)); ?>"><?php echo e($user->name); ?></a></span>
+       href="<?php echo e(route('profile.show', $user->profile->name)); ?>"><?php echo e($user->name); ?></a></span>
 
        <span><?php echo e($user->posts_count); ?></span>
 

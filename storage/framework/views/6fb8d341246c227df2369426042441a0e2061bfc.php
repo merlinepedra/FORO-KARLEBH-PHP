@@ -48,7 +48,7 @@
 
     <button class="inset-0 fixed w-full h-full bg-transparent z-10" v-if="profileMenu" v-on:click="profileMenu = false"></button>
     <transition name="flip">
-      <div v-if="profileMenu" class="font-light absolute right-0 bg-blue-900 text-blue-100 pt-4 mt-5 z-20 w-48 text-center shadow-md rounded-md overflow-hidden">
+      <div v-if="profileMenu" class="font-light absolute right-0 bg-blue-900 text-blue-100 pt-4 mt-5 z-20 w-60 text-center shadow-md rounded-md overflow-hidden">
         <a v-on:click="profileMenu = false" class="block mt-3 hover:bg-blue-100 hover:text-gray-900 px-2 py-2" href="<?php echo e(route('profile.edit', auth()->user()->profile->name)); ?>">Edit Profile</a>
         <a v-on:click="profileMenu = false" class="block mt-3 hover:bg-blue-100 hover:text-gray-900 px-2 py-2" href="<?php echo e(route('profile.show', auth()->user()->profile->name)); ?>">
           
