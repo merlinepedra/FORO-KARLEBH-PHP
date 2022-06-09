@@ -18,7 +18,7 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->sentence(30);
+        $title = $this->faker->sentence(5);
         $slug = Str::limit(Str::slug($title), 50, '');
         $user = User::first();
 
