@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CategoryFactory extends Factory
@@ -13,8 +14,12 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
+        $user = User::first();
+
         return [
-            //
+            'user_id' => $user->id,
+            'name' => $this->faker->word,
+            'views' => $this->faker->unique()->randomNumber()
         ];
     }
 }

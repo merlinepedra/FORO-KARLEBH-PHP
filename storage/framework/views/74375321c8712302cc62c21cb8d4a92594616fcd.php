@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div class="w-8/12 grid items-center mx-auto md:ml-auto md:mr-24 pt-20 md:pt-0 order-1">
+<div class="w-10/12 sm:w-8/12 grid items-center mx-auto md:ml-auto md:mr-24 pt-20 md:pt-0 order-1">
 
   <div class="">
 
