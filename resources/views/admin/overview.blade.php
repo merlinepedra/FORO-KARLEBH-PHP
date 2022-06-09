@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="grid md:grid-cols-4 gap-5 mb-3">
+<div class="grid md:grid-cols-4 gap-5">
 
   <div class="md:col-span-2">
     <div
@@ -147,4 +147,6 @@
 </div>
 
 </div>
+
+<br>
 @endsection

@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('content'); ?>
-<div class="grid md:grid-cols-4 gap-5 mb-3">
+<div class="grid md:grid-cols-4 gap-5">
 
   <div class="md:col-span-2">
     <div
@@ -154,6 +154,8 @@
 </div>
 
 </div>
+
+<br>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\Forume\resources\views/admin/overview.blade.php ENDPATH**/ ?>
