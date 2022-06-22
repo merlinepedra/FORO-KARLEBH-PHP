@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title',  str_replace('-', ' ', $profile->name) . '\'s profile')
+@section('title', str_replace('-', ' ', $profile->name) . '\'s profile')
 
 @section('section')
-<div class="mx-auto w-full bg-gray-100 rounded-md p-6 mt-5 text-gray-800 dark:bg-gray-500 dark:text-gray-200">
+<div class="mx-auto w-full bg-gray-100 rounded-md p-6 mt-5 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
 
   <div class="grid place-items-center sm:grid-cols-2">
     <div>
@@ -36,61 +36,58 @@
   </div>
 
 
-  {{--  --}}
+  {{-- --}}
 
   @if(auth()->id() !== $profile->id)
   <div class="flex justify-center my-6">
-    <Follow 
-    :user_id="{{ $profile->user->id }}"
-    :follows="{{ auth()->user() ? (int) auth()->user()->following->contains($profile->user->id) : 0 }}"
-    ></Follow>
+    <Follow :user_id="{{ $profile->user->id }}" :follows="{{ auth()->user() ? (int) auth()->user()->following->contains($profile->user->id) : 0 }}"></Follow>
   </div>
   @endif
-  {{--  --}}
+  {{-- --}}
 
 
 
-  <div class="mt-5 dark:bg-gray-300 p-5 rounded-md">
+  <div class="mt-5 dark:bg-gray-500 p-5 rounded-md">
 
     <div class="flex flex-col border-b border-dashed border-blue-200 pb-4 mt-3">
-      <span class="text-sm text-gray-500">Email</span>
-      <span class="text-gray-800">{{ $profile->user->email }}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-300">Email</span>
+      <span class="text-gray-800 dark:text-gray-200">{{ $profile->user->email }}</span>
     </div>
 
     @if($profile->city)
     <div class="flex flex-col border-b border-dashed border-blue-200 pb-4 mt-3">
-      <span class="text-sm text-gray-500">City</span>
-      <span class="text-gray-800">{{ $profile->user->city }}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-300">City</span>
+      <span class="text-gray-800 dark:text-gray-200">{{ $profile->user->city }}</span>
     </div>
     @endif
 
     @if($profile->phone)
     <div class="flex flex-col border-b border-dashed border-blue-200 pb-4 mt-3">
-      <span class="text-sm text-gray-500">Phone</span>
-      <span class="text-gray-800">{{ $profile->phone }}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-300">Phone</span>
+      <span class="text-gray-800 dark:text-gray-200">{{ $profile->phone }}</span>
     </div>
     @endif
 
     @if($profile->country)
     <div class="flex flex-col border-b border-dashed border-blue-200 pb-4 mt-3">
-      <span class="text-sm text-gray-500">Country</span>
-      <span class="text-gray-800">{{ $profile->country }}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-300">Country</span>
+      <span class="text-gray-800 dark:text-gray-200">{{ $profile->country }}</span>
     </div>
     @endif
 
     @if($profile->sex)
     <div class="flex flex-col border-b border-dashed border-blue-200 pb-4 mt-3">
-      <span class="text-sm text-gray-500">Gender</span>
-      <span class="text-gray-800">{{ ucfirst($profile->sex) }}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-300">Gender</span>
+      <span class="text-gray-800 dark:text-gray-200">{{ ucfirst($profile->sex) }}</span>
     </div>
     @endif
 
   </div>
 
-  {{--  --}}
-  
+  {{-- --}}
 
-  <div class="dark:bg-gray-300 bg-blue-100 p-4 rounded-md mt-4">
+
+  <div class="dark:bg-gray-500 bg-blue-100 p-4 rounded-md mt-4">
     @include('components.posts', ['posts' => App\Models\Post::whereUserId($profile->user_id)->latest()->take(5)->get()])
   </div>
 

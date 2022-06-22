@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -19,7 +19,7 @@ class Post extends Model
   public function getRouteKeyName() {
     return 'slug';
   }
-  
+
   // public function toSearchableArray()
   // {
   //   $array = $this->toArray();

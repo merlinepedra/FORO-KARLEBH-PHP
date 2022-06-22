@@ -4,12 +4,12 @@
 <?php $__env->startSection('section'); ?>
 <div class="mx-auto w-full">
   <?php $__empty_1 = true; $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-  <div class="my-4 p-4 bg-gray-50 shadow-md rounded-md dark:text-gray-700 dark:bg-gray-400">
+  <div class="my-4 p-4 bg-gray-50 shadow-md rounded-md dark:text-gray-300 dark:bg-gray-700">
     <div class="flex">
      <div class="w-11/12">
       <a href="<?php echo e(route('category.show', $category)); ?>">
         <h1 class="lg:text-xl font-semibold truncate"><?php echo e($category->name); ?></h1>
-        <p class="text-gray-600 font-base mt-3"><?php echo e($category->desc ?? "A Cool place to have fun!"); ?></p>
+        <p class="text-gray-600 dark:text-gray-400 font-base mt-3"><?php echo e($category->desc ?? "A Cool place to have fun!"); ?></p>
       </a>
     </div>
   </div>

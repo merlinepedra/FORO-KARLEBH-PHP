@@ -1,4 +1,4 @@
-  <h1 class="text-center text-lg dark:text-gray-800">Recent Posts</h1>
+  <h1 class="text-center text-lg dark:text-gray-200">Recent Posts</h1>
   <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
     <div class="my-4 p-4 bg-gray-200 shadow-md rounded-md dark:bg-gray-400 dark:text-gray-700">
       <div class="flex">
@@ -31,6 +31,6 @@
   </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
-<h1 class="text-center"> <span class="dark:text-gray-500">No Posts Yet</span> <a href="<?php echo e(route('post.create')); ?>" class="ml-4 text-blue-900 font-semibold">Create a Topic</a></h1>
+<h1 class="text-center"> <span class="">No Posts Yet</span> <a href="<?php echo e(route('post.create')); ?>" class="ml-4 text-blue-900 dark:text-gray-100 underline font-semibold">Create a Topic</a></h1>
 
 <?php endif; ?><?php /**PATH C:\laragon\www\Forume\resources\views/components/posts.blade.php ENDPATH**/ ?>

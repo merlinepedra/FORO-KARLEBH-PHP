@@ -16,7 +16,7 @@
     </button>
   </div>
 
-  <div class="text-blue-900 font-bold inline-flex" v-if="count > 0">
+  <div class="text-blue-900 dark:text-gray-400 font-bold inline-flex" v-if="count > 0">
     {{ count }}
   </div>
 

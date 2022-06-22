@@ -4,6 +4,6 @@
 
 @section('content')
 
-<create-category :categories="{{ \App\Models\Category::withCount('posts')->get() }}"></create-category>
+<create-category :categories="{{ \App\Models\Category::withCount('posts')->latest()->get() }}"></create-category>
 
 @endsection

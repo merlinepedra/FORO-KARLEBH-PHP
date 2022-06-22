@@ -1,7 +1,7 @@
 
 <?php $__env->startSection('title', 'account settings'); ?>
 <?php $__env->startSection('section'); ?>
-<div class="grid justify-center items-center w-full bg-gray-100 rounded-md dark:bg-gray-500">
+<div class="grid justify-center items-center w-full bg-gray-100 rounded-md dark:bg-gray-700">
 
   <div class="p-6">
 

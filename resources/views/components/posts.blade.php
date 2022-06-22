@@ -1,4 +1,4 @@
-  <h1 class="text-center text-lg dark:text-gray-800">Recent Posts</h1>
+  <h1 class="text-center text-lg dark:text-gray-200">Recent Posts</h1>
   @forelse($posts as $post)
     <div class="my-4 p-4 bg-gray-200 shadow-md rounded-md dark:bg-gray-400 dark:text-gray-700">
       <div class="flex">
@@ -31,6 +31,6 @@
   </div>
 @empty
 
-<h1 class="text-center"> <span class="dark:text-gray-500">No Posts Yet</span> <a href="{{ route('post.create') }}" class="ml-4 text-blue-900 font-semibold">Create a Topic</a></h1>
+<h1 class="text-center"> <span class="">No Posts Yet</span> <a href="{{ route('post.create') }}" class="ml-4 text-blue-900 dark:text-gray-100 underline font-semibold">Create a Topic</a></h1>
 
 @endforelse

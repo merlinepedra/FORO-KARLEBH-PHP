@@ -65,10 +65,10 @@
     </style>
 
 </head>
-<body class= antialiased font-sans text-gray-900">
+<body class="antialiased font-sans text-gray-900">
       <div id="main" v-cloak class="">
         <div id="container" class="flex flex-col h-screen">
-          <header class="p-6 bg-white dark:bg-gray-600 dark:text-gray-100 shadow-md">
+          <header class="p-6 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-md">
             <div class="max-w-7xl font-semibold mx-auto">
               <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.forume.mobile-header','data' => []]); ?>

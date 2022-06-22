@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div v-for="category in data" :key="category.id" class="flex items-center">
-      <a class="mr-3" :href="link(category.name)"> {{ category.name }} </a>
+  <div class="flex flex-col items-center justify-center md:block">
+    <div v-for="category in data" :key="category.id">
+      <a class="mr-3 text-gray-800 dark:text-gray-300" :href="link(category.name)"> {{ category.name }} </a>
 
       <button v-if="category.posts_count < 1" class="text-lg uppercase" v-on:click="deleteCategory(category.id, $event)">
         <svg style="color: mediumvioletred;" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="current" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

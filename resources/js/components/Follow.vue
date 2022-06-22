@@ -20,7 +20,7 @@
       classObject() {
         return {
           'bg-red-500': this.status,
-          'bg-blue-500 dark:bg-blue-900': !this.status
+          'bg-blue-500 dark:bg-blue-500': !this.status
         }
       },
 

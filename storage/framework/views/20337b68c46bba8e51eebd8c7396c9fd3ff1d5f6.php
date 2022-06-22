@@ -4,14 +4,14 @@
 
 <?php $__env->startSection('section'); ?>
 
-<div class="mx-auto w-full place-items-center bg-gray-50 rounded-md py-10 px-6 dark:bg-gray-500">
+<div class="mx-auto w-full place-items-center bg-gray-50 rounded-md py-10 px-6 dark:bg-gray-700">
 
   <div>
     <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="mt-4 flex justify-between px-8">
 
       <span class="">
-        <a class="text-blue-500 dark:text-blue-900 font-semibold" href="<?php echo e(route('profile.show', $user->name)); ?>"><?php echo e($user->name); ?></a>
+        <a class="text-blue-500 dark:text-gray-400 font-semibold" href="<?php echo e(route('profile.show', $user->name)); ?>"><?php echo e($user->name); ?></a>
       </span>
 
       <span class="dark:text-gray-300">Joined <span class="font-semibold"><?php echo e($user->created_at->diffForHumans()); ?></span></span>

@@ -60,17 +60,17 @@
   <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 </head>
 
-<body class="bg-gray-200 dark:bg-gray-600 min-h-screen antialiased">
+<body class="bg-gray-200 dark:bg-gray-800 min-h-screen antialiased">
   <div id="main" class="main" v-cloak>
     
     <a class="<?php if(request()->routeIs('post.create')): ?> hidden <?php endif; ?>" href="<?php echo e(route('post.create')); ?>">
-      <div class="bg-blue-900 hover:bg-blue-800 h-12 w-12 rounded-full fixed z-50 bottom-10 right-7 grid place-items-center lg:hidden">
+      <div class="bg-blue-900 hover:bg-blue-800 dark:bg-blue-800 hover:dark:bg-blue-700 h-12 w-12 rounded-full fixed z-50 bottom-10 right-7 grid place-items-center lg:hidden">
         <span class="text-gray-50 font-black text-4xl">+</span>
       </div>
     </a>
     
 
-    <header class="px-2 sm:px-4 md:px-6 pt-6 pb-3 bg-white dark:bg-gray-600 dark:text-gray-100 shadow-md relative">
+    <header class="px-2 sm:px-4 md:px-6 pt-6 pb-3 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-md relative">
       <div class="max-w-7xl font-semibold mx-auto">
         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.forume.mobile-header','data' => []]); ?>
@@ -176,20 +176,21 @@
         </nav>
 
         <div class="mt-10 lg:hidden">
-          <h2 class="font-semibold mb-2 dark:text-gray-100">Top Users</h2>
-          <div class="grid gap-y-2 mb-20 shadow-lg rounded-md p-3 bg-gray-100 dark:bg-gray-400">
+          <h2 class="font-semibold mb-2 dark:text-gray-200">Top Users</h2>
+
+          <div class="grid gap-y-2 mb-20 shadow-lg rounded-md p-3 bg-gray-100 dark:bg-gray-700 dark:text-gray-200">
             <?php $__currentLoopData = \App\Models\User::withCount('posts')->orderBy('posts_count', 'desc')->take(5)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="grid grid-cols-8">
               <img <?php if($user->profile->file): ?> src="/uploads/<?php echo e($user->profile->file->file); ?>"
               <?php else: ?> src="/image-header.jpg" <?php endif; ?>
               class="mr-2 w-4 h-4 object-center object-cover rounded-full">
 
-              <span class="text-blue-900 font-semibold text-xs col-span-5"><a href="<?php echo e(route('profile.show', $user->name)); ?>"><?php echo e($user->name); ?></a></span>
+              <span class="text-blue-900 dark:text-gray-300 font-semibold text-xs col-span-5"><a href="<?php echo e(route('profile.show', $user->profile->name)); ?>"><?php echo e($user->name); ?></a></span>
 
               <span><?php echo e($user->posts_count); ?></span>
 
               <span>
-                <svg class="fill-current text-gray-400 dark:text-gray-800 text-blue-900 w-4 h-6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330" xml:space="preserve">
+                <svg class="fill-current text-gray-400 dark:text-gray-400 w-4 h-6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330" xml:space="preserve">
                   <path id="XMLID_29_" d="M100.606,100.606L150,51.212V315c0,8.284,6.716,15,15,15c8.284,0,15-6.716,15-15V51.212l49.394,49.394
          C232.322,103.535,236.161,105,240,105c3.839,0,7.678-1.465,10.606-4.394c5.858-5.857,5.858-15.355,0-21.213l-75-75
          c-5.857-5.858-15.355-5.858-21.213,0l-75,75c-5.858,5.857-5.858,15.355,0,21.213C85.251,106.463,94.749,106.463,100.606,100.606z" />
@@ -200,6 +201,7 @@
 
           </div>
         </div>
+
 
 
       </div>
@@ -220,19 +222,20 @@
 
         <div class="mt-10">
           <h2 class="font-semibold mb-2 dark:text-gray-100">Top Users</h2>
-          <div class="grid gap-y-2 mb-20 shadow-lg rounded-md p-3 bg-gray-100 dark:bg-gray-400">
+
+          <div class="grid gap-y-2 mb-20 shadow-lg rounded-md p-3 bg-gray-100 dark:bg-gray-700 dark:text-gray-200">
             <?php $__currentLoopData = \App\Models\User::withCount('posts')->orderBy('posts_count', 'desc')->take(5)->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="grid grid-cols-8">
               <img <?php if($user->profile->file): ?> src="/uploads/<?php echo e($user->profile->file->file); ?>"
               <?php else: ?> src="/image-header.jpg" <?php endif; ?>
               class="mr-2 w-4 h-4 object-center object-cover rounded-full">
 
-              <span class="text-blue-900 font-semibold text-xs col-span-5"><a href="<?php echo e(route('profile.show', $user->profile->name)); ?>"><?php echo e($user->name); ?></a></span>
+              <span class="text-blue-900 dark:text-gray-300 font-semibold text-xs col-span-5"><a href="<?php echo e(route('profile.show', $user->profile->name)); ?>"><?php echo e($user->name); ?></a></span>
 
               <span><?php echo e($user->posts_count); ?></span>
 
               <span>
-                <svg class="fill-current text-gray-400 dark:text-gray-800 text-blue-900 w-4 h-6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330" xml:space="preserve">
+                <svg class="fill-current text-gray-400 dark:text-gray-400 w-4 h-6" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330" xml:space="preserve">
                   <path id="XMLID_29_" d="M100.606,100.606L150,51.212V315c0,8.284,6.716,15,15,15c8.284,0,15-6.716,15-15V51.212l49.394,49.394
          C232.322,103.535,236.161,105,240,105c3.839,0,7.678-1.465,10.606-4.394c5.858-5.857,5.858-15.355,0-21.213l-75-75
          c-5.857-5.858-15.355-5.858-21.213,0l-75,75c-5.858,5.857-5.858,15.355,0,21.213C85.251,106.463,94.749,106.463,100.606,100.606z" />
@@ -245,7 +248,7 @@
         </div>
 
 
-        <div class="flex justify-between text-xs font-semibold text-gray-500 dark:text-gray-800 p-4 bg-gray-100 dark:bg-gray-400 shadow rounded-md">
+        <div class="flex justify-between text-xs font-semibold text-gray-500 dark:text-gray-300 p-4 bg-gray-100 dark:bg-gray-700 shadow rounded-md">
 
           <div class="grid gap-y-2">
             <a href="#">Help</a>
@@ -270,7 +273,7 @@
 
     </main>
 
-    <div class="flex lg:hidden justify-evenly text-gray-500 dark:text-gray-200">
+    <div class="flex lg:hidden justify-evenly text-gray-500 dark:text-gray-300">
       <div class="grid">
         <a href="#">Help</a>
         <a href="#">ForumePro</a>

@@ -62,13 +62,12 @@
         [v-cloak] {
             display: none;
         }
-
     </style>
 </head>
 
-<body class="bg-gray-400 dark:bg-gray-400 min-h-screen">
+<body class="bg-gray-200 dark:bg-gray-800 min-h-screen">
     <div id="main" v-cloak>
-        <header class="px-2 sm:px-4 md:px-6 pt-6 pb-3 bg-white dark:bg-gray-600 dark:text-gray-100 shadow-md relative">
+        <header class="px-2 sm:px-4 md:px-6 pt-6 pb-3 bg-gray-100 dark:bg-gray-800 dark:text-gray-100 shadow-md relative">
             <div class="max-w-7xl font-semibold mx-auto">
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.forume.mobile-header','data' => []]); ?>
@@ -85,21 +84,17 @@
                 <?php echo $__env->make('components.forume.desktop-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
         </header>
-        <main class="font-sans antialiased max-w-7xl mx-auto px-2 sm:px-4 lg:px-0 flex pt-8">
+        <main class="font-sans antialiased max-w-7xl mx-auto px-2 sm:px-4 md:px-6 flex pt-8">
             <div class="flex-grow">
                 <div class="mx-auto max-w-[1600px] grid md:grid-cols-5">
                     <div class="md:pr-4 lg:pr-6 hidden md:block" id="adminMobileNav">
                         <div class="grid">
-                            <a href="<?php echo e(route('admin.home')); ?>"
-                                class="font-semibold bg-gray-200 dark:bg-gray-300 px-5 py-3 rounded-md <?php if(request()->routeIs('admin.home')): ?> bg-gray-800 dark:bg-gray-800 text-gray-100 <?php endif; ?>">Overview</a>
-                            <a href="<?php echo e(route('admin.makeAdmin.create')); ?>"
-                                class="font-semibold bg-gray-200 dark:bg-gray-300 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.makeAdmin.create')): ?> bg-gray-800 dark:bg-gray-800 text-gray-100 <?php endif; ?>">Users</a>
-                            <a href="<?php echo e(route('admin.posts')); ?>"
-                                class="font-semibold bg-gray-200 dark:bg-gray-300 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.posts')): ?> bg-gray-800 dark:bg-gray-800 text-gray-100 <?php endif; ?>">Posts</a>
-                            <a href="<?php echo e(route('admin.comments')); ?>"
-                                class="font-semibold bg-gray-200 dark:bg-gray-300 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.comments')): ?> bg-gray-800 dark:bg-gray-800 text-gray-100 <?php endif; ?>">Comment</a>
-                            <a href="<?php echo e(route('admin.categories')); ?>"
-                                class="font-semibold bg-gray-200 dark:bg-gray-300 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.categories')): ?> bg-gray-800 dark:bg-gray-800 text-gray-100 <?php endif; ?>">Categories</a>
+                            <!-- dark:bg-zinc-500 -->
+                            <a href="<?php echo e(route('admin.home')); ?>" class="font-semibold bg-gray-400 px-5 py-3 rounded-md <?php if(request()->routeIs('admin.home')): ?> bg-zinc-500 text-gray-100 <?php endif; ?>">Overview</a>
+                            <a href="<?php echo e(route('admin.makeAdmin.create')); ?>" class="font-semibold bg-gray-400 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.makeAdmin.create')): ?> bg-zinc-500 text-gray-100 <?php endif; ?>">Users</a>
+                            <a href="<?php echo e(route('admin.posts')); ?>" class="font-semibold bg-gray-400 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.posts')): ?> bg-zinc-500 text-gray-100 <?php endif; ?>">Posts</a>
+                            <a href="<?php echo e(route('admin.comments')); ?>" class="font-semibold bg-gray-400 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.comments')): ?> bg-zinc-500 text-gray-100 <?php endif; ?>">Comment</a>
+                            <a href="<?php echo e(route('admin.categories')); ?>" class="font-semibold bg-gray-400 px-5 py-3 rounded-md mt-4 <?php if(request()->routeIs('admin.categories')): ?> bg-zinc-500 text-gray-100 <?php endif; ?>">Categories</a>
 
                             <?php echo $__env->yieldContent('links'); ?>
                         </div>
@@ -116,5 +111,4 @@
     </div>
 </body>
 
-</html>
-<?php /**PATH C:\laragon\www\Forume\resources\views/layouts/admin.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\laragon\www\Forume\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

@@ -6,7 +6,7 @@
 <?php $__empty_1 = true; $__currentLoopData = $profiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
 
   <div 
-  class="grid grid-cols-2 md:grid-cols-4 gap-y-8 py-10 md:py-5 bg-gray-50 dark:bg-gray-300 justify-between items-center px-3 rounded-md shadow-lg">
+  class="grid grid-cols-2 md:grid-cols-4 gap-y-8 py-10 md:py-5 bg-gray-50 dark:bg-gray-700 justify-between items-center px-3 rounded-md shadow-lg">
     <div>
       <?php if($profile->file): ?>
       <img class="w-8 h-8 object-center object-cover rounded-full" src="/uploads/<?php echo e($profile->file->file); ?>" alt="">
@@ -15,11 +15,11 @@
       <?php endif; ?>
     </div>
 
-    <div class=" text-blue-800 font-bold text-md">
+    <div class=" text-blue-800 dark:text-gray-400 font-bold text-md">
       <a href="<?php echo e(route('profile.show', $profile->name)); ?>"><?php echo e($profile->name); ?></a>
     </div>
 
-    <div>
+    <div class="dark:text-gray-200">
       <?php echo e($profile->user->posts->count()); ?> posts
     </div>
 

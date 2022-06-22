@@ -65,10 +65,10 @@
     </style>
 
 </head>
-<body class= antialiased font-sans text-gray-900">
+<body class="antialiased font-sans text-gray-900">
       <div id="main" v-cloak class="">
         <div id="container" class="flex flex-col h-screen">
-          <header class="p-6 bg-white dark:bg-gray-600 dark:text-gray-100 shadow-md">
+          <header class="p-6 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-md">
             <div class="max-w-7xl font-semibold mx-auto">
               <x-forume.mobile-header />
               @include('components.forume.desktop-header')

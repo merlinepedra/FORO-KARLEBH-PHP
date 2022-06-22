@@ -5,7 +5,7 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
   <section class="md:grid grid-cols-2 dark:bg-gray-400">
-    <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10">
+    <div class="bg-blue-100 dark:bg-gray-700 hidden md:flex items-center justify-center p-10">
       <div class="text-3xl font-bold font-mono ">
         <div>
           Welcome back <span class="text-blue-700 dark:text-gray-700">User!</span>

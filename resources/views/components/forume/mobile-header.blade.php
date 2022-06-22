@@ -8,7 +8,7 @@
 								</svg>
 						</button>
 						<a href="{{ route('post.index') }}">
-								<h1 class="text-lg font-bold"><span class="dark:text-gray-200">foru</span><span
+								<h1 class="text-lg font-bold"><span class="dark:text-gray-300">foru</span><span
 												class="text-blue-900 dark:text-gray-400">me</span></h1>
 						</a>
 				</div>
@@ -89,7 +89,7 @@
 				<search-drop-down></search-drop-down>
 		</div>
 
-		<nav v-if="mobileNav" class="flex flex-col text-gray-600 dark:text-gray-200">
+		<nav v-if="mobileNav" class="flex flex-col text-gray-600 dark:text-gray-300">
 
 				<a href="{{ route('post.create') }}">
 						<div class="pt-1 pb-2 bg-blue-900 text-gray-100 font-semibold mb-3 hover:bg-blue-800 mt-4 text-center rounded-md">

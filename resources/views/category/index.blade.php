@@ -4,12 +4,12 @@
 @section('section')
 <div class="mx-auto w-full">
   @forelse($categories as $category)
-  <div class="my-4 p-4 bg-gray-50 shadow-md rounded-md dark:text-gray-700 dark:bg-gray-400">
+  <div class="my-4 p-4 bg-gray-50 shadow-md rounded-md dark:text-gray-300 dark:bg-gray-700">
     <div class="flex">
      <div class="w-11/12">
       <a href="{{ route('category.show', $category) }}">
         <h1 class="lg:text-xl font-semibold truncate">{{ $category->name }}</h1>
-        <p class="text-gray-600 font-base mt-3">{{ $category->desc ?? "A Cool place to have fun!" }}</p>
+        <p class="text-gray-600 dark:text-gray-400 font-base mt-3">{{ $category->desc ?? "A Cool place to have fun!" }}</p>
       </a>
     </div>
   </div>

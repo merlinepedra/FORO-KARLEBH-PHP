@@ -11,7 +11,7 @@
                         name="search"
                         id="mobileSearch"
                         placeholder="Search for topics"
-                        class="pr-10 w-full rounded-md bg-gray-200 focus:ring-0 focus:border-blue-900 dark:bg-gray-400 dark:text-gray-800"
+                        class="pr-10 w-full rounded-md bg-gray-200 focus:ring-0 focus:border-blue-900 dark:bg-gray-600 dark:text-gray-300"
                     />
 
                     <svg
@@ -51,13 +51,13 @@
             <form :action="url" method="get">
                 <div
                     style="perspective: 1px"
-                    class="flex-1 flex px-3 py-2 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-400"
+                    class="flex-1 flex px-3 py-2 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-600"
                 >
                     <button>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"
-                            class="h-6 w-6 mr-3"
+                            class="h-6 w-6 mr-3 fill-current"
                         >
                             <g>
                                 <path
@@ -72,10 +72,10 @@
                         @input="searcher"
                         name="search"
                         autocomplete="off"
-                        class="bg-gray-200 dark:bg-gray-400 dark:text-gray-800 focus:outline-none flex-1"
+                        class="bg-gray-200 dark:bg-gray-600 dark:text-gray-300 focus:outline-none flex-1 dark:placeholder:text-gray-400"
                     />
                     <button
-                        class="text-gray-800"
+                        class="text-gray-800 dark:text-gray-300"
                         @click="closeOverlay"
                         v-if="item.length > 1"
                     >
@@ -111,15 +111,17 @@
                 class="absolute z-30 rounded-md overflow-hidden shadow-md mt-3 w-full bg-gray-200 dark:bg-gray-400 dark:text-gray-800"
                 v-if="results.length > 0"
             >
-                <a
-                    v-for="result in results"
-                    :key="result.id"
-                    :href="getUrl(result.slug)"
-                >
-                    <div class="px-3 py-2 hover:bg-blue-100">
-                        {{ result.title }}
-                    </div>
-                </a>
+                <div class="max-h-[60vh] overflow-y-auto">
+                    <a
+                        v-for="result in results"
+                        :key="result.id"
+                        :href="getUrl(result.slug)"
+                    >
+                        <div class="px-3 py-2 hover:bg-blue-100 border-y border-zinc-500">
+                            {{ result.title }}
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <div

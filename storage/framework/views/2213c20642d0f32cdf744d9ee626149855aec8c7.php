@@ -5,7 +5,7 @@
 <div>
   <div class="flex justify-between items-center">
     <div>
-      <h1 class="text-2xl">Posts (<?php echo e($posts->count()); ?>)</h1>
+      <h1 class="text-2xl dark:text-gray-300">Posts (<?php echo e($posts->count()); ?>)</h1>
     </div>
     <a href="<?php echo e(route('post.create')); ?>">
       <div class="pt-1 pb-2 bg-blue-900 text-gray-100 font-semibold mb-3 hover:bg-blue-800 mt-4 text-center rounded-md w-48">
@@ -17,7 +17,7 @@
 
   <div style="height: .05rem;" class="bg-gray-400 mb-3"></div>
 
-  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-300 p-4 rounded-md shadow">
+  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 p-4 rounded-md shadow">
     <div>Title</div>
     <div>Views</div>
     <div>Comments</div>
@@ -30,10 +30,10 @@
   </div>
 
   <?php $__empty_1 = true; $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-300 p-4 rounded-md shadow hover:shadow-2xl hover:mb-4 transition-all duration-300">
+  <div class="grid lg:grid-cols-5 gap-y-5 lg:gap-y-0 mb-3 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 p-4 rounded-md shadow hover:shadow-2xl hover:mb-4 transition-all duration-300">
     <div>
       <h4>
-        <?php echo e($post->title); ?>
+        <?php echo e(\Illuminate\Support\Str::limit($post->title, 30)); ?>
 
 
       </h4>
@@ -41,31 +41,28 @@
 
     <div class="flex">
       <span class="mr-3">
-        <?php echo e($post->views); ?> 
+        <?php echo e($post->views); ?>
+
       </span>
 
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
+      </svg> -->
     </div>
 
     <div class="flex">
-      <span class="mr-3">
-        <?php echo e($post->comments_count); ?> 
+      <span class="mr-3 ml-5">
+        <?php echo e($post->comments_count); ?>
+
       </span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-      </svg>
+      </svg> -->
     </div>
 
     <div>
-      <change-category 
-      :categories="<?php echo e(App\Models\Category::all()); ?>" 
-      :category_id="<?php echo e($post->category_id); ?>"
-      :current_category="<?php echo e(App\Models\Category::find($post->category_id)); ?>"
-      post_slug="<?php echo e($post->slug); ?>"
-      ></change-category>
+      <change-category :categories="<?php echo e(App\Models\Category::all()); ?>" :category_id="<?php echo e($post->category_id); ?>" :current_category="<?php echo e(App\Models\Category::find($post->category_id)); ?>" post_slug="<?php echo e($post->slug); ?>"></change-category>
 
 
     </div>

@@ -1,7 +1,7 @@
 <x-guest-layout>
 
   <section class="md:grid md:grid-cols-2 dark:bg-gray-400">
-   <div class="bg-blue-100 dark:bg-gray-500 hidden md:flex items-center justify-center p-10 order-2">
+   <div class="bg-blue-100 dark:bg-gray-700 hidden md:flex items-center justify-center p-10 order-2">
     <div class="text-3xl font-bold font-mono ">
       <div>
         Welcome <span class="text-blue-700 dark:text-gray-700">Guest!</span>
